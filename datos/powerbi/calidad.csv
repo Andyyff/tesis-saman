@@ -8,10 +8,10 @@ fecha,variable,cobertura,coincide_con_nexlab,saltos,estado_dia
 2026-10-24,amp.f3,0.778,1.0,0,revisar
 2026-10-24,clima.temperatura,1.0,,0,revisar
 2026-10-24,clima.humedad,1.0,,0,revisar
-2026-10-25,top.apertura,0.862,0.061,0,revisar
-2026-10-25,left.distancia_a,0.943,,0,revisar
-2026-10-25,left.distancia_b,0.943,,0,revisar
-2026-10-25,left.angulo,0.977,,0,revisar
+2026-10-25,top.apertura,0.863,0.056,0,revisar
+2026-10-25,left.distancia_a,0.926,,0,revisar
+2026-10-25,left.distancia_b,0.926,,0,revisar
+2026-10-25,left.angulo,0.958,,0,revisar
 2026-10-25,amp.f1,0.0,,0,revisar
 2026-10-25,amp.f2,0.0,,0,revisar
 2026-10-25,amp.f3,0.0,,0,revisar
