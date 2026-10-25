@@ -55,10 +55,4 @@ jobs:
       - uses: actions/download-artifact@v4
         with: { pattern: dia-*, path: datos, merge-multiple: true }
       - run: python -c "import flujo; flujo.publicar()"
-      - name: Guardar resultados
-        run: |
-          git config user.name "flujo-bot"
-          git config user.email "flujo-bot@users.noreply.github.com"
-          git add datos
-          git diff --cached --quiet || git commit -m "historia ${{ inputs.desde }} a ${{ inputs.hasta }}"
-          git pull --rebase && git push
+      - run: bash guardar.sh "historia ${{ inputs.desde }} a ${{ inputs.hasta }}" rehacer

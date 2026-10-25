@@ -10,17 +10,11 @@ concurrency: flujo         # nunca dos corridas a la vez
 jobs:
   correr:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12", cache: pip }
       - run: pip install -r requirements.txt
       - run: python flujo.py
-      - name: Guardar resultados
-        run: |
-          git config user.name "flujo-bot"
-          git config user.email "flujo-bot@users.noreply.github.com"
-          git add datos
-          git diff --cached --quiet || git commit -m "datos $(date -u +%Y-%m-%dT%H:%MZ)"
-          git pull --rebase && git push
+      - run: bash guardar.sh "datos $(date -u +%Y-%m-%dT%H:%MZ)" rehacer

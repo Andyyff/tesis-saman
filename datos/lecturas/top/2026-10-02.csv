@@ -1,0 +1,191 @@
+t,archivo,variable,valor,estado,detalle,version,nexlab
+2026-10-02T00:07:11-03:00,RIC-0001-TOP_2026-10-02_00-07-11.jpg,apertura,7.879,medida,,top-v3,7.4
+2026-10-02T00:14:16-03:00,RIC-0001-TOP_2026-10-02_00-14-16.jpg,apertura,7.875,medida,,top-v3,7.6
+2026-10-02T00:20:37-03:00,RIC-0001-TOP_2026-10-02_00-20-37.jpg,apertura,7.888,medida,,top-v3,7.7
+2026-10-02T00:27:01-03:00,RIC-0001-TOP_2026-10-02_00-27-01.jpg,apertura,7.784,medida,el mango quedo -6.3px fuera de su recorrido,top-v3,7.4
+2026-10-02T00:40:22-03:00,RIC-0001-TOP_2026-10-02_00-40-22.jpg,apertura,7.861,medida,,top-v3,7.6
+2026-10-02T00:47:11-03:00,RIC-0001-TOP_2026-10-02_00-47-11.jpg,apertura,7.87,medida,,top-v3,7.4
+2026-10-02T00:53:41-03:00,RIC-0001-TOP_2026-10-02_00-53-41.jpg,apertura,7.891,medida,,top-v3,7.6
+2026-10-02T01:01:35-03:00,RIC-0001-TOP_2026-10-02_01-01-35.jpg,apertura,7.887,medida,,top-v3,7.5
+2026-10-02T01:07:21-03:00,RIC-0001-TOP_2026-10-02_01-07-21.jpg,apertura,7.818,medida,,top-v3,7.5
+2026-10-02T01:13:32-03:00,RIC-0001-TOP_2026-10-02_01-13-32.jpg,apertura,7.891,medida,,top-v3,7.6
+2026-10-02T01:20:16-03:00,RIC-0001-TOP_2026-10-02_01-20-16.jpg,apertura,7.867,medida,,top-v3,7.6
+2026-10-02T01:27:06-03:00,RIC-0001-TOP_2026-10-02_01-27-06.jpg,apertura,7.915,medida,,top-v3,7.6
+2026-10-02T01:33:44-03:00,RIC-0001-TOP_2026-10-02_01-33-44.jpg,apertura,7.866,medida,,top-v3,7.5
+2026-10-02T01:40:12-03:00,RIC-0001-TOP_2026-10-02_01-40-12.jpg,apertura,7.903,medida,,top-v3,7.5
+2026-10-02T01:46:54-03:00,RIC-0001-TOP_2026-10-02_01-46-54.jpg,apertura,7.86,medida,,top-v3,7.5
+2026-10-02T01:53:34-03:00,RIC-0001-TOP_2026-10-02_01-53-34.jpg,apertura,7.864,medida,,top-v3,7.6
+2026-10-02T02:00:36-03:00,RIC-0001-TOP_2026-10-02_02-00-36.jpg,apertura,7.852,medida,,top-v3,7.6
+2026-10-02T02:07:20-03:00,RIC-0001-TOP_2026-10-02_02-07-20.jpg,apertura,7.91,medida,,top-v3,7.6
+2026-10-02T02:14:03-03:00,RIC-0001-TOP_2026-10-02_02-14-03.jpg,apertura,7.913,medida,,top-v3,7.5
+2026-10-02T02:20:13-03:00,RIC-0001-TOP_2026-10-02_02-20-13.jpg,apertura,7.885,medida,,top-v3,7.5
+2026-10-02T02:27:03-03:00,RIC-0001-TOP_2026-10-02_02-27-03.jpg,apertura,7.848,medida,,top-v3,7.6
+2026-10-02T02:34:23-03:00,RIC-0001-TOP_2026-10-02_02-34-23.jpg,apertura,7.869,medida,,top-v3,7.5
+2026-10-02T02:40:18-03:00,RIC-0001-TOP_2026-10-02_02-40-18.jpg,apertura,7.875,medida,,top-v3,7.5
+2026-10-02T02:46:54-03:00,RIC-0001-TOP_2026-10-02_02-46-54.jpg,apertura,7.881,medida,,top-v3,7.6
+2026-10-02T02:53:39-03:00,RIC-0001-TOP_2026-10-02_02-53-39.jpg,apertura,7.851,medida,,top-v3,7.4
+2026-10-02T03:00:33-03:00,RIC-0001-TOP_2026-10-02_03-00-33.jpg,apertura,7.839,medida,,top-v3,7.6
+2026-10-02T03:07:04-03:00,RIC-0001-TOP_2026-10-02_03-07-04.jpg,apertura,7.867,medida,,top-v3,7.6
+2026-10-02T03:13:44-03:00,RIC-0001-TOP_2026-10-02_03-13-44.jpg,apertura,7.897,medida,,top-v3,7.5
+2026-10-02T03:20:32-03:00,RIC-0001-TOP_2026-10-02_03-20-32.jpg,apertura,7.919,medida,,top-v3,7.5
+2026-10-02T03:27:29-03:00,RIC-0001-TOP_2026-10-02_03-27-29.jpg,apertura,7.852,medida,,top-v3,7.6
+2026-10-02T03:33:34-03:00,RIC-0001-TOP_2026-10-02_03-33-34.jpg,apertura,7.884,medida,,top-v3,7.6
+2026-10-02T03:40:21-03:00,RIC-0001-TOP_2026-10-02_03-40-21.jpg,apertura,7.815,medida,,top-v3,7.4
+2026-10-02T03:47:37-03:00,RIC-0001-TOP_2026-10-02_03-47-37.jpg,apertura,7.882,medida,,top-v3,7.6
+2026-10-02T03:54:02-03:00,RIC-0001-TOP_2026-10-02_03-54-02.jpg,apertura,7.869,medida,,top-v3,7.4
+2026-10-02T03:56:00-03:00,RIC-0001-TOP_2026-10-02_03-56-00.jpg,apertura,7.891,medida,,top-v3,7.6
+2026-10-02T04:09:20-03:00,RIC-0001-TOP_2026-10-02_04-09-20.jpg,apertura,7.884,medida,,top-v3,7.5
+2026-10-02T04:17:08-03:00,RIC-0001-TOP_2026-10-02_04-17-08.jpg,apertura,7.841,medida,,top-v3,7.5
+2026-10-02T04:23:26-03:00,RIC-0001-TOP_2026-10-02_04-23-26.jpg,apertura,7.854,medida,,top-v3,7.5
+2026-10-02T04:29:47-03:00,RIC-0001-TOP_2026-10-02_04-29-47.jpg,apertura,7.858,medida,,top-v3,7.6
+2026-10-02T04:36:37-03:00,RIC-0001-TOP_2026-10-02_04-36-37.jpg,apertura,7.881,medida,,top-v3,7.6
+2026-10-02T04:43:28-03:00,RIC-0001-TOP_2026-10-02_04-43-28.jpg,apertura,7.888,medida,,top-v3,7.6
+2026-10-02T04:49:18-03:00,RIC-0001-TOP_2026-10-02_04-49-18.jpg,apertura,7.89,medida,,top-v3,7.6
+2026-10-02T04:56:07-03:00,RIC-0001-TOP_2026-10-02_04-56-07.jpg,apertura,7.842,medida,el mango quedo -5.5px fuera de su recorrido,top-v3,7.4
+2026-10-02T05:02:39-03:00,RIC-0001-TOP_2026-10-02_05-02-39.jpg,apertura,7.838,medida,,top-v3,7.5
+2026-10-02T05:09:35-03:00,RIC-0001-TOP_2026-10-02_05-09-35.jpg,apertura,7.915,medida,,top-v3,7.5
+2026-10-02T05:16:10-03:00,RIC-0001-TOP_2026-10-02_05-16-10.jpg,apertura,7.895,medida,,top-v3,7.6
+2026-10-02T05:23:20-03:00,RIC-0001-TOP_2026-10-02_05-23-20.jpg,apertura,7.85,medida,,top-v3,7.6
+2026-10-02T05:29:26-03:00,RIC-0001-TOP_2026-10-02_05-29-26.jpg,apertura,7.87,medida,,top-v3,7.5
+2026-10-02T05:49:16-03:00,RIC-0001-TOP_2026-10-02_05-49-16.jpg,apertura,8.016,medida,tinte de camara 2.82: color corregido por balance de blancos,top-v3,
+2026-10-02T05:56:01-03:00,RIC-0001-TOP_2026-10-02_05-56-01.jpg,apertura,7.869,medida,,top-v3,7.5
+2026-10-02T06:02:45-03:00,RIC-0001-TOP_2026-10-02_06-02-45.jpg,apertura,7.895,medida,,top-v3,7.5
+2026-10-02T06:09:41-03:00,RIC-0001-TOP_2026-10-02_06-09-41.jpg,apertura,7.852,medida,,top-v3,7.5
+2026-10-02T06:16:08-03:00,RIC-0001-TOP_2026-10-02_06-16-08.jpg,apertura,7.894,medida,,top-v3,7.5
+2026-10-02T06:22:43-03:00,RIC-0001-TOP_2026-10-02_06-22-43.jpg,apertura,7.867,medida,,top-v3,7.5
+2026-10-02T06:29:17-03:00,RIC-0001-TOP_2026-10-02_06-29-17.jpg,apertura,7.866,medida,,top-v3,7.4
+2026-10-02T06:35:58-03:00,RIC-0001-TOP_2026-10-02_06-35-58.jpg,apertura,7.842,medida,,top-v3,7.6
+2026-10-02T06:49:31-03:00,RIC-0001-TOP_2026-10-02_06-49-31.jpg,apertura,7.85,medida,,top-v3,7.5
+2026-10-02T06:56:11-03:00,RIC-0001-TOP_2026-10-02_06-56-11.jpg,apertura,-0.172,medida,el mango quedo 5.7px fuera de su recorrido,top-v3,0.0
+2026-10-02T07:02:46-03:00,RIC-0001-TOP_2026-10-02_07-02-46.jpg,apertura,-0.218,medida,el mango quedo 5.9px fuera de su recorrido,top-v3,0.0
+2026-10-02T07:09:58-03:00,RIC-0001-TOP_2026-10-02_07-09-58.jpg,apertura,-0.198,medida,el mango quedo 7.3px fuera de su recorrido,top-v3,0.0
+2026-10-02T07:16:17-03:00,RIC-0001-TOP_2026-10-02_07-16-17.jpg,apertura,-0.191,medida,el mango quedo 6.1px fuera de su recorrido,top-v3,0.0
+2026-10-02T07:22:47-03:00,RIC-0001-TOP_2026-10-02_07-22-47.jpg,apertura,-0.186,medida,el mango quedo 6.5px fuera de su recorrido,top-v3,0.0
+2026-10-02T07:29:47-03:00,RIC-0001-TOP_2026-10-02_07-29-47.jpg,apertura,-0.185,medida,el mango quedo 8.3px fuera de su recorrido,top-v3,0.0
+2026-10-02T07:36:00-03:00,RIC-0001-TOP_2026-10-02_07-36-00.jpg,apertura,-0.185,medida,el mango quedo 5.8px fuera de su recorrido,top-v3,0.0
+2026-10-02T07:42:39-03:00,RIC-0001-TOP_2026-10-02_07-42-39.jpg,apertura,-0.191,medida,el mango quedo 4.4px fuera de su recorrido,top-v3,0.0
+2026-10-02T07:49:21-03:00,RIC-0001-TOP_2026-10-02_07-49-21.jpg,apertura,-0.194,medida,el mango quedo 5.7px fuera de su recorrido,top-v3,0.0
+2026-10-02T07:56:40-03:00,RIC-0001-TOP_2026-10-02_07-56-40.jpg,apertura,-0.194,medida,el mango quedo 5.7px fuera de su recorrido,top-v3,0.0
+2026-10-02T08:02:59-03:00,RIC-0001-TOP_2026-10-02_08-02-59.jpg,apertura,-0.186,medida,el mango quedo 4.9px fuera de su recorrido,top-v3,0.0
+2026-10-02T08:09:58-03:00,RIC-0001-TOP_2026-10-02_08-09-58.jpg,apertura,-0.19,medida,el mango quedo 4.9px fuera de su recorrido,top-v3,0.0
+2026-10-02T08:15:58-03:00,RIC-0001-TOP_2026-10-02_08-15-58.jpg,apertura,-0.188,medida,el mango quedo 5.8px fuera de su recorrido,top-v3,0.0
+2026-10-02T08:22:40-03:00,RIC-0001-TOP_2026-10-02_08-22-40.jpg,apertura,-0.194,medida,el mango quedo 4.5px fuera de su recorrido,top-v3,0.0
+2026-10-02T08:29:20-03:00,RIC-0001-TOP_2026-10-02_08-29-20.jpg,apertura,-0.193,medida,el mango quedo 4.6px fuera de su recorrido,top-v3,0.0
+2026-10-02T08:36:16-03:00,RIC-0001-TOP_2026-10-02_08-36-16.jpg,apertura,-0.186,medida,el mango quedo 6.6px fuera de su recorrido,top-v3,0.0
+2026-10-02T08:42:44-03:00,RIC-0001-TOP_2026-10-02_08-42-44.jpg,apertura,-0.191,medida,el mango quedo 5.0px fuera de su recorrido,top-v3,0.0
+2026-10-02T08:49:22-03:00,RIC-0001-TOP_2026-10-02_08-49-22.jpg,apertura,-0.186,medida,el mango quedo 4.4px fuera de su recorrido,top-v3,0.0
+2026-10-02T08:56:02-03:00,RIC-0001-TOP_2026-10-02_08-56-02.jpg,apertura,-0.212,medida,el mango quedo 6.1px fuera de su recorrido,top-v3,0.0
+2026-10-02T09:02:51-03:00,RIC-0001-TOP_2026-10-02_09-02-51.jpg,apertura,-0.172,medida,el mango quedo 5.8px fuera de su recorrido,top-v3,0.0
+2026-10-02T09:09:21-03:00,RIC-0001-TOP_2026-10-02_09-09-21.jpg,apertura,-0.181,medida,el mango quedo 7.4px fuera de su recorrido,top-v3,0.0
+2026-10-02T09:16:02-03:00,RIC-0001-TOP_2026-10-02_09-16-02.jpg,apertura,-0.185,medida,el mango quedo 7.2px fuera de su recorrido,top-v3,0.0
+2026-10-02T09:22:57-03:00,RIC-0001-TOP_2026-10-02_09-22-57.jpg,apertura,-0.167,medida,el mango quedo 7.1px fuera de su recorrido,top-v3,0.0
+2026-10-02T09:29:37-03:00,RIC-0001-TOP_2026-10-02_09-29-37.jpg,apertura,-0.162,medida,el mango quedo 5.5px fuera de su recorrido,top-v3,0.0
+2026-10-02T09:36:02-03:00,RIC-0001-TOP_2026-10-02_09-36-02.jpg,apertura,-0.188,medida,el mango quedo 5.1px fuera de su recorrido,top-v3,2.6
+2026-10-02T09:42:51-03:00,RIC-0001-TOP_2026-10-02_09-42-51.jpg,apertura,-0.172,medida,el mango quedo 5.0px fuera de su recorrido,top-v3,
+2026-10-02T10:03:28-03:00,RIC-0001-TOP_2026-10-02_10-03-28.jpg,apertura,-0.186,medida,tinte de camara 2.55: color corregido por balance de blancos,top-v3,
+2026-10-02T10:09:20-03:00,RIC-0001-TOP_2026-10-02_10-09-20.jpg,apertura,-0.188,medida,el mango quedo 6.2px fuera de su recorrido,top-v3,0.0
+2026-10-02T10:16:16-03:00,RIC-0001-TOP_2026-10-02_10-16-16.jpg,apertura,-0.154,medida,el mango quedo 5.6px fuera de su recorrido,top-v3,0.0
+2026-10-02T10:22:42-03:00,RIC-0001-TOP_2026-10-02_10-22-42.jpg,apertura,-0.177,medida,el mango quedo 5.4px fuera de su recorrido,top-v3,0.0
+2026-10-02T10:29:36-03:00,RIC-0001-TOP_2026-10-02_10-29-36.jpg,apertura,-0.178,medida,el mango quedo 6.4px fuera de su recorrido,top-v3,0.0
+2026-10-02T10:36:12-03:00,RIC-0001-TOP_2026-10-02_10-36-12.jpg,apertura,-0.172,medida,el mango quedo 6.5px fuera de su recorrido,top-v3,0.0
+2026-10-02T10:42:57-03:00,RIC-0001-TOP_2026-10-02_10-42-57.jpg,apertura,-0.157,medida,el mango quedo 4.9px fuera de su recorrido,top-v3,0.0
+2026-10-02T10:49:23-03:00,RIC-0001-TOP_2026-10-02_10-49-23.jpg,apertura,-0.185,medida,el mango quedo 7.3px fuera de su recorrido,top-v3,0.0
+2026-10-02T11:03:28-03:00,RIC-0001-TOP_2026-10-02_11-03-28.jpg,apertura,-0.194,medida,el mango quedo 10.1px fuera de su recorrido,top-v3,0.0
+2026-10-02T11:09:22-03:00,RIC-0001-TOP_2026-10-02_11-09-22.jpg,apertura,6.983,medida,,top-v3,6.7
+2026-10-02T11:16:13-03:00,RIC-0001-TOP_2026-10-02_11-16-13.jpg,apertura,8.967,medida,,top-v3,8.6
+2026-10-02T11:23:03-03:00,RIC-0001-TOP_2026-10-02_11-23-03.jpg,apertura,8.82,medida,,top-v3,8.3
+2026-10-02T11:29:46-03:00,RIC-0001-TOP_2026-10-02_11-29-46.jpg,apertura,8.833,medida,,top-v3,8.3
+2026-10-02T11:36:16-03:00,RIC-0001-TOP_2026-10-02_11-36-16.jpg,apertura,8.868,medida,,top-v3,8.2
+2026-10-02T11:56:30-03:00,RIC-0001-TOP_2026-10-02_11-56-30.jpg,apertura,8.777,medida,tinte de camara 2.25: color corregido por balance de blancos,top-v3,
+2026-10-02T12:02:46-03:00,RIC-0001-TOP_2026-10-02_12-02-46.jpg,apertura,8.796,medida,,top-v3,8.3
+2026-10-02T12:09:41-03:00,RIC-0001-TOP_2026-10-02_12-09-41.jpg,apertura,8.812,medida,la forma difiere 8.5px del color | el mango quedo 5.4px fuera de su recorrido,top-v3,8.4
+2026-10-02T12:16:15-03:00,RIC-0001-TOP_2026-10-02_12-16-15.jpg,apertura,8.859,medida,el mango quedo 4.6px fuera de su recorrido,top-v3,8.3
+2026-10-02T12:23:49-03:00,RIC-0001-TOP_2026-10-02_12-23-49.jpg,apertura,8.848,medida,,top-v3,8.4
+2026-10-02T12:29:43-03:00,RIC-0001-TOP_2026-10-02_12-29-43.jpg,apertura,8.845,medida,,top-v3,8.4
+2026-10-02T12:36:30-03:00,RIC-0001-TOP_2026-10-02_12-36-30.jpg,apertura,8.884,medida,,top-v3,8.4
+2026-10-02T12:43:03-03:00,RIC-0001-TOP_2026-10-02_12-43-03.jpg,apertura,8.844,medida,,top-v3,8.3
+2026-10-02T13:02:50-03:00,RIC-0001-TOP_2026-10-02_13-02-50.jpg,apertura,8.824,medida,tinte de camara 2.18: color corregido por balance de blancos,top-v3,
+2026-10-02T13:09:23-03:00,RIC-0001-TOP_2026-10-02_13-09-23.jpg,apertura,8.83,medida,,top-v3,8.4
+2026-10-02T13:16:04-03:00,RIC-0001-TOP_2026-10-02_13-16-04.jpg,apertura,8.809,medida,,top-v3,8.4
+2026-10-02T13:22:47-03:00,RIC-0001-TOP_2026-10-02_13-22-47.jpg,apertura,8.734,medida,,top-v3,8.4
+2026-10-02T13:29:35-03:00,RIC-0001-TOP_2026-10-02_13-29-35.jpg,apertura,8.752,medida,,top-v3,8.3
+2026-10-02T13:36:09-03:00,RIC-0001-TOP_2026-10-02_13-36-09.jpg,apertura,8.805,medida,,top-v3,8.4
+2026-10-02T13:42:53-03:00,RIC-0001-TOP_2026-10-02_13-42-53.jpg,apertura,8.829,medida,,top-v3,8.3
+2026-10-02T13:49:27-03:00,RIC-0001-TOP_2026-10-02_13-49-27.jpg,apertura,8.782,medida,,top-v3,8.4
+2026-10-02T13:56:03-03:00,RIC-0001-TOP_2026-10-02_13-56-03.jpg,apertura,8.791,medida,,top-v3,8.4
+2026-10-02T14:02:45-03:00,RIC-0001-TOP_2026-10-02_14-02-45.jpg,apertura,8.823,medida,,top-v3,8.3
+2026-10-02T14:09:42-03:00,RIC-0001-TOP_2026-10-02_14-09-42.jpg,apertura,8.774,medida,,top-v3,8.3
+2026-10-02T14:16:04-03:00,RIC-0001-TOP_2026-10-02_14-16-04.jpg,apertura,,color_inutilizable,"tinte de camara None: el color no se puede recuperar, no se mide",top-v3,
+2026-10-02T14:22:45-03:00,RIC-0001-TOP_2026-10-02_14-22-45.jpg,apertura,8.767,medida,,top-v3,8.3
+2026-10-02T14:29:27-03:00,RIC-0001-TOP_2026-10-02_14-29-27.jpg,apertura,8.785,medida,,top-v3,8.3
+2026-10-02T14:36:16-03:00,RIC-0001-TOP_2026-10-02_14-36-16.jpg,apertura,8.838,medida,,top-v3,8.3
+2026-10-02T14:42:51-03:00,RIC-0001-TOP_2026-10-02_14-42-51.jpg,apertura,7.906,medida,,top-v3,7.3
+2026-10-02T14:49:34-03:00,RIC-0001-TOP_2026-10-02_14-49-34.jpg,apertura,7.91,medida,,top-v3,7.4
+2026-10-02T15:02:45-03:00,RIC-0001-TOP_2026-10-02_15-02-45.jpg,apertura,7.876,medida,,top-v3,7.4
+2026-10-02T15:09:38-03:00,RIC-0001-TOP_2026-10-02_15-09-38.jpg,apertura,7.854,medida,,top-v3,7.1
+2026-10-02T15:16:05-03:00,RIC-0001-TOP_2026-10-02_15-16-05.jpg,apertura,7.928,medida,,top-v3,7.2
+2026-10-02T15:22:45-03:00,RIC-0001-TOP_2026-10-02_15-22-45.jpg,apertura,7.869,medida,,top-v3,7.4
+2026-10-02T15:29:25-03:00,RIC-0001-TOP_2026-10-02_15-29-25.jpg,apertura,7.941,medida,,top-v3,7.5
+2026-10-02T15:36:06-03:00,RIC-0001-TOP_2026-10-02_15-36-06.jpg,apertura,7.833,medida,,top-v3,7.3
+2026-10-02T15:42:46-03:00,RIC-0001-TOP_2026-10-02_15-42-46.jpg,apertura,7.885,medida,,top-v3,7.2
+2026-10-02T15:49:27-03:00,RIC-0001-TOP_2026-10-02_15-49-27.jpg,apertura,7.869,medida,,top-v3,7.4
+2026-10-02T15:56:06-03:00,RIC-0001-TOP_2026-10-02_15-56-06.jpg,apertura,7.892,medida,,top-v3,7.3
+2026-10-02T16:02:46-03:00,RIC-0001-TOP_2026-10-02_16-02-46.jpg,apertura,7.919,medida,,top-v3,7.3
+2026-10-02T16:29:26-03:00,RIC-0001-TOP_2026-10-02_16-29-26.jpg,apertura,7.881,medida,tinte de camara 2.15: color corregido por balance de blancos | el mango quedo -6.8px fuera de su recorrido,top-v3,
+2026-10-02T16:36:06-03:00,RIC-0001-TOP_2026-10-02_16-36-06.jpg,apertura,7.918,medida,,top-v3,7.4
+2026-10-02T16:43:02-03:00,RIC-0001-TOP_2026-10-02_16-43-02.jpg,apertura,7.918,medida,,top-v3,7.2
+2026-10-02T16:49:27-03:00,RIC-0001-TOP_2026-10-02_16-49-27.jpg,apertura,7.861,medida,,top-v3,7.2
+2026-10-02T16:56:06-03:00,RIC-0001-TOP_2026-10-02_16-56-06.jpg,apertura,7.895,medida,,top-v3,7.3
+2026-10-02T17:03:07-03:00,RIC-0001-TOP_2026-10-02_17-03-07.jpg,apertura,7.898,medida,,top-v3,7.3
+2026-10-02T17:09:25-03:00,RIC-0001-TOP_2026-10-02_17-09-25.jpg,apertura,7.86,medida,,top-v3,7.3
+2026-10-02T17:16:20-03:00,RIC-0001-TOP_2026-10-02_17-16-20.jpg,apertura,7.89,medida,,top-v3,7.3
+2026-10-02T17:36:07-03:00,RIC-0001-TOP_2026-10-02_17-36-07.jpg,apertura,7.863,medida,tinte de camara 2.37: color corregido por balance de blancos,top-v3,
+2026-10-02T17:43:10-03:00,RIC-0001-TOP_2026-10-02_17-43-10.jpg,apertura,7.888,medida,,top-v3,7.3
+2026-10-02T18:09:29-03:00,RIC-0001-TOP_2026-10-02_18-09-29.jpg,apertura,7.928,medida,tinte de camara 2.44: color corregido por balance de blancos,top-v3,
+2026-10-02T18:16:11-03:00,RIC-0001-TOP_2026-10-02_18-16-11.jpg,apertura,,mango_no_visible,"no se ve el mango verde sobre su recorrido (por ejemplo, el operario lo esta tapando con la mano)",top-v3,7.4
+2026-10-02T18:22:58-03:00,RIC-0001-TOP_2026-10-02_18-22-58.jpg,apertura,7.898,medida,,top-v3,7.4
+2026-10-02T18:29:29-03:00,RIC-0001-TOP_2026-10-02_18-29-29.jpg,apertura,7.857,medida,,top-v3,7.4
+2026-10-02T18:36:08-03:00,RIC-0001-TOP_2026-10-02_18-36-08.jpg,apertura,8.327,medida,,top-v3,7.8
+2026-10-02T18:42:54-03:00,RIC-0001-TOP_2026-10-02_18-42-54.jpg,apertura,8.306,medida,,top-v3,7.9
+2026-10-02T18:49:29-03:00,RIC-0001-TOP_2026-10-02_18-49-29.jpg,apertura,8.277,medida,,top-v3,7.8
+2026-10-02T18:56:07-03:00,RIC-0001-TOP_2026-10-02_18-56-07.jpg,apertura,8.3,medida,,top-v3,7.7
+2026-10-02T19:09:28-03:00,RIC-0001-TOP_2026-10-02_19-09-28.jpg,apertura,8.271,medida,,top-v3,7.7
+2026-10-02T19:16:08-03:00,RIC-0001-TOP_2026-10-02_19-16-08.jpg,apertura,8.283,medida,,top-v3,7.7
+2026-10-02T19:22:47-03:00,RIC-0001-TOP_2026-10-02_19-22-47.jpg,apertura,8.236,medida,,top-v3,7.7
+2026-10-02T19:29:35-03:00,RIC-0001-TOP_2026-10-02_19-29-35.jpg,apertura,8.157,medida,el mango quedo -6.7px fuera de su recorrido,top-v3,7.7
+2026-10-02T19:36:08-03:00,RIC-0001-TOP_2026-10-02_19-36-08.jpg,apertura,8.25,medida,,top-v3,7.7
+2026-10-02T19:42:51-03:00,RIC-0001-TOP_2026-10-02_19-42-51.jpg,apertura,8.234,medida,,top-v3,7.8
+2026-10-02T19:49:30-03:00,RIC-0001-TOP_2026-10-02_19-49-30.jpg,apertura,8.259,medida,,top-v3,7.7
+2026-10-02T19:56:08-03:00,RIC-0001-TOP_2026-10-02_19-56-08.jpg,apertura,8.227,medida,,top-v3,7.7
+2026-10-02T20:02:48-03:00,RIC-0001-TOP_2026-10-02_20-02-48.jpg,apertura,8.157,medida,,top-v3,
+2026-10-02T20:09:37-03:00,RIC-0001-TOP_2026-10-02_20-09-37.jpg,apertura,8.249,medida,,top-v3,7.8
+2026-10-02T20:16:19-03:00,RIC-0001-TOP_2026-10-02_20-16-19.jpg,apertura,-0.137,medida,el mango quedo 7.5px fuera de su recorrido,top-v3,0.0
+2026-10-02T20:23:10-03:00,RIC-0001-TOP_2026-10-02_20-23-10.jpg,apertura,-0.13,medida,el mango quedo 8.5px fuera de su recorrido,top-v3,0.0
+2026-10-02T20:29:28-03:00,RIC-0001-TOP_2026-10-02_20-29-28.jpg,apertura,-0.127,medida,el mango quedo 9.1px fuera de su recorrido,top-v3,0.0
+2026-10-02T20:42:49-03:00,RIC-0001-TOP_2026-10-02_20-42-49.jpg,apertura,7.916,medida,,top-v3,7.4
+2026-10-02T20:49:46-03:00,RIC-0001-TOP_2026-10-02_20-49-46.jpg,apertura,7.891,medida,,top-v3,7.2
+2026-10-02T20:56:07-03:00,RIC-0001-TOP_2026-10-02_20-56-07.jpg,apertura,7.959,medida,,top-v3,7.4
+2026-10-02T21:03:13-03:00,RIC-0001-TOP_2026-10-02_21-03-13.jpg,apertura,7.898,medida,,top-v3,7.4
+2026-10-02T21:09:29-03:00,RIC-0001-TOP_2026-10-02_21-09-29.jpg,apertura,7.901,medida,,top-v3,7.3
+2026-10-02T21:16:09-03:00,RIC-0001-TOP_2026-10-02_21-16-09.jpg,apertura,7.858,medida,,top-v3,7.3
+2026-10-02T21:22:53-03:00,RIC-0001-TOP_2026-10-02_21-22-53.jpg,apertura,7.934,medida,,top-v3,7.4
+2026-10-02T21:29:29-03:00,RIC-0001-TOP_2026-10-02_21-29-29.jpg,apertura,7.922,medida,,top-v3,7.3
+2026-10-02T21:36:43-03:00,RIC-0001-TOP_2026-10-02_21-36-43.jpg,apertura,7.956,medida,,top-v3,7.4
+2026-10-02T21:42:49-03:00,RIC-0001-TOP_2026-10-02_21-42-49.jpg,apertura,7.873,medida,el mango quedo -4.2px fuera de su recorrido,top-v3,7.2
+2026-10-02T21:49:30-03:00,RIC-0001-TOP_2026-10-02_21-49-30.jpg,apertura,7.879,medida,,top-v3,7.3
+2026-10-02T21:56:46-03:00,RIC-0001-TOP_2026-10-02_21-56-46.jpg,apertura,7.887,medida,,top-v3,7.3
+2026-10-02T22:09:29-03:00,RIC-0001-TOP_2026-10-02_22-09-29.jpg,apertura,7.9,medida,el mango quedo 4.9px fuera de su recorrido,top-v3,7.4
+2026-10-02T22:16:34-03:00,RIC-0001-TOP_2026-10-02_22-16-34.jpg,apertura,7.916,medida,,top-v3,7.4
+2026-10-02T22:22:51-03:00,RIC-0001-TOP_2026-10-02_22-22-51.jpg,apertura,7.971,medida,,top-v3,7.3
+2026-10-02T22:29:48-03:00,RIC-0001-TOP_2026-10-02_22-29-48.jpg,apertura,7.927,medida,,top-v3,7.3
+2026-10-02T22:36:21-03:00,RIC-0001-TOP_2026-10-02_22-36-21.jpg,apertura,7.904,medida,,top-v3,7.3
+2026-10-02T22:49:31-03:00,RIC-0001-TOP_2026-10-02_22-49-31.jpg,apertura,7.892,medida,,top-v3,7.4
+2026-10-02T22:56:11-03:00,RIC-0001-TOP_2026-10-02_22-56-11.jpg,apertura,7.875,medida,,top-v3,7.3
+2026-10-02T23:03:00-03:00,RIC-0001-TOP_2026-10-02_23-03-00.jpg,apertura,7.901,medida,,top-v3,7.3
+2026-10-02T23:09:50-03:00,RIC-0001-TOP_2026-10-02_23-09-50.jpg,apertura,7.861,medida,,top-v3,7.3
+2026-10-02T23:16:10-03:00,RIC-0001-TOP_2026-10-02_23-16-10.jpg,apertura,7.931,medida,,top-v3,7.4
+2026-10-02T23:22:53-03:00,RIC-0001-TOP_2026-10-02_23-22-53.jpg,apertura,7.823,medida,el mango quedo -5.6px fuera de su recorrido,top-v3,7.3
+2026-10-02T23:29:31-03:00,RIC-0001-TOP_2026-10-02_23-29-31.jpg,apertura,7.924,medida,,top-v3,7.3
+2026-10-02T23:36:11-03:00,RIC-0001-TOP_2026-10-02_23-36-11.jpg,apertura,7.892,medida,el mango quedo -4.8px fuera de su recorrido,top-v3,7.4
+2026-10-02T23:42:57-03:00,RIC-0001-TOP_2026-10-02_23-42-57.jpg,apertura,7.915,medida,,top-v3,7.3
+2026-10-02T23:56:30-03:00,RIC-0001-TOP_2026-10-02_23-56-30.jpg,apertura,7.894,medida,,top-v3,7.4
