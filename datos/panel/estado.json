@@ -1,0 +1,22 @@
+{
+ "corrida": "2026-10-25T16:33:29-03:00",
+ "fecha": "2026-10-25",
+ "camaras": {
+  "top": {
+   "nexlab": 128,
+   "ultima_foto": "2026-10-25T16:31:47-03:00",
+   "procesadas": 128
+  },
+  "left": {
+   "nexlab": 139,
+   "ultima_foto": "2026-10-25T16:32:13-03:00",
+   "procesadas": 139
+  },
+  "amp": {
+   "nexlab": 140,
+   "ultima_foto": "2026-10-25T16:32:27-03:00",
+   "procesadas": 140
+  }
+ },
+ "avisos": []
+}
