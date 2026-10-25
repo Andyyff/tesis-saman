@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-25T16:08-03:00",
+ "actualizado": "2026-10-25T16:21-03:00",
  "objetivo": 0.95,
  "tolerancia": {
   "top": "±0,5 en la escala 0-10",
@@ -29,6 +29,13 @@
    "acierto": null
   }
  },
- "semanas": [],
+ "semanas": [
+  {
+   "titulo": "Revisión a ojo · semana del 2026-10-12",
+   "url": "https://github.com/Andyyff/tesis-saman/issues/1",
+   "cerrada": "2026-10-25",
+   "malas": 0
+  }
+ ],
  "pendiente": null
 }
