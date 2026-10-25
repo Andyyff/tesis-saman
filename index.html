@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel Samán</title>
+<!-- Página estática: lee datos/panel/indice.json y datos/panel/AAAA-MM-DD.json, que flujo.py actualiza cada hora.
+     Se sirve desde la carpeta del proyecto con cualquier servidor de archivos (prueba local: python -m http.server). -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
+<style>
+:root { --bg:#f5f6f8; --card:#fff; --head:#1f2a36; --txt:#1d2329; --sub:#66707a; --borde:#e3e6ea;
+        --ok:#2f8a4c; --revisar:#b7791f; --mal:#c0392b; --gap:16px; --radius:8px; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--txt); line-height:1.5; }
+.contenedor { max-width:1400px; margin:0 auto; padding:var(--gap); }
+header { background:var(--head); color:#fff; padding:18px 24px; border-radius:var(--radius); margin-bottom:var(--gap);
+         display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+header h1 { font-size:20px; font-weight:600; }
+header .sub { font-size:13px; color:rgba(255,255,255,.7); }
+.controles { display:flex; gap:12px; align-items:center; flex-wrap:wrap; font-size:13px; }
+.controles select { padding:6px 10px; border-radius:4px; border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.1); color:#fff; font-size:13px; }
+.controles select option { color:var(--txt); }
+.estado { padding:3px 10px; border-radius:12px; font-weight:600; font-size:12px; }
+.estado.ok { background:#dff3e5; color:var(--ok); } .estado.revisar { background:#fbefd9; color:var(--revisar); } .estado.mal { background:#f8dedb; color:var(--mal); }
+.kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:var(--gap); margin-bottom:var(--gap); }
+.kpi, .tarjeta { background:var(--card); border-radius:var(--radius); padding:16px 20px; box-shadow:0 1px 3px rgba(0,0,0,.08); }
+.kpi .nombre { font-size:12px; color:var(--sub); text-transform:uppercase; letter-spacing:.4px; }
+.kpi .valor { font-size:26px; font-weight:700; }
+.kpi .valor small { font-size:14px; font-weight:500; color:var(--sub); }
+.kpi .pie { font-size:12px; color:var(--sub); }
+.graficos { display:grid; grid-template-columns:repeat(auto-fit,minmax(460px,1fr)); gap:var(--gap); margin-bottom:var(--gap); }
+.tarjeta h3 { font-size:14px; font-weight:600; margin-bottom:12px; }
+.lienzo { position:relative; height:260px; }
+.alertas li { font-size:13px; margin:4px 0 4px 18px; color:var(--revisar); }
+.alertas p { font-size:13px; color:var(--ok); }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th { text-align:left; padding:8px 10px; border-bottom:2px solid var(--borde); color:var(--sub); font-size:12px; text-transform:uppercase; letter-spacing:.4px; }
+td { padding:8px 10px; border-bottom:1px solid var(--borde); vertical-align:top; }
+.tabla { overflow-x:auto; margin-bottom:var(--gap); }
+.error { background:#f8dedb; color:var(--mal); padding:12px 16px; border-radius:var(--radius); margin-bottom:var(--gap); display:none; }
+footer { font-size:12px; color:var(--sub); text-align:center; padding:8px; }
+@media (max-width:768px) { .graficos { grid-template-columns:1fr; } header { flex-direction:column; align-items:flex-start; } }
+</style>
+</head>
+<body>
+<div class="contenedor">
+  <header>
+    <div><h1>Pulido por abrasión · Samán</h1><div class="sub">Lecturas por cámara cada 10 minutos (hora de Uruguay)</div></div>
+    <div class="controles">
+      <label>Día <select id="dia"></select></label>
+      <span class="estado" id="estado"></span>
+      <span id="actualizado"></span>
+    </div>
+  </header>
+  <div class="error" id="error"></div>
+  <section class="kpis" id="kpis"></section>
+  <section class="graficos" id="graficos"></section>
+  <section class="graficos">
+    <div class="tarjeta"><h3>Alertas del día</h3><div class="alertas" id="alertas"></div></div>
+    <div class="tarjeta tabla"><h3>Calidad por variable</h3><table><thead><tr><th>Variable</th><th>Con dato</th><th>Igual a Nexlab</th><th>Por qué falta</th></tr></thead><tbody id="calidad"></tbody></table></div>
+  </section>
+  <footer>Datos: cámaras de Nexlab procesadas con los modelos de la tesis (top, left, amp) y sensores de ambiente. Se actualiza solo cada 5 minutos.</footer>
+</div>
+<script>
+const BASE = "datos/panel/";
+const COLORES = ["#4C72B0", "#DD8452", "#55A868", "#C44E52", "#8172B3"];
+// Qué se grafica junto. Las variables que no estén en el JSON del día se saltean.
+const GRAFICOS = [
+  { titulo: "Apertura de válvula (0-10)", vars: ["top.apertura", "top.apertura_nexlab"] },
+  { titulo: "Distancia de las pesas (mm)", vars: ["left.distancia_a", "left.distancia_b"] },
+  { titulo: "Ángulo de la palanca (°)", vars: ["left.angulo"] },
+  { titulo: "Amperaje (A)", vars: ["amp.f1", "amp.f2", "amp.f3"] },
+  { titulo: "Temperatura (°C) y humedad (%) ambiente", vars: ["clima.temperatura", "clima.humedad"], dosEjes: true },
+];
+const MOTIVOS = { sin_dato: "sin foto en el casillero", sin_pesa: "varilla sin pesa", fuera_de_rango: "fuera de rango",
+                  no_valido_alineacion: "no se pudo alinear (¿poca luz?)", color_inutilizable: "color inutilizable",
+                  mango_no_visible: "mango no visible", mango_no_encontrado: "mango no encontrado",
+                  pesa_no_encontrada: "pesa no encontrada", alineacion_fallida: "alineación fallida" };
+let graficos = [];
+
+const hora = t => t.slice(11, 16);
+const pct = x => x == null ? "—" : Math.round(x * 100) + "%";
+const fmt = (v, u) => v == null ? "—" : (Math.abs(v) >= 100 ? v.toFixed(0) : v.toFixed(1));
+
+async function leer(ruta) {
+  const r = await fetch(BASE + ruta + "?t=" + Date.now());   // sin caché: el flujo reescribe los archivos
+  if (!r.ok) throw new Error(`No se pudo leer ${ruta} (${r.status})`);
+  return r.json();
+}
+
+async function cargarIndice() {
+  const ind = await leer("indice.json");
+  const sel = document.getElementById("dia"), elegido = sel.value;
+  sel.innerHTML = ind.dias.slice().reverse().map(d => `<option>${d}</option>`).join("");
+  sel.value = ind.dias.includes(elegido) ? elegido : ind.dias[ind.dias.length - 1];
+  document.getElementById("actualizado").textContent = "Actualizado " + ind.actualizado.slice(0, 16).replace("T", " ");
+}
+
+function ultimo(dia, vid) {
+  for (let i = dia.filas.length - 1; i >= 0; i--)
+    if (dia.filas[i].v[vid] != null) return { valor: dia.filas[i].v[vid], t: dia.filas[i].t };
+  return null;
+}
+
+function pintarKpis(dia) {
+  document.getElementById("kpis").innerHTML = Object.entries(dia.variables)
+    .filter(([vid]) => !vid.endsWith("_nexlab"))
+    .map(([vid, m]) => {
+      const u = ultimo(dia, vid), q = dia.calidad.variables[vid] || {};
+      return `<div class="kpi"><div class="nombre">${m.nombre}</div>
+        <div class="valor">${u ? fmt(u.valor) : "—"} <small>${m.unidad}</small></div>
+        <div class="pie">${u ? "a las " + hora(u.t) : "sin lecturas"} · ${pct(q.cobertura)} con dato</div></div>`;
+    }).join("");
+}
+
+function pintarGraficos(dia) {
+  graficos.forEach(g => g.destroy());
+  graficos = [];
+  const cont = document.getElementById("graficos");
+  cont.innerHTML = "";
+  const etiquetas = dia.filas.map(f => hora(f.t));
+  GRAFICOS.forEach(def => {
+    const vars = def.vars.filter(v => dia.variables[v]);
+    if (!vars.length) return;
+    const div = document.createElement("div");
+    div.className = "tarjeta";
+    div.innerHTML = `<h3>${def.titulo}</h3><div class="lienzo"><canvas></canvas></div>`;
+    cont.appendChild(div);
+    const datasets = vars.map((vid, i) => {
+      const nexlab = vid.endsWith("_nexlab");
+      return { label: dia.variables[vid].nombre, data: dia.filas.map(f => f.v[vid] ?? null),
+               borderColor: nexlab ? "#9aa3ad" : COLORES[i], backgroundColor: nexlab ? "#9aa3ad" : COLORES[i],
+               borderDash: nexlab ? [5, 4] : [], borderWidth: nexlab ? 1.5 : 2, pointRadius: 0, pointHoverRadius: 4,
+               tension: 0.2, spanGaps: false, yAxisID: def.dosEjes && i === 1 ? "y2" : "y" };
+    });
+    const escalas = { x: { grid: { display: false }, ticks: { maxTicksLimit: 12 } }, y: { beginAtZero: false } };
+    if (def.dosEjes) escalas.y2 = { position: "right", grid: { display: false } };
+    graficos.push(new Chart(div.querySelector("canvas"), {
+      type: "line", data: { labels: etiquetas, datasets },
+      options: { responsive: true, maintainAspectRatio: false, animation: false,
+                 interaction: { mode: "index", intersect: false },
+                 plugins: { legend: { position: "top", labels: { usePointStyle: true, boxWidth: 8 } },
+                            tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.parsed.y == null ? "sin dato" : c.parsed.y}` } } },
+                 scales: escalas } }));
+  });
+}
+
+function pintarCalidad(dia) {
+  const q = dia.calidad;
+  const est = document.getElementById("estado");
+  est.textContent = q.estado === "ok" ? "Todo bien" : q.estado === "revisar" ? "Revisar" : q.estado;
+  est.className = "estado " + (q.estado === "ok" ? "ok" : q.estado === "revisar" ? "revisar" : "mal");
+  document.getElementById("alertas").innerHTML = q.alertas.length
+    ? "<ul>" + q.alertas.map(a => `<li>${a}</li>`).join("") + "</ul>" : "<p>Sin alertas.</p>";
+  document.getElementById("calidad").innerHTML = Object.entries(q.variables).map(([vid, c]) => {
+    const motivos = Object.entries(c.sin_valor || {}).sort((a, b) => b[1] - a[1])
+      .map(([m, n]) => `${MOTIVOS[m] || m.replaceAll("_", " ")} (${n})`).join(", ");
+    return `<tr><td>${dia.variables[vid]?.nombre || vid}</td><td>${pct(c.cobertura)}</td>
+      <td>${c.coincide_con_nexlab == null ? "—" : pct(c.coincide_con_nexlab)}</td><td>${motivos || "—"}</td></tr>`;
+  }).join("");
+}
+
+async function mostrar() {
+  const err = document.getElementById("error");
+  try {
+    await cargarIndice();
+    const dia = await leer(document.getElementById("dia").value + ".json");
+    pintarKpis(dia); pintarGraficos(dia); pintarCalidad(dia);
+    err.style.display = "none";
+  } catch (e) {
+    err.textContent = e.message + ". ¿La página se está sirviendo desde la carpeta del proyecto?";
+    err.style.display = "block";
+  }
+}
+
+document.getElementById("dia").addEventListener("change", mostrar);
+mostrar();
+setInterval(mostrar, 5 * 60 * 1000);
+</script>
+</body>
+</html>

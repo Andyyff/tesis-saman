@@ -1,0 +1,6 @@
+archivo,distancia_a,estado_distancia_a,distancia_b,estado_distancia_b,angulo,estado_angulo
+RIC-0001-LEFT_2026-07-01_00-58-36.jpg,,sin_pesa,,sin_pesa,71.33,medida
+RIC-0001-LEFT_2026-07-04_00-27-17.jpg,168.4,medida,133.2,medida,68.7,medida
+RIC-0001-LEFT_2026-07-04_02-19-04.jpg,,color_inutilizable,,color_inutilizable,66.91,medida
+RIC-0001-LEFT_2026-07-14_20-27-27.jpg,,pesa_no_encontrada,120.2,medida,69.01,medida
+RIC-0001-LEFT_2026-07-17_06-34-57.jpg,144.3,medida,,sin_pesa,69.48,medida

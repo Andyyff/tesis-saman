@@ -1,0 +1,6 @@
+opencv-python-headless
+numpy
+requests
+scikit-learn==1.8.0
+scikit-image
+joblib

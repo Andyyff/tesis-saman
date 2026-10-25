@@ -1,0 +1,21 @@
+COMPARACION CON NEXLAB · camara top · 2026-08-17 · 184 fotos
+
+1) QUIEN MIDE QUE
+   Nexlab error        | nuestro medida             73
+   Nexlab valor 0      | nuestro medida             56
+   Nexlab valor        | nuestro medida             54
+   Nexlab error        | nuestro mango_no_encontrado    1   17-29-28
+
+2) DONDE MIDEN LOS DOS: 110 fotos (1 con color de camara roto)
+   (la calibracion v2 se ajusto con 21/08, 28/08, 02/09 y 04/09: en esos dias la comparacion es optimista)
+   fotos normales: |diferencia| mediana 0.151, p95 0.332
+   fotos verdes:   |diferencia| mediana 1.651  (n=1)
+
+2b) DISCREPANCIAS MAYORES A 1 UNIDAD (mirar la foto; en todas las revisadas el error era de Nexlab)
+   11:56:15  Nexlab 1.5  nuestro -0.15  (foto verde)
+   17:22:49  Nexlab 8.6  nuestro -0.16
+   17:43:21  Nexlab 3.7  nuestro 5.30
+
+3) RUIDO: salto entre fotos consecutivas (<=15 min), fotos normales, en unidades 0-10
+   Nexlab : mediana 0.000  p90 0.420   (redondea a 0,1)
+   nuestro: mediana 0.018  p90 0.403

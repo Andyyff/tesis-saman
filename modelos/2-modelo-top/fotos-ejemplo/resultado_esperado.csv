@@ -1,0 +1,8 @@
+fecha_hora,archivo,estado,posicion_px,apertura,confianza,metodo,tinte_camara,desvio_transversal_px,detalle
+2026-09-02 12:31:27,1_abierta_9__RIC-0001-TOP_2026-09-02_12-31-27.jpg,medida,8.64,9.207,1.0,color+forma,1.12,0.8,
+2026-08-18 05:57:04,2_media_6-3_nexlab_dio_error__RIC-0001-TOP_2026-08-18_05-57-04.jpg,medida,-89.66,6.347,1.0,color,1.04,0.78,
+2026-08-17 17:22:49,3_cerrada_0_nexlab_dijo_8-6__RIC-0001-TOP_2026-08-17_17-22-49.jpg,medida,-313.48,-0.164,0.7,color,1.04,5.28,el mango quedo 5.3px fuera de su recorrido
+2026-08-17 11:56:15,4_foto_verde_cerrada_0__RIC-0001-TOP_2026-08-17_11-56-15.jpg,medida,-313.04,-0.151,0.63,color,2.8,7.25,tinte de camara 2.8: color corregido por balance de blancos | el mango quedo 7.3px fuera de su recorrido
+2026-08-17 17:43:21,5_operario_moviendo_palanca_5-3__RIC-0001-TOP_2026-08-17_17-43-21.jpg,medida,-125.78,5.296,1.0,color,1.03,2.72,
+2026-08-25 06:26:04,6_color_irrecuperable_no_mide__RIC-0001-TOP_2026-08-25_06-26-04.jpg,color_inutilizable,,,0.0,,228.37,,"tinte de camara 228.37: el color no se puede recuperar, no se mide"
+2026-09-04 08:40:41,7_mango_tapado_no_mide__RIC-0001-TOP_2026-09-04_08-40-41.jpg,mango_no_visible,,,0.0,,1.05,,"no se ve el mango verde sobre su recorrido (por ejemplo, el operario lo esta tapando con la mano)"

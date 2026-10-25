@@ -1,0 +1,15 @@
+AMP V10 - validacion de la entrega reproducible
+
+1) El paquete fue probado desde una copia limpia que contiene solamente los archivos de esta entrega.
+2) verify_v10.py reprodujo 9/9 lecturas esperadas sobre tres imagenes de control:
+   - lectura normal;
+   - lectura donde actua el especialista V10 {5,6,8,9};
+   - imagen rechazada por alineacion.
+3) Adicionalmente, la implementacion portable fue contrastada contra la salida congelada original sobre 50 fotografias tomadas de los 5 dias del test externo (150 lecturas):
+   - valor final: 150/150 coincidencias;
+   - estado: 150/150 coincidencias;
+   - cuatro digitos: 150/150 coincidencias;
+   - posicion decimal: 150/150 coincidencias;
+   - activacion del especialista V10: 150/150 coincidencias.
+
+Por lo tanto, este paquete reproduce materialmente la V10 usada en la evaluacion externa, sin requerir V1-V9 ni los datasets de entrenamiento para inferencia.

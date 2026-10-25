@@ -1,0 +1,37 @@
+{
+  "name": "AMP V10",
+  "frozen_version": "AMP_V10_FROZEN_2026-10-07",
+  "input": "original AMP camera image (input_img_path)",
+  "outputs": [
+    "F1",
+    "F2",
+    "F3"
+  ],
+  "external_test": {
+    "photos": 1031,
+    "readings": 3093,
+    "days": [
+      "2026-06-11",
+      "2026-07-03",
+      "2026-08-13",
+      "2026-09-18",
+      "2026-09-22"
+    ]
+  },
+  "v10": {
+    "responded": 2888,
+    "correct": 2880,
+    "incorrect": 8,
+    "rejected": 205,
+    "coverage": 0.9337,
+    "precision_when_responds": 0.9972
+  },
+  "nexlab": {
+    "responded": 2368,
+    "correct": 2353,
+    "incorrect": 15,
+    "rejected": 725,
+    "coverage": 0.7656,
+    "precision_when_responds": 0.9937
+  }
+}

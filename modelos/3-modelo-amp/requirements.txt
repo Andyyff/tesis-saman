@@ -1,0 +1,6 @@
+numpy==2.3.5
+pandas==2.2.3
+scikit-learn==1.8.0
+scikit-image==0.26.0
+opencv-python==4.13.0.92
+joblib==1.5.3

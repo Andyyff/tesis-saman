@@ -1,0 +1,64 @@
+# Carga histórica: procesa un rango de días pasados, un día por máquina y hasta 20 a la vez.
+# Se lanza a mano desde la pestaña Actions ("Run workflow") eligiendo desde y hasta.
+name: historia
+on:
+  workflow_dispatch:
+    inputs:
+      desde: { description: "Primer día (AAAA-MM-DD)", required: true, default: "2026-06-01" }
+      hasta: { description: "Último día (AAAA-MM-DD)", required: true, default: "2026-10-23" }
+permissions:
+  contents: write
+jobs:
+  dias:
+    runs-on: ubuntu-latest
+    outputs:
+      lista: ${{ steps.l.outputs.lista }}
+    steps:
+      - id: l
+        run: |
+          python3 -c "
+          import json; from datetime import date, timedelta
+          a, b = date.fromisoformat('${{ inputs.desde }}'), date.fromisoformat('${{ inputs.hasta }}')
+          print('lista=' + json.dumps([str(a + timedelta(i)) for i in range((b - a).days + 1)]))" >> "$GITHUB_OUTPUT"
+
+  procesar:
+    needs: dias
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false       # un día que falla no frena a los demás
+      max-parallel: 20
+      matrix:
+        fecha: ${{ fromJson(needs.dias.outputs.lista) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11", cache: pip }
+      - run: pip install -r requirements.txt
+      - run: python flujo.py ${{ matrix.fecha }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dia-${{ matrix.fecha }}
+          path: |
+            datos/lecturas/*/${{ matrix.fecha }}.csv
+            datos/panel/${{ matrix.fecha }}.json
+
+  juntar:
+    needs: procesar
+    if: always()             # junta los días que salieron aunque alguno haya fallado
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11", cache: pip }
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with: { pattern: dia-*, path: datos, merge-multiple: true }
+      - run: python -c "import flujo; flujo.publicar()"
+      - name: Guardar resultados
+        run: |
+          git config user.name "flujo-bot"
+          git config user.email "flujo-bot@users.noreply.github.com"
+          git add datos
+          git diff --cached --quiet || git commit -m "historia ${{ inputs.desde }} a ${{ inputs.hasta }}"
+          git pull --rebase && git push

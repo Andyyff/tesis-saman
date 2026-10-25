@@ -1,0 +1,10 @@
+variable,nombre,unidad,fuente,version
+top.apertura,Apertura válvula,0-10,top,top-v3
+left.distancia_a,Distancia pesa A,mm,left,left-v3
+left.distancia_b,Distancia pesa B,mm,left,left-v3
+left.angulo,Ángulo palanca,°,left,left-v3
+amp.f1,Amperaje F1,A,amp,amp-v10
+amp.f2,Amperaje F2,A,amp,amp-v10
+amp.f3,Amperaje F3,A,amp,amp-v10
+clima.temperatura,Temperatura ambiente,°C,clima,nexlab-sensores
+clima.humedad,Humedad ambiente,%,clima,nexlab-sensores
