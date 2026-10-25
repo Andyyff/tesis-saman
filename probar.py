@@ -74,6 +74,11 @@ def probar_flujo():
         assert f["00:40"]["e"]["clima.humedad"] == "sin_dato"
         assert dia["calidad"]["variables"]["top.apertura"]["cobertura"] == 0.667
         assert set(json.load(open(os.path.join(flujo.DATOS, "panel", "indice.json")))["dias"]) == {"2026-10-25"}
+        est = json.load(open(os.path.join(flujo.DATOS, "panel", "estado.json"), encoding="utf-8"))
+        assert est["camaras"]["top"] == {"nexlab": 7, "ultima_foto": "2026-10-25T00:58:59-03:00", "procesadas": 7}, est["camaras"]["top"]
+        hist = json.load(open(os.path.join(flujo.DATOS, "panel", "historial.json"), encoding="utf-8"))["dias"]
+        top = hist[0]["camaras"]["top"]
+        assert top["fotos"] == 7 and top["variables"]["apertura"]["medidas"] == len(medido), top
         pbi = {(m["fecha_hora"], m["variable"]): m for m in flujo.leer_csv(os.path.join(flujo.DATOS, "powerbi", "mediciones.csv"))}
         assert float(pbi[("2026-10-25 00:00", "top.apertura")]["valor"]) == medido["00:09:50"], "Power BI: mismo valor que el panel"
         assert pbi[("2026-10-25 00:40", "top.apertura")]["motivo"] == "color_inutilizable"

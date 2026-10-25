@@ -47,7 +47,7 @@ def escribir_csv(ruta, filas, campos):
 
 
 # ---------------------------------------------------------------- cámaras
-def procesar_camara(camara, fecha, aviso):
+def procesar_camara(camara, fecha, aviso, cuenta=None):
     alg = algoritmos.cargar(camara)
     ruta = os.path.join(DATOS, "lecturas", camara, f"{fecha}.csv")
     previas = leer_csv(ruta)
@@ -59,6 +59,9 @@ def procesar_camara(camara, fecha, aviso):
             vistos.add(r["filename"])
             regs.append(r)
     nuevos = [r for r in regs if r["filename"] not in hechas and hora_de_archivo(r["filename"])]
+    if cuenta is not None:          # para el monitoreo: cuántas fotos publicó Nexlab y cuál fue la última
+        horas = [h for h in map(hora_de_archivo, vistos) if h]
+        cuenta[camara] = dict(nexlab=len(regs), ultima_foto=max(horas) if horas else None)
 
     rutas, por_archivo = [], {}
     for r in nuevos:
@@ -182,11 +185,12 @@ def correr(fechas, ahora=None):
     ahora = ahora or datetime.now(UY)
     avisos = []
     aviso = lambda m: (avisos.append(m), print("AVISO:", m))
+    hoy, cuenta = ahora.date().isoformat(), {}
     for fecha in fechas:
         cam = {}
         for c in algoritmos.CAMARAS:
             try:
-                cam[c] = procesar_camara(c, fecha, aviso)
+                cam[c] = procesar_camara(c, fecha, aviso, cuenta if fecha == hoy else None)
             except Exception as e:
                 aviso(f"{c}: no se pudo leer Nexlab ({e}); se usan las lecturas ya guardadas")
                 cam[c] = leer_csv(os.path.join(DATOS, "lecturas", c, f"{fecha}.csv"))
@@ -201,6 +205,13 @@ def correr(fechas, ahora=None):
         with open(os.path.join(DATOS, "panel", f"{fecha}.json"), "w", encoding="utf-8") as f:
             json.dump(dia, f, ensure_ascii=False, separators=(",", ":"))
         print(f"{fecha} panel: {len(dia['filas'])} casilleros, calidad {dia['calidad']['estado']}")
+        if fecha == hoy:
+            for c in algoritmos.CAMARAS:
+                cuenta.setdefault(c, dict(nexlab=None, ultima_foto=None))["procesadas"] = len({f["archivo"] for f in cam[c]})
+    if hoy in fechas:               # estado de esta corrida, para el monitoreo (salud del flujo)
+        with open(os.path.join(DATOS, "panel", "estado.json"), "w", encoding="utf-8") as f:
+            json.dump({"corrida": ahora.isoformat(timespec="seconds"), "fecha": hoy, "camaras": cuenta,
+                       "avisos": avisos}, f, ensure_ascii=False, indent=1)
     publicar(ahora)
 
 
@@ -211,7 +222,33 @@ def publicar(ahora=None):
     with open(os.path.join(DATOS, "panel", "indice.json"), "w", encoding="utf-8") as f:
         json.dump({"dias": dias, "actualizado": ahora.isoformat(timespec="seconds"),
                    "grilla_min": GRILLA_MIN}, f, ensure_ascii=False, indent=1)
+    escribir_historial(dias)
     exportar_powerbi(dias)
+
+
+def escribir_historial(dias):
+    """historial.json para el monitoreo: por día y cámara, cuántas fotos hubo, cuántas midió cada variable
+    y por qué no; más las alertas del día. Sale de lecturas/ y panel/, así que se rehace entero cada vez."""
+    salida = []
+    for fecha in dias:
+        camaras = {}
+        for c in algoritmos.CAMARAS:
+            filas = leer_csv(os.path.join(DATOS, "lecturas", c, f"{fecha}.csv"))
+            if not filas:
+                continue
+            var = {}
+            for f in filas:
+                v = var.setdefault(f["variable"], dict(medidas=0, motivos={}))
+                if f["valor"] != "":
+                    v["medidas"] += 1
+                else:
+                    v["motivos"][f["estado"]] = v["motivos"].get(f["estado"], 0) + 1
+            camaras[c] = dict(fotos=len({f["archivo"] for f in filas}), variables=var)
+        with open(os.path.join(DATOS, "panel", f"{fecha}.json"), encoding="utf-8") as f:
+            calidad = json.load(f)["calidad"]
+        salida.append(dict(fecha=fecha, camaras=camaras, estado=calidad["estado"], alertas=calidad["alertas"]))
+    with open(os.path.join(DATOS, "panel", "historial.json"), "w", encoding="utf-8") as f:
+        json.dump({"dias": salida}, f, ensure_ascii=False, separators=(",", ":"))
 
 
 # ---------------------------------------------------------------- Power BI
