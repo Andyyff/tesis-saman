@@ -57,6 +57,7 @@ footer { font-size:12px; color:var(--sub); text-align:center; padding:8px; }
   <section class="graficos" id="graficos"></section>
   <section class="graficos">
     <div class="tarjeta"><h3>Alertas del día</h3><div class="alertas" id="alertas"></div></div>
+    <div class="tarjeta tabla"><h3>Revisión a ojo (¿miden bien los modelos?)</h3><div id="revision"></div></div>
     <div class="tarjeta tabla"><h3>Calidad por variable</h3><table><thead><tr><th>Variable</th><th>Con dato</th><th>Igual a Nexlab</th><th>Por qué falta</th></tr></thead><tbody id="calidad"></tbody></table></div>
   </section>
   <footer>Datos: cámaras de Nexlab procesadas con los modelos de la tesis (top, left, amp) y sensores de ambiente. Se actualiza solo cada 5 minutos.</footer>
@@ -160,7 +161,23 @@ function pintarCalidad(dia) {
   }).join("");
 }
 
+async function pintarRevision() {
+  const cont = document.getElementById("revision");
+  let r;
+  try { r = await leer("revision.json"); }
+  catch { cont.innerHTML = "<p style='font-size:13px'>Todavía no hay revisiones. La primera se arma el lunes.</p>"; return; }
+  const filas = Object.entries(r.camaras).map(([c, x]) => {
+    const color = x.acierto == null ? "var(--sub)" : x.acierto >= r.objetivo ? "var(--ok)" : "var(--mal)";
+    return `<tr><td>${c}</td><td style="color:${color};font-weight:600">${pct(x.acierto)}</td><td>${x.revisadas}</td>
+      <td>${x.falsos_positivos}</td><td>${x.falsos_negativos}</td></tr>`;
+  }).join("");
+  cont.innerHTML = (r.pendiente ? `<p style="font-size:13px;margin-bottom:8px">Hay una revisión pendiente: <a href="${r.pendiente.url}" target="_blank">${r.pendiente.titulo}</a></p>` : "") +
+    `<table><thead><tr><th>Modelo</th><th>Acierto</th><th>Fotos revisadas</th><th>Número equivocado</th><th>No midió y se podía</th></tr></thead><tbody>${filas}</tbody></table>
+     <p style="font-size:12px;color:var(--sub);margin-top:8px">Objetivo: ${pct(r.objetivo)} de acierto (propuesta). Acumulado de todas las semanas revisadas.</p>`;
+}
+
 async function mostrar() {
+  pintarRevision();
   const err = document.getElementById("error");
   try {
     await cargarIndice();

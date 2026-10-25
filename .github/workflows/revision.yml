@@ -1,0 +1,33 @@
+# Revisión a ojo: los lunes arma un issue con 20 fotos de la semana pasada para marcar Bien/Mal.
+# Cada vez que se cierra o edita un issue de revisión, recalcula el acierto (datos/panel/revision.json) para la página.
+name: revision
+on:
+  schedule:
+    - cron: "0 12 * * 1"   # lunes 9:00 de Uruguay
+  workflow_dispatch: {}
+  issues:
+    types: [closed, reopened, edited]
+permissions:
+  contents: write
+  issues: write
+concurrency: revision
+jobs:
+  revision:
+    if: github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'revision')
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - if: github.event_name != 'issues'
+        run: python revision.py crear
+      - run: python revision.py resumir
+      - name: Guardar resultados
+        run: |
+          git config user.name "flujo-bot"
+          git config user.email "flujo-bot@users.noreply.github.com"
+          git add datos/panel/revision.json
+          git diff --cached --quiet || git commit -m "revisión a ojo"
+          git pull --rebase && git push
