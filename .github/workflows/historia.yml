@@ -33,7 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: { python-version: "3.11", cache: pip }
+        with: { python-version: "3.12", cache: pip }
       - run: pip install -r requirements.txt
       - run: python flujo.py ${{ matrix.fecha }}
       - uses: actions/upload-artifact@v4
@@ -50,7 +50,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: { python-version: "3.11", cache: pip }
+        with: { python-version: "3.12", cache: pip }
       - run: pip install -r requirements.txt
       - uses: actions/download-artifact@v4
         with: { pattern: dia-*, path: datos, merge-multiple: true }
