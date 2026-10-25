@@ -4,7 +4,7 @@ name: historia
 on:
   workflow_dispatch:
     inputs:
-      desde: { description: "Primer día (AAAA-MM-DD)", required: true, default: "2026-06-01" }
+      desde: { description: "Primer día (AAAA-MM-DD)", required: true, default: "2026-10-01" }
       hasta: { description: "Último día (AAAA-MM-DD)", required: true, default: "2026-10-23" }
 permissions:
   contents: write
@@ -45,7 +45,7 @@ jobs:
 
   juntar:
     needs: procesar
-    if: always()             # junta los días que salieron aunque alguno haya fallado
+    if: ${{ !cancelled() }}  # junta los días que salieron aunque alguno haya fallado; si se cancela, no guarda nada
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
