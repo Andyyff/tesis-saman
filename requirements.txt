@@ -1,6 +1,7 @@
-opencv-python-headless
-numpy
-requests
+opencv-python-headless==4.13.0.92
+numpy==2.3.5
+requests==2.34.2
 scikit-learn==1.8.0
-scikit-image
-joblib
+scikit-image==0.26.0
+scipy==1.18.1
+joblib==1.5.3
