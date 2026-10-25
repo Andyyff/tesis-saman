@@ -43,7 +43,8 @@ Responder en castellano rioplatense, simple. Modo de trabajo preferido: cambios 
 
 ## Operación (desde 25/10/2026)
 
-- Corre **en la PC de Andrés** con el Programador de tareas: tarea "Tesis Saman - flujo", cada hora a los :05, lanza `correr_flujo.cmd` (log en `datos/flujo.log`). Solo corre con la PC prendida y la sesión iniciada; al volver, recupera lo atrasado de ayer y hoy (más atrás: `python flujo.py AAAA-MM-DD`).
+- El flujo corre **en GitHub Actions** (repo público https://github.com/Andyyff/tesis-saman): `flujo.yml` cada hora, `historia.yml` para cargar días pasados en paralelo (a mano, con desde/hasta). Versiones de Python (3.12) y librerías fijadas igual que la PC: con OpenCV 5 left mide distinto.
+- En la PC de Andrés, la tarea "Tesis Saman - flujo" (Programador de tareas, cada hora a los :05) solo hace `git pull` con `actualizar_datos.cmd` (log en `datos/actualizar.log`), para que OneDrive/Power BI tengan lo último. `correr_flujo.cmd` corre el flujo en la PC a mano.
 - Salida para **Power BI**: `datos/powerbi/mediciones.csv`, `variables.csv`, `calidad.csv` (UTF-8, punto decimal). Está en OneDrive, así que Power BI la lee de ahí.
 - Las fotos se borran de `.cache/` apenas se procesan.
 
