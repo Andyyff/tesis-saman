@@ -124,3 +124,8 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-10-26T15:38:39-03:00,RIC-0001-TOP_2026-10-26_15-38-39.jpg,apertura,8.786,medida,,top-v3,0.0
 2026-10-26T15:45:17-03:00,RIC-0001-TOP_2026-10-26_15-45-17.jpg,apertura,,mango_no_visible,"no se ve el mango verde sobre su recorrido (por ejemplo, el operario lo esta tapando con la mano)",top-v3,9.5
 2026-10-26T15:52:02-03:00,RIC-0001-TOP_2026-10-26_15-52-02.jpg,apertura,8.805,medida,,top-v3,9.0
+2026-10-26T15:58:38-03:00,RIC-0001-TOP_2026-10-26_15-58-38.jpg,apertura,8.756,medida,,top-v3,8.9
+2026-10-26T16:05:18-03:00,RIC-0001-TOP_2026-10-26_16-05-18.jpg,apertura,8.752,medida,el mango quedo 10.6px fuera de su recorrido,top-v3,9.0
+2026-10-26T16:11:58-03:00,RIC-0001-TOP_2026-10-26_16-11-58.jpg,apertura,8.753,medida,el mango quedo 8.4px fuera de su recorrido,top-v3,
+2026-10-26T16:18:39-03:00,RIC-0001-TOP_2026-10-26_16-18-39.jpg,apertura,8.783,medida,,top-v3,8.9
+2026-10-26T16:38:52-03:00,RIC-0001-TOP_2026-10-26_16-38-52.jpg,apertura,8.809,medida,tinte de camara 2.97: color corregido por balance de blancos,top-v3,
