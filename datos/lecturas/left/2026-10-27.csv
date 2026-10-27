@@ -1,0 +1,13 @@
+t,archivo,variable,valor,estado,detalle,version,nexlab
+2026-10-27T00:19:22-03:00,RIC-0001-LEFT_2026-10-27_00-19-22.jpg,angulo,74.35,medida,,left-v3,
+2026-10-27T00:19:22-03:00,RIC-0001-LEFT_2026-10-27_00-19-22.jpg,distancia_a,120.2,medida,,left-v3,
+2026-10-27T00:19:22-03:00,RIC-0001-LEFT_2026-10-27_00-19-22.jpg,distancia_b,119.6,medida,,left-v3,
+2026-10-27T00:25:50-03:00,RIC-0001-LEFT_2026-10-27_00-25-50.jpg,angulo,72.67,medida,,left-v3,
+2026-10-27T00:25:50-03:00,RIC-0001-LEFT_2026-10-27_00-25-50.jpg,distancia_a,125.3,medida,,left-v3,
+2026-10-27T00:25:50-03:00,RIC-0001-LEFT_2026-10-27_00-25-50.jpg,distancia_b,119.2,medida,,left-v3,
+2026-10-27T00:32:18-03:00,RIC-0001-LEFT_2026-10-27_00-32-18.jpg,angulo,73.0,medida,,left-v3,
+2026-10-27T00:32:18-03:00,RIC-0001-LEFT_2026-10-27_00-32-18.jpg,distancia_a,129.2,medida,"descartado un objeto a t=203: tapa solo el 37 % de la barra, esta detras o al costado, no ensartado en ella",left-v3,
+2026-10-27T00:32:18-03:00,RIC-0001-LEFT_2026-10-27_00-32-18.jpg,distancia_b,121.4,medida,,left-v3,
+2026-10-27T00:39:24-03:00,RIC-0001-LEFT_2026-10-27_00-39-24.jpg,angulo,72.92,medida,,left-v3,
+2026-10-27T00:39:24-03:00,RIC-0001-LEFT_2026-10-27_00-39-24.jpg,distancia_a,126.2,medida,,left-v3,
+2026-10-27T00:39:24-03:00,RIC-0001-LEFT_2026-10-27_00-39-24.jpg,distancia_b,119.5,medida,,left-v3,
