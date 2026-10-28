@@ -13,3 +13,10 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-10-28T01:25:53-03:00,RIC-0001-TOP_2026-10-28_01-25-53.jpg,apertura,8.859,medida,,top-v3,9.0
 2026-10-28T01:32:36-03:00,RIC-0001-TOP_2026-10-28_01-32-36.jpg,apertura,8.898,medida,,top-v3,9.1
 2026-10-28T01:39:03-03:00,RIC-0001-TOP_2026-10-28_01-39-03.jpg,apertura,8.854,medida,,top-v3,9.0
+2026-10-28T01:53:17-03:00,RIC-0001-TOP_2026-10-28_01-53-17.jpg,apertura,8.854,medida,,top-v3,9.0
+2026-10-28T01:59:03-03:00,RIC-0001-TOP_2026-10-28_01-59-03.jpg,apertura,8.847,medida,,top-v3,8.9
+2026-10-28T02:05:43-03:00,RIC-0001-TOP_2026-10-28_02-05-43.jpg,apertura,-0.169,medida,el mango quedo 9.1px fuera de su recorrido,top-v3,0.0
+2026-10-28T02:12:29-03:00,RIC-0001-TOP_2026-10-28_02-12-29.jpg,apertura,8.324,medida,el mango quedo 4.5px fuera de su recorrido,top-v3,8.6
+2026-10-28T02:19:26-03:00,RIC-0001-TOP_2026-10-28_02-19-26.jpg,apertura,7.967,medida,,top-v3,8.2
+2026-10-28T02:25:49-03:00,RIC-0001-TOP_2026-10-28_02-25-49.jpg,apertura,8.01,medida,el mango quedo 5.7px fuera de su recorrido,top-v3,8.2
+2026-10-28T02:32:23-03:00,RIC-0001-TOP_2026-10-28_02-32-23.jpg,apertura,8.371,medida,,top-v3,8.6
