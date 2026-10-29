@@ -50,3 +50,10 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-10-29T05:39:34-03:00,RIC-0001-TOP_2026-10-29_05-39-34.jpg,apertura,7.398,medida,,top-v3,7.1
 2026-10-29T05:46:06-03:00,RIC-0001-TOP_2026-10-29_05-46-06.jpg,apertura,7.417,medida,,top-v3,7.2
 2026-10-29T05:52:57-03:00,RIC-0001-TOP_2026-10-29_05-52-57.jpg,apertura,7.344,medida,,top-v3,7.1
+2026-10-29T05:59:31-03:00,RIC-0001-TOP_2026-10-29_05-59-31.jpg,apertura,8.851,medida,,top-v3,8.8
+2026-10-29T06:06:06-03:00,RIC-0001-TOP_2026-10-29_06-06-06.jpg,apertura,8.814,medida,,top-v3,8.7
+2026-10-29T06:13:07-03:00,RIC-0001-TOP_2026-10-29_06-13-07.jpg,apertura,8.761,medida,,top-v3,8.6
+2026-10-29T06:19:43-03:00,RIC-0001-TOP_2026-10-29_06-19-43.jpg,apertura,-0.199,medida,el mango quedo 7.4px fuera de su recorrido,top-v3,0.0
+2026-10-29T06:26:23-03:00,RIC-0001-TOP_2026-10-29_06-26-23.jpg,apertura,-0.201,medida,el mango quedo 7.4px fuera de su recorrido,top-v3,0.0
+2026-10-29T06:46:24-03:00,RIC-0001-TOP_2026-10-29_06-46-24.jpg,apertura,9.069,medida,tinte de camara 3.2: color corregido por balance de blancos | el mango quedo -5.2px fuera de su recorrido,top-v3,
+2026-10-29T06:52:52-03:00,RIC-0001-TOP_2026-10-29_06-52-52.jpg,apertura,9.04,medida,el mango quedo 6.9px fuera de su recorrido,top-v3,9.0
