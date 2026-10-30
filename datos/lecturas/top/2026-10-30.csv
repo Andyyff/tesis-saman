@@ -13,3 +13,10 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-10-30T01:33:01-03:00,RIC-0001-TOP_2026-10-30_01-33-01.jpg,apertura,8.01,medida,,top-v3,7.8
 2026-10-30T01:39:42-03:00,RIC-0001-TOP_2026-10-30_01-39-42.jpg,apertura,7.774,medida,el mango quedo 8.7px fuera de su recorrido,top-v3,7.6
 2026-10-30T01:46:27-03:00,RIC-0001-TOP_2026-10-30_01-46-27.jpg,apertura,7.758,medida,el mango quedo 4.5px fuera de su recorrido,top-v3,7.6
+2026-10-30T01:53:08-03:00,RIC-0001-TOP_2026-10-30_01-53-08.jpg,apertura,-0.142,medida,el mango quedo 6.3px fuera de su recorrido,top-v3,0.0
+2026-10-30T01:59:53-03:00,RIC-0001-TOP_2026-10-30_01-59-53.jpg,apertura,7.799,medida,,top-v3,7.6
+2026-10-30T02:06:25-03:00,RIC-0001-TOP_2026-10-30_02-06-25.jpg,apertura,7.824,medida,,top-v3,7.6
+2026-10-30T02:13:08-03:00,RIC-0001-TOP_2026-10-30_02-13-08.jpg,apertura,7.86,medida,el mango quedo 8.1px fuera de su recorrido,top-v3,7.8
+2026-10-30T02:26:30-03:00,RIC-0001-TOP_2026-10-30_02-26-30.jpg,apertura,7.869,medida,el mango quedo 7.2px fuera de su recorrido,top-v3,7.7
+2026-10-30T02:39:48-03:00,RIC-0001-TOP_2026-10-30_02-39-48.jpg,apertura,7.845,medida,el mango quedo 5.7px fuera de su recorrido,top-v3,7.8
+2026-10-30T02:46:40-03:00,RIC-0001-TOP_2026-10-30_02-46-40.jpg,apertura,8.008,medida,el mango quedo 7.3px fuera de su recorrido,top-v3,7.9
