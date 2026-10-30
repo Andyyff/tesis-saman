@@ -38,3 +38,11 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-10-30T04:39:45-03:00,RIC-0001-TOP_2026-10-30_04-39-45.jpg,apertura,8.237,medida,,top-v3,8.1
 2026-10-30T04:46:25-03:00,RIC-0001-TOP_2026-10-30_04-46-25.jpg,apertura,8.201,medida,,top-v3,8.1
 2026-10-30T04:59:45-03:00,RIC-0001-TOP_2026-10-30_04-59-45.jpg,apertura,8.237,medida,,top-v3,8.0
+2026-10-30T05:06:31-03:00,RIC-0001-TOP_2026-10-30_05-06-31.jpg,apertura,8.218,medida,,top-v3,8.1
+2026-10-30T05:13:28-03:00,RIC-0001-TOP_2026-10-30_05-13-28.jpg,apertura,8.163,medida,el mango quedo 8.6px fuera de su recorrido,top-v3,8.0
+2026-10-30T05:20:01-03:00,RIC-0001-TOP_2026-10-30_05-20-01.jpg,apertura,8.237,medida,,top-v3,8.1
+2026-10-30T05:26:35-03:00,RIC-0001-TOP_2026-10-30_05-26-35.jpg,apertura,8.234,medida,,top-v3,8.0
+2026-10-30T05:33:08-03:00,RIC-0001-TOP_2026-10-30_05-33-08.jpg,apertura,8.24,medida,,top-v3,8.1
+2026-10-30T05:39:45-03:00,RIC-0001-TOP_2026-10-30_05-39-45.jpg,apertura,8.209,medida,el mango quedo 6.2px fuera de su recorrido,top-v3,8.2
+2026-10-30T05:46:27-03:00,RIC-0001-TOP_2026-10-30_05-46-27.jpg,apertura,,mango_no_visible,"no se ve el mango verde sobre su recorrido (por ejemplo, el operario lo esta tapando con la mano)",top-v3,8.2
+2026-10-30T05:53:05-03:00,RIC-0001-TOP_2026-10-30_05-53-05.jpg,apertura,8.21,medida,el mango quedo 4.0px fuera de su recorrido,top-v3,8.0
