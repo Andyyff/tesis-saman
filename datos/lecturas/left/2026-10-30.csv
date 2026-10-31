@@ -623,3 +623,6 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-10-30T23:47:31-03:00,RIC-0001-LEFT_2026-10-30_23-47-31.jpg,angulo,70.17,medida,,left-v3,
 2026-10-30T23:47:31-03:00,RIC-0001-LEFT_2026-10-30_23-47-31.jpg,distancia_a,134.9,medida,,left-v3,
 2026-10-30T23:47:31-03:00,RIC-0001-LEFT_2026-10-30_23-47-31.jpg,distancia_b,121.2,medida,,left-v3,
+2026-10-30T23:53:45-03:00,RIC-0001-LEFT_2026-10-30_23-53-45.jpg,angulo,70.3,medida,,left-v3,
+2026-10-30T23:53:45-03:00,RIC-0001-LEFT_2026-10-30_23-53-45.jpg,distancia_a,135.3,medida,,left-v3,
+2026-10-30T23:53:45-03:00,RIC-0001-LEFT_2026-10-30_23-53-45.jpg,distancia_b,121.3,medida,,left-v3,

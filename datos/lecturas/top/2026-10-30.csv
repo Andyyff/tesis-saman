@@ -189,3 +189,4 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-10-30T23:13:20-03:00,RIC-0001-TOP_2026-10-30_23-13-20.jpg,apertura,8.744,medida,,top-v3,8.4
 2026-10-30T23:20:05-03:00,RIC-0001-TOP_2026-10-30_23-20-05.jpg,apertura,8.782,medida,el mango quedo 4.7px fuera de su recorrido,top-v3,8.7
 2026-10-30T23:46:51-03:00,RIC-0001-TOP_2026-10-30_23-46-51.jpg,apertura,8.783,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3,8.5
+2026-10-30T23:53:27-03:00,RIC-0001-TOP_2026-10-30_23-53-27.jpg,apertura,,alineacion_fallida,alineacion no confiable (25 coincidencias) | sin vecina alineada a menos de 3 h,top-v3,8.5
