@@ -79,3 +79,9 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-01T09:40:39-03:00,RIC-0001-TOP_2026-11-01_09-40-39.jpg,apertura,-0.242,medida,el mango quedo 6.0px fuera de su recorrido,top-v3,
 2026-11-01T09:47:14-03:00,RIC-0001-TOP_2026-11-01_09-47-14.jpg,apertura,-0.318,medida,el mango quedo 9.0px fuera de su recorrido | apertura -0.318 fuera del rango calibrado (0.0-9.5): menos precisa,top-v3,
 2026-11-01T09:53:51-03:00,RIC-0001-TOP_2026-11-01_09-53-51.jpg,apertura,-0.209,medida,el mango quedo 6.7px fuera de su recorrido,top-v3,
+2026-11-01T10:00:31-03:00,RIC-0001-TOP_2026-11-01_10-00-31.jpg,apertura,-0.345,medida,el mango quedo 9.1px fuera de su recorrido | apertura -0.345 fuera del rango calibrado (0.0-9.5): menos precisa,top-v3,
+2026-11-01T10:07:11-03:00,RIC-0001-TOP_2026-11-01_10-07-11.jpg,apertura,-0.316,medida,el mango quedo 9.1px fuera de su recorrido | apertura -0.316 fuera del rango calibrado (0.0-9.5): menos precisa,top-v3,
+2026-11-01T10:27:09-03:00,RIC-0001-TOP_2026-11-01_10-27-09.jpg,apertura,,color_inutilizable,"tinte de camara 206.12: el color no se puede recuperar, no se mide",top-v3,0.0
+2026-11-01T10:33:50-03:00,RIC-0001-TOP_2026-11-01_10-33-50.jpg,apertura,-0.22,medida,el mango quedo 6.1px fuera de su recorrido,top-v3,
+2026-11-01T10:40:30-03:00,RIC-0001-TOP_2026-11-01_10-40-30.jpg,apertura,-0.215,medida,el mango quedo 5.8px fuera de su recorrido,top-v3,
+2026-11-01T10:47:12-03:00,RIC-0001-TOP_2026-11-01_10-47-12.jpg,apertura,-0.206,medida,el mango quedo 5.9px fuera de su recorrido,top-v3,
