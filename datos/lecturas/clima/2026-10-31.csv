@@ -2782,3 +2782,13 @@ t,variable,valor,estado
 2026-10-31T23:53:06-03:00,temperatura,19.8,medida
 2026-10-31T23:54:06-03:00,humedad,77.2,medida
 2026-10-31T23:54:07-03:00,temperatura,19.8,medida
+2026-10-31T23:55:06-03:00,humedad,77.2,medida
+2026-10-31T23:55:07-03:00,temperatura,19.7,medida
+2026-10-31T23:56:07-03:00,humedad,77.3,medida
+2026-10-31T23:56:07-03:00,temperatura,19.7,medida
+2026-10-31T23:57:07-03:00,humedad,77.3,medida
+2026-10-31T23:57:07-03:00,temperatura,19.7,medida
+2026-10-31T23:58:07-03:00,humedad,77.5,medida
+2026-10-31T23:58:12-03:00,temperatura,19.7,medida
+2026-10-31T23:59:09-03:00,humedad,77.5,medida
+2026-10-31T23:59:30-03:00,temperatura,19.7,medida
