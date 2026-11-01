@@ -23,3 +23,12 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-01T02:33:45-03:00,RIC-0001-TOP_2026-11-01_02-33-45.jpg,apertura,-0.193,medida,el mango quedo 6.3px fuera de su recorrido,top-v3,
 2026-11-01T02:40:24-03:00,RIC-0001-TOP_2026-11-01_02-40-24.jpg,apertura,-0.19,medida,el mango quedo 5.7px fuera de su recorrido,top-v3,
 2026-11-01T02:47:11-03:00,RIC-0001-TOP_2026-11-01_02-47-11.jpg,apertura,-0.199,medida,el mango quedo 5.9px fuera de su recorrido,top-v3,
+2026-11-01T02:54:10-03:00,RIC-0001-TOP_2026-11-01_02-54-10.jpg,apertura,-0.252,medida,el mango quedo 7.5px fuera de su recorrido,top-v3,
+2026-11-01T03:00:24-03:00,RIC-0001-TOP_2026-11-01_03-00-24.jpg,apertura,-0.242,medida,el mango quedo 8.4px fuera de su recorrido,top-v3,
+2026-11-01T03:07:04-03:00,RIC-0001-TOP_2026-11-01_03-07-04.jpg,apertura,-0.247,medida,el mango quedo 7.5px fuera de su recorrido,top-v3,
+2026-11-01T03:13:52-03:00,RIC-0001-TOP_2026-11-01_03-13-52.jpg,apertura,-0.198,medida,el mango quedo 6.0px fuera de su recorrido,top-v3,
+2026-11-01T03:20:23-03:00,RIC-0001-TOP_2026-11-01_03-20-23.jpg,apertura,-0.183,medida,el mango quedo 5.3px fuera de su recorrido,top-v3,
+2026-11-01T03:40:24-03:00,RIC-0001-TOP_2026-11-01_03-40-24.jpg,apertura,,color_inutilizable,"tinte de camara 231.26: el color no se puede recuperar, no se mide",top-v3,9.3
+2026-11-01T03:47:04-03:00,RIC-0001-TOP_2026-11-01_03-47-04.jpg,apertura,-0.247,medida,el mango quedo 6.9px fuera de su recorrido,top-v3,
+2026-11-01T03:53:45-03:00,RIC-0001-TOP_2026-11-01_03-53-45.jpg,apertura,-0.198,medida,el mango quedo 5.6px fuera de su recorrido,top-v3,
+2026-11-01T04:00:26-03:00,RIC-0001-TOP_2026-11-01_04-00-26.jpg,apertura,-0.345,medida,el mango quedo 8.8px fuera de su recorrido | apertura -0.345 fuera del rango calibrado (0.0-9.5): menos precisa,top-v3,
