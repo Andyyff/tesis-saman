@@ -2806,3 +2806,9 @@ t,variable,valor,estado
 2026-11-01T23:55:10-03:00,temperatura,21.0,medida
 2026-11-01T23:56:10-03:00,humedad,79.7,medida
 2026-11-01T23:56:10-03:00,temperatura,20.9,medida
+2026-11-01T23:57:10-03:00,humedad,79.7,medida
+2026-11-01T23:57:22-03:00,temperatura,21.0,medida
+2026-11-01T23:58:10-03:00,humedad,79.7,medida
+2026-11-01T23:58:10-03:00,temperatura,20.9,medida
+2026-11-01T23:59:10-03:00,humedad,79.8,medida
+2026-11-01T23:59:10-03:00,temperatura,20.9,medida
