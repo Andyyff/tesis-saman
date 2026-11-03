@@ -1,24 +1,22 @@
 {
- "corrida": "2026-11-03T17:53:16-03:00",
+ "corrida": "2026-11-03T18:51:15-03:00",
  "fecha": "2026-11-03",
  "camaras": {
   "top": {
-   "nexlab": 150,
-   "ultima_foto": "2026-11-03T17:47:56-03:00",
-   "procesadas": 149
+   "nexlab": 157,
+   "ultima_foto": "2026-11-03T18:47:55-03:00",
+   "procesadas": 157
   },
   "left": {
-   "nexlab": 156,
-   "ultima_foto": "2026-11-03T17:48:21-03:00",
-   "procesadas": 156
+   "nexlab": 164,
+   "ultima_foto": "2026-11-03T18:48:21-03:00",
+   "procesadas": 164
   },
   "amp": {
-   "nexlab": 160,
-   "ultima_foto": "2026-11-03T17:48:45-03:00",
-   "procesadas": 160
+   "nexlab": 169,
+   "ultima_foto": "2026-11-03T18:48:44-03:00",
+   "procesadas": 169
   }
  },
- "avisos": [
-  "top: no se pudo bajar RIC-0001-TOP_2026-11-03_17-14-39.jpg: HTTPSConnectionPool(host='sam-240101.s3.sa-east-1.amazonaws.com', port=443): Read timed out. (read timeout=60)"
- ]
+ "avisos": []
 }
