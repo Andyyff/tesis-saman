@@ -626,3 +626,6 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-03T23:48:54-03:00,RIC-0001-AMP_2026-11-03_23-48-54.jpg,f1,,no_valido_digito,,amp-v10,
 2026-11-03T23:48:54-03:00,RIC-0001-AMP_2026-11-03_23-48-54.jpg,f2,64.45,medida,V5,amp-v10,64.45
 2026-11-03T23:48:54-03:00,RIC-0001-AMP_2026-11-03_23-48-54.jpg,f3,63.01,medida,V6_META>=0.925,amp-v10,63.01
+2026-11-03T23:58:04-03:00,RIC-0001-AMP_2026-11-03_23-58-04.jpg,f1,,no_valido_digito,,amp-v10,57.13
+2026-11-03T23:58:04-03:00,RIC-0001-AMP_2026-11-03_23-58-04.jpg,f2,,no_valido_digito,,amp-v10,56.54
+2026-11-03T23:58:04-03:00,RIC-0001-AMP_2026-11-03_23-58-04.jpg,f3,56.83,medida,V8_CONSENSO,amp-v10,
