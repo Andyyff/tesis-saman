@@ -161,3 +161,11 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-05T18:48:34-03:00,RIC-0001-TOP_2026-11-05_18-48-34.jpg,apertura,8.669,medida,el mango quedo 7.6px fuera de su recorrido,top-v3,9.0
 2026-11-05T19:22:00-03:00,RIC-0001-TOP_2026-11-05_19-22-00.jpg,apertura,,color_inutilizable,"tinte de camara 6.13: el color no se puede recuperar, no se mide",top-v3,8.5
 2026-11-05T19:28:35-03:00,RIC-0001-TOP_2026-11-05_19-28-35.jpg,apertura,8.699,medida,,top-v3,8.9
+2026-11-05T20:01:56-03:00,RIC-0001-TOP_2026-11-05_20-01-56.jpg,apertura,8.636,medida,tinte de camara 2.71: color corregido por balance de blancos | el mango quedo 9.6px fuera de su recorrido,top-v3,7.2
+2026-11-05T20:08:36-03:00,RIC-0001-TOP_2026-11-05_20-08-36.jpg,apertura,8.696,medida,,top-v3,8.9
+2026-11-05T20:15:16-03:00,RIC-0001-TOP_2026-11-05_20-15-16.jpg,apertura,8.713,medida,el mango quedo 7.1px fuera de su recorrido,top-v3,9.0
+2026-11-05T20:21:56-03:00,RIC-0001-TOP_2026-11-05_20-21-56.jpg,apertura,8.66,medida,el mango quedo 4.8px fuera de su recorrido,top-v3,9.0
+2026-11-05T20:28:57-03:00,RIC-0001-TOP_2026-11-05_20-28-57.jpg,apertura,8.686,medida,el mango quedo 4.7px fuera de su recorrido,top-v3,9.0
+2026-11-05T20:35:29-03:00,RIC-0001-TOP_2026-11-05_20-35-29.jpg,apertura,8.68,medida,la forma difiere 8.0px del color,top-v3,8.9
+2026-11-05T20:41:57-03:00,RIC-0001-TOP_2026-11-05_20-41-57.jpg,apertura,8.678,medida,,top-v3,9.0
+2026-11-05T20:48:43-03:00,RIC-0001-TOP_2026-11-05_20-48-43.jpg,apertura,8.651,medida,el mango quedo 9.5px fuera de su recorrido,top-v3,9.0
