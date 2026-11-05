@@ -48,3 +48,13 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-05T05:48:24-03:00,RIC-0001-TOP_2026-11-05_05-48-24.jpg,apertura,8.701,medida,,top-v3,9.0
 2026-11-05T05:55:11-03:00,RIC-0001-TOP_2026-11-05_05-55-11.jpg,apertura,8.681,medida,la forma difiere 8.7px del color | el mango quedo 9.5px fuera de su recorrido,top-v3,9.0
 2026-11-05T06:02:02-03:00,RIC-0001-TOP_2026-11-05_06-02-02.jpg,apertura,8.283,medida,el mango quedo 7.2px fuera de su recorrido,top-v3,8.6
+2026-11-05T06:08:23-03:00,RIC-0001-TOP_2026-11-05_06-08-23.jpg,apertura,8.297,medida,el mango quedo 6.6px fuera de su recorrido,top-v3,8.6
+2026-11-05T06:15:05-03:00,RIC-0001-TOP_2026-11-05_06-15-05.jpg,apertura,8.312,medida,,top-v3,8.6
+2026-11-05T06:21:46-03:00,RIC-0001-TOP_2026-11-05_06-21-46.jpg,apertura,8.289,medida,,top-v3,8.6
+2026-11-05T06:28:24-03:00,RIC-0001-TOP_2026-11-05_06-28-24.jpg,apertura,8.28,medida,el mango quedo 8.2px fuera de su recorrido,top-v3,8.6
+2026-11-05T06:35:09-03:00,RIC-0001-TOP_2026-11-05_06-35-09.jpg,apertura,8.325,medida,,top-v3,8.8
+2026-11-05T06:41:45-03:00,RIC-0001-TOP_2026-11-05_06-41-45.jpg,apertura,8.301,medida,,top-v3,8.5
+2026-11-05T06:48:29-03:00,RIC-0001-TOP_2026-11-05_06-48-29.jpg,apertura,,mango_no_visible,"no se ve el mango verde sobre su recorrido (por ejemplo, el operario lo esta tapando con la mano)",top-v3,8.6
+2026-11-05T06:55:06-03:00,RIC-0001-TOP_2026-11-05_06-55-06.jpg,apertura,8.31,medida,,top-v3,8.6
+2026-11-05T07:02:04-03:00,RIC-0001-TOP_2026-11-05_07-02-04.jpg,apertura,8.289,medida,el mango quedo 7.0px fuera de su recorrido,top-v3,8.6
+2026-11-05T07:08:35-03:00,RIC-0001-TOP_2026-11-05_07-08-35.jpg,apertura,8.276,medida,el mango quedo 7.7px fuera de su recorrido,top-v3,8.5
