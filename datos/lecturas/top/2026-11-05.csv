@@ -159,3 +159,5 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-05T18:35:18-03:00,RIC-0001-TOP_2026-11-05_18-35-18.jpg,apertura,8.653,medida,la forma difiere 8.0px del color | el mango quedo 9.2px fuera de su recorrido,top-v3,9.0
 2026-11-05T18:41:55-03:00,RIC-0001-TOP_2026-11-05_18-41-55.jpg,apertura,8.675,medida,,top-v3,8.9
 2026-11-05T18:48:34-03:00,RIC-0001-TOP_2026-11-05_18-48-34.jpg,apertura,8.669,medida,el mango quedo 7.6px fuera de su recorrido,top-v3,9.0
+2026-11-05T19:22:00-03:00,RIC-0001-TOP_2026-11-05_19-22-00.jpg,apertura,,color_inutilizable,"tinte de camara 6.13: el color no se puede recuperar, no se mide",top-v3,8.5
+2026-11-05T19:28:35-03:00,RIC-0001-TOP_2026-11-05_19-28-35.jpg,apertura,8.699,medida,,top-v3,8.9
