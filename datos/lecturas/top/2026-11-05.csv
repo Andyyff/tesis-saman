@@ -17,3 +17,8 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-05T01:48:21-03:00,RIC-0001-TOP_2026-11-05_01-48-21.jpg,apertura,8.498,medida,,top-v3,8.9
 2026-11-05T01:55:01-03:00,RIC-0001-TOP_2026-11-05_01-55-01.jpg,apertura,8.702,medida,,top-v3,9.0
 2026-11-05T02:01:49-03:00,RIC-0001-TOP_2026-11-05_02-01-49.jpg,apertura,8.689,medida,,top-v3,9.0
+2026-11-05T02:08:24-03:00,RIC-0001-TOP_2026-11-05_02-08-24.jpg,apertura,8.653,medida,,top-v3,9.0
+2026-11-05T02:28:21-03:00,RIC-0001-TOP_2026-11-05_02-28-21.jpg,apertura,8.701,medida,tinte de camara 2.72: color corregido por balance de blancos,top-v3,8.5
+2026-11-05T02:48:25-03:00,RIC-0001-TOP_2026-11-05_02-48-25.jpg,apertura,8.653,medida,tinte de camara 2.7: color corregido por balance de blancos | el mango quedo 4.9px fuera de su recorrido,top-v3,0.0
+2026-11-05T02:55:41-03:00,RIC-0001-TOP_2026-11-05_02-55-41.jpg,apertura,8.638,medida,el mango quedo 5.7px fuera de su recorrido | alineacion prestada de una foto vecina (la camara esta fija),top-v3,8.8
+2026-11-05T03:01:45-03:00,RIC-0001-TOP_2026-11-05_03-01-45.jpg,apertura,8.639,medida,el mango quedo 4.5px fuera de su recorrido,top-v3,9.0
