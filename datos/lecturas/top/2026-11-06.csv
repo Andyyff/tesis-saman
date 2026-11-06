@@ -132,3 +132,7 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-06T15:42:14-03:00,RIC-0001-TOP_2026-11-06_15-42-14.jpg,apertura,7.829,medida,,top-v3,7.9
 2026-11-06T15:49:00-03:00,RIC-0001-TOP_2026-11-06_15-49-00.jpg,apertura,7.832,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3,8.0
 2026-11-06T15:55:53-03:00,RIC-0001-TOP_2026-11-06_15-55-53.jpg,apertura,8.301,medida,,top-v3,8.5
+2026-11-06T16:02:15-03:00,RIC-0001-TOP_2026-11-06_16-02-15.jpg,apertura,,alineacion_fallida,alineacion no confiable (26 coincidencias) | sin vecina alineada a menos de 3 h,top-v3,8.5
+2026-11-06T16:09:19-03:00,RIC-0001-TOP_2026-11-06_16-09-19.jpg,apertura,,alineacion_fallida,alineacion no confiable (33 coincidencias) | sin vecina alineada a menos de 3 h,top-v3,8.4
+2026-11-06T16:15:42-03:00,RIC-0001-TOP_2026-11-06_16-15-42.jpg,apertura,,alineacion_fallida,alineacion no confiable (36 coincidencias) | sin vecina alineada a menos de 3 h,top-v3,8.4
+2026-11-06T16:22:16-03:00,RIC-0001-TOP_2026-11-06_16-22-16.jpg,apertura,,alineacion_fallida,alineacion no confiable (34 coincidencias) | sin vecina alineada a menos de 3 h,top-v3,8.5
