@@ -136,3 +136,10 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-06T16:09:19-03:00,RIC-0001-TOP_2026-11-06_16-09-19.jpg,apertura,,alineacion_fallida,alineacion no confiable (33 coincidencias) | sin vecina alineada a menos de 3 h,top-v3,8.4
 2026-11-06T16:15:42-03:00,RIC-0001-TOP_2026-11-06_16-15-42.jpg,apertura,,alineacion_fallida,alineacion no confiable (36 coincidencias) | sin vecina alineada a menos de 3 h,top-v3,8.4
 2026-11-06T16:22:16-03:00,RIC-0001-TOP_2026-11-06_16-22-16.jpg,apertura,,alineacion_fallida,alineacion no confiable (34 coincidencias) | sin vecina alineada a menos de 3 h,top-v3,8.5
+2026-11-06T17:02:20-03:00,RIC-0001-TOP_2026-11-06_17-02-20.jpg,apertura,8.286,medida,tinte de camara 3.2: color corregido por balance de blancos,top-v3,2.9
+2026-11-06T17:08:54-03:00,RIC-0001-TOP_2026-11-06_17-08-54.jpg,apertura,8.276,medida,,top-v3,8.6
+2026-11-06T17:15:42-03:00,RIC-0001-TOP_2026-11-06_17-15-42.jpg,apertura,8.239,medida,,top-v3,8.6
+2026-11-06T17:22:14-03:00,RIC-0001-TOP_2026-11-06_17-22-14.jpg,apertura,8.258,medida,,top-v3,8.5
+2026-11-06T17:28:55-03:00,RIC-0001-TOP_2026-11-06_17-28-55.jpg,apertura,8.27,medida,,top-v3,8.6
+2026-11-06T17:35:37-03:00,RIC-0001-TOP_2026-11-06_17-35-37.jpg,apertura,8.277,medida,,top-v3,8.5
+2026-11-06T17:42:16-03:00,RIC-0001-TOP_2026-11-06_17-42-16.jpg,apertura,8.258,medida,el mango quedo 9.4px fuera de su recorrido,top-v3,8.6
