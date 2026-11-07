@@ -44,3 +44,6 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-07T15:37:41-03:00,RIC-0001-LEFT_2026-11-07_15-37-41.jpg,angulo,70.58,medida,,left-v3,
 2026-11-07T15:37:41-03:00,RIC-0001-LEFT_2026-11-07_15-37-41.jpg,distancia_a,80.1,medida,,left-v3,
 2026-11-07T15:37:41-03:00,RIC-0001-LEFT_2026-11-07_15-37-41.jpg,distancia_b,100.7,medida,,left-v3,
+2026-11-07T18:36:14-03:00,RIC-0001-LEFT_2026-11-07_18-36-14.jpg,angulo,70.3,medida,ficha magenta de arriba no detectada: se usa su posicion fija,left-v3,
+2026-11-07T18:36:14-03:00,RIC-0001-LEFT_2026-11-07_18-36-14.jpg,distancia_a,,pesa_no_encontrada,"no se detecto pesa sobre esta barra: hay eje e inclinacion, no hay distancia",left-v3,
+2026-11-07T18:36:14-03:00,RIC-0001-LEFT_2026-11-07_18-36-14.jpg,distancia_b,109.3,medida,,left-v3,
