@@ -328,7 +328,16 @@ fecha,variable,cobertura,coincide_con_nexlab,saltos,estado_dia
 2026-11-06,left.distancia_b,0.903,,3,revisar
 2026-11-06,left.angulo,0.903,,2,revisar
 2026-11-06,amp.f1,0.944,0.662,11,revisar
-2026-11-06,amp.f2,0.965,0.726,4,revisar
+2026-11-06,amp.f2,0.965,0.712,4,revisar
 2026-11-06,amp.f3,0.979,0.704,5,revisar
 2026-11-06,clima.temperatura,1.0,,0,revisar
 2026-11-06,clima.humedad,1.0,,0,revisar
+2026-11-07,top.apertura,0.0,,0,revisar
+2026-11-07,left.distancia_a,0.0,,0,revisar
+2026-11-07,left.distancia_b,0.0,,0,revisar
+2026-11-07,left.angulo,0.0,,0,revisar
+2026-11-07,amp.f1,0.833,0.667,0,revisar
+2026-11-07,amp.f2,0.833,1.0,0,revisar
+2026-11-07,amp.f3,0.833,1.0,0,revisar
+2026-11-07,clima.temperatura,1.0,,0,revisar
+2026-11-07,clima.humedad,1.0,,0,revisar
