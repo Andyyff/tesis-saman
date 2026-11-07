@@ -14,6 +14,8 @@ Contrato que cumple cada carpeta algoritmos/<camara>/__init__.py:
 
 "rango": un valor fuera de rango no llega al panel (queda vacío con estado fuera_de_rango).
 "salto_max" (opcional): cambio entre dos casilleros seguidos que se marca para revisar (no se borra).
+"aislado" (opcional): un valor suelto que se aleja más que esto de la mediana de sus fotos vecinas, si ellas
+  coinciden entre sí, no llega al panel (estado distinta_a_vecinas); la lectura original queda en lecturas/.
 "nexlab": campo del JSON de Nexlab que mide lo mismo, para guardarlo al lado como referencia.
 """
 import importlib

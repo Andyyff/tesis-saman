@@ -5,7 +5,7 @@
 
 Es incremental: solo baja y procesa las fotos que todavía no están en datos/lecturas/.
 """
-import csv, json, math, os, re, sys
+import csv, json, math, os, re, statistics, sys
 from datetime import datetime, timedelta, timezone
 
 import algoritmos, chequeos, nexlab
@@ -126,6 +126,25 @@ def casillero(t_iso):
     return t.replace(minute=t.minute - t.minute % GRILLA_MIN, second=0, microsecond=0).isoformat(timespec="minutes")
 
 
+def aislados(filas, variable, umbral, ventana=3, minutos=30):
+    """{archivo: motivo} de los valores sueltos: se alejan más de `umbral` de las fotos de antes Y de las de
+    después (mediana de hasta 3 de cada lado, en ±30 min), y las de antes coinciden con las de después.
+    Es un error grosero de esa foto (ej. un operario delante de la varilla): se descarta, no se reemplaza.
+    Si la pesa se movió de verdad, antes y después no coinciden y no se descarta nada."""
+    serie = [(datetime.fromisoformat(f["t"]), float(f["valor"]), f["archivo"])
+             for f in filas if f["variable"] == variable and f["valor"] != ""]
+    cerca = lambda t, lado: [y for t2, y, _ in lado if abs((t2 - t).total_seconds()) <= minutos * 60]
+    malos = {}
+    for k, (t, x, archivo) in enumerate(serie):
+        antes, despues = cerca(t, serie[max(0, k - ventana):k]), cerca(t, serie[k + 1:k + 1 + ventana])
+        if len(antes) < 2 or len(despues) < 2:
+            continue
+        ma, md = statistics.median(antes), statistics.median(despues)
+        if abs(ma - md) <= umbral / 3 and abs(x - ma) > umbral and abs(x - md) > umbral:
+            malos[archivo] = f"el modelo dio {x}, las fotos de antes dan {ma:.1f} y las de después {md:.1f}: se descarta"
+    return malos
+
+
 def armar_dia(fecha, lecturas_cam, lecturas_clima, ahora):
     """Grilla de 10 min, hora de Uruguay. Cámaras: última lectura válida del casillero.
     Clima: promedio del casillero. Sin lectura válida -> null y el motivo en "e"."""
@@ -137,7 +156,7 @@ def armar_dia(fecha, lecturas_cam, lecturas_clima, ahora):
         slots.append(t.isoformat(timespec="minutes"))
         t += timedelta(minutes=GRILLA_MIN)
 
-    variables, v, e = {}, {s: {} for s in slots}, {s: {} for s in slots}
+    variables, v, e, descartadas = {}, {s: {} for s in slots}, {s: {} for s in slots}, {}
     for camara, filas in lecturas_cam.items():
         alg = algoritmos.cargar(camara)
         for nombre, meta in alg.VARIABLES.items():
@@ -147,11 +166,17 @@ def armar_dia(fecha, lecturas_cam, lecturas_clima, ahora):
             if meta.get("nexlab"):
                 variables[vid + "_nexlab"] = dict(nombre=meta["nombre"] + " (Nexlab)", unidad=meta["unidad"],
                                                   fuente="nexlab", version="nexlab", salto_max=None)
+            malos = aislados(filas, nombre, meta["aislado"]) if meta.get("aislado") else {}
+            for archivo, motivo in malos.items():
+                descartadas.setdefault(archivo, {})[vid] = motivo
             for f in filas:          # ya vienen ordenadas por hora: la última pisa
                 s = casillero(f["t"])
                 if f["variable"] != nombre or s not in v:
                     continue
-                if f["valor"] != "":
+                if f["archivo"] in malos:
+                    if vid not in v[s]:
+                        e[s][vid] = "distinta_a_vecinas"
+                elif f["valor"] != "":
                     v[s][vid] = float(f["valor"])
                     e[s].pop(vid, None)
                 elif vid not in v[s]:
@@ -178,7 +203,8 @@ def armar_dia(fecha, lecturas_cam, lecturas_clima, ahora):
                 e[s][vid] = "sin_dato"
         filas.append({"t": s, "v": v[s], "e": e[s]})
     return {"fecha": fecha, "zona_horaria": "-03:00", "grilla_min": GRILLA_MIN,
-            "generado": ahora.isoformat(timespec="seconds"), "variables": variables, "filas": filas}
+            "generado": ahora.isoformat(timespec="seconds"), "variables": variables, "filas": filas,
+            "descartadas": descartadas}
 
 
 def correr(fechas, ahora=None):
@@ -245,7 +271,15 @@ def escribir_historial(dias):
                     v["motivos"][f["estado"]] = v["motivos"].get(f["estado"], 0) + 1
             camaras[c] = dict(fotos=len({f["archivo"] for f in filas}), variables=var)
         with open(os.path.join(DATOS, "panel", f"{fecha}.json"), encoding="utf-8") as f:
-            calidad = json.load(f)["calidad"]
+            panel = json.load(f)
+        calidad = panel["calidad"]
+        for archivo, por_var in panel.get("descartadas", {}).items():
+            for vid in por_var:
+                c, var = vid.split(".")
+                m = camaras.get(c, {}).get("variables", {}).get(var)
+                if m:
+                    m["medidas"] -= 1
+                    m["motivos"]["distinta_a_vecinas"] = m["motivos"].get("distinta_a_vecinas", 0) + 1
         salida.append(dict(fecha=fecha, camaras=camaras, estado=calidad["estado"], alertas=calidad["alertas"]))
     with open(os.path.join(DATOS, "panel", "historial.json"), "w", encoding="utf-8") as f:
         json.dump({"dias": salida}, f, ensure_ascii=False, separators=(",", ":"))

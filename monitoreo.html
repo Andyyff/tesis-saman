@@ -151,7 +151,7 @@ const NOMBRES = { "top.apertura": "Apertura válvula", "left.distancia_a": "Dist
   "left.angulo": "Ángulo palanca", "amp.f1": "Amperaje F1", "amp.f2": "Amperaje F2", "amp.f3": "Amperaje F3" };
 const MOTIVOS = { sin_pesa: "la varilla no tiene pesa", no_valido_alineacion: "no se pudo alinear la foto (¿poca luz?)",
   color_inutilizable: "el color de la foto no sirve", mango_no_visible: "el mango no se ve", mango_no_encontrado: "no encontró el mango",
-  pesa_no_encontrada: "no encontró la pesa", alineacion_fallida: "falló la alineación", fuera_de_rango: "dio un valor fuera de rango (se descarta)",
+  pesa_no_encontrada: "no encontró la pesa", distinta_a_vecinas: "muy distinto a las fotos vecinas (se descarta)", alineacion_fallida: "falló la alineación", fuera_de_rango: "dio un valor fuera de rango (se descarta)",
   angulo_no_medido: "no pudo medir el ángulo", imagen_ilegible: "la imagen no se pudo leer" };
 const motivo = m => MOTIVOS[m] || m.replaceAll("_", " ");
 const pct = x => x == null ? "—" : Math.round(x * 100) + "%";
@@ -256,7 +256,7 @@ async function cargarOperacion() {
 }
 
 // ------------------------------------------------------------------ Fotos
-let cam = "top", fotos = [], vista = [], i = 0, variables = {};
+let cam = "top", fotos = [], vista = [], i = 0, variables = {}, descartadas = {};
 function csv(texto) {                       // CSV con comillas (el detalle puede tener comas)
   const filas = []; let f = [], c = "", q = false;
   for (let k = 0; k < texto.length; k++) {
@@ -283,7 +283,7 @@ async function cargarDia() {
   try {
     const dia = document.getElementById("dia").value;
     const [texto, panel] = await Promise.all([traer(`datos/lecturas/${cam}/${dia}.csv`), traer(`datos/panel/${dia}.json`, true)]);
-    variables = panel.variables;
+    variables = panel.variables; descartadas = panel.descartadas || {};
     const porFoto = new Map();
     for (const f of csv(texto)) {
       if (!porFoto.has(f.archivo)) porFoto.set(f.archivo, { archivo: f.archivo, t: f.t, filas: [] });
@@ -324,7 +324,10 @@ function mostrarFoto() {
     f.filas.map(x => {
       const m = variables[`${cam}.${x.variable}`] || {}, u = m.unidad === "0-10" ? "" : (m.unidad || "");
       const valor = x.valor !== "" ? `<div class="v">${(+x.valor).toFixed(1)} ${u}</div>` : `<div class="v no">No midió: ${motivo(x.estado)}</div>`;
-      return `<div class="var"><div class="n">${m.nombre || x.variable}</div>${valor}${x.detalle ? `<div class="d">Nota del modelo: ${x.detalle}</div>` : ""}</div>`;
+      const desc = descartadas[f.archivo]?.[`${cam}.${x.variable}`];
+      return `<div class="var"><div class="n">${m.nombre || x.variable}</div>${valor}` +
+        (desc ? `<div class="v no" style="font-size:13px">No llega al panel: ${desc}</div>` : "") +
+        `${x.detalle ? `<div class="d">Nota del modelo: ${x.detalle}</div>` : ""}</div>`;
     }).join("") + `<p class="ayuda"><a href="${urlFoto(f.archivo)}" target="_blank">Abrir la foto original</a></p>`;
 }
 function mover(d) { if (vista.length) { i = (i + d + vista.length) % vista.length; mostrarFoto(); } }

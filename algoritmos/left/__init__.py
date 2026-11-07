@@ -4,8 +4,8 @@ import numpy as np
 from . import vision_left as V
 
 VERSION = "left-v3"
-VARIABLES = {"distancia_a": {"unidad": "mm", "nombre": "Distancia pesa A", "rango": (0, 200), "salto_max": 20},
-             "distancia_b": {"unidad": "mm", "nombre": "Distancia pesa B", "rango": (0, 200), "salto_max": 20},
+VARIABLES = {"distancia_a": {"unidad": "mm", "nombre": "Distancia pesa A", "rango": (0, 200), "salto_max": 20, "aislado": 30},
+             "distancia_b": {"unidad": "mm", "nombre": "Distancia pesa B", "rango": (0, 200), "salto_max": 20, "aislado": 30},
              "angulo": {"unidad": "°", "nombre": "Ángulo palanca", "rango": (0, 180), "salto_max": 10}}
 
 _lector = None

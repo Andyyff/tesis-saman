@@ -88,7 +88,18 @@ def probar_flujo():
         shutil.rmtree(tmp)
 
 
+def probar_aislados():
+    """Un valor suelto muy distinto a sus vecinas se descarta; un cambio real de nivel, no."""
+    def serie(valores):
+        return [dict(t=f"2026-10-28T03:{10 + 7 * k:02d}:00-03:00", archivo=f"f{k}", variable="d", valor=str(x))
+                for k, x in enumerate(valores)]
+    assert set(flujo.aislados(serie([121, 128, 141, 38, 135, 127, 141]), "d", 30)) == {"f3"}, "el 38 es grosero"
+    assert flujo.aislados(serie([140, 141, 140, 90, 91, 90, 90]), "d", 30) == {}, "la pesa se movió: no es error"
+    print("OK descarte de valores sueltos distintos a sus vecinas")
+
+
 if __name__ == "__main__":
+    probar_aislados()
     probar_algoritmos()
     probar_flujo()
     print("Todo OK")
