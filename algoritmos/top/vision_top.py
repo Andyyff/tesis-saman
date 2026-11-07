@@ -392,6 +392,11 @@ class LectorTop:
                    mango=[round(col["x"], 1), round(col["y"], 1)])
         if self.calibracion:
             out["apertura"] = self.calibracion.a_escala(pos)
+            # v3.1: con la valvula cerrada el mango apoya un poco mas alla del 0 de la recta
+            # (-0,1 a -0,3; 17 % de las fotos de octubre). Menos que cerrada no existe: es 0.
+            if out["apertura"] < 0:
+                out["notas"].append(f"en el tope de cerrada (la recta da {out['apertura']}): se informa 0")
+                out["apertura"] = 0.0
             lo, hi = RANGO_CALIBRADO
             if not (lo - 0.3 <= out["apertura"] <= hi + 0.3):
                 out["notas"].append(f"apertura {out['apertura']} fuera del rango calibrado ({lo}-{hi}): menos precisa")

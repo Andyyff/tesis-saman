@@ -2,9 +2,9 @@
 import os
 from . import vision_top as V
 
-VERSION = "top-v3"
+VERSION = "top-v3.1"
 VARIABLES = {"apertura": {"unidad": "0-10", "nombre": "Apertura válvula",
-                          "rango": (-0.6, 10.5), "salto_max": 4, "nexlab": "opening"}}
+                          "rango": (0, 10.5), "salto_max": 4, "nexlab": "opening"}}
 
 _lector = None
 

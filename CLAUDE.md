@@ -29,7 +29,7 @@ Responder en castellano rioplatense, simple. Modo de trabajo preferido: cambios 
 
 ## Los 3 modelos (visión por computadora clásica, OpenCV)
 
-- **top** (`vision_top.py`, v3): apertura de válvula 0-10 ubicando el mango verde de la palanca sobre su curva. Alineación por similitud ORB+RANSAC (con alineación "prestada" de una foto vecina ≤3 h), balance de blancos, color+forma. Calibración `apertura = 0,02909·posicion_px + 8,9553`. Estados: medida / color_inutilizable / mango_no_visible / mango_no_encontrado / alineacion_fallida. Resultado: mide 98,9 % de 1.474 fotos (Nexlab 66,4 %), auditoría 90/90.
+- **top** (`vision_top.py`, v3): apertura de válvula 0-10 ubicando el mango verde de la palanca sobre su curva. Alineación por similitud ORB+RANSAC (con alineación "prestada" de una foto vecina ≤3 h), balance de blancos, color+forma. Calibración `apertura = 0,02909·posicion_px + 8,9553`. Estados: medida / color_inutilizable / mango_no_visible / mango_no_encontrado / alineacion_fallida. **v3.1 (07/11/2026):** apertura < 0 se informa 0 (con la válvula cerrada la recta daba -0,1 a -0,3; 17 % de las fotos de octubre); lecturas guardadas corregidas igual. Resultado v3: mide 98,9 % de 1.474 fotos (Nexlab 66,4 %), auditoría 90/90.
 - **left** (Alfonso, `modelos/1-modelo-left/codigo/vision_left.py`): mm entre tapón verde y pesa contando hendiduras de la rosca (FFT, 10 mm cada una) + ángulo de palanca. 96 % de 2.715 fotos.
 - **amp** (Matías, V10 congelada `modelos/3-modelo-amp/amp_v10.py` + `model/amp_v10_bundle.joblib`): lee displays F1/F2/F3 (HOG/SVM + 7 segmentos). `AMPV10().predict_image(ruta)` → 3 filas por foto. 93,4 % de 3.093 lecturas (Nexlab 76,6 %). Verificar con `python verify_v10.py` (9/9).
 

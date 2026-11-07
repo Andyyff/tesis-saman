@@ -1,5 +1,5 @@
 variable,nombre,unidad,fuente,version
-top.apertura,Apertura válvula,0-10,top,top-v3
+top.apertura,Apertura válvula,0-10,top,top-v3.1
 left.distancia_a,Distancia pesa A,mm,left,left-v3
 left.distancia_b,Distancia pesa B,mm,left,left-v3
 left.angulo,Ángulo palanca,°,left,left-v3
