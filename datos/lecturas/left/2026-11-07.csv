@@ -29,3 +29,6 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-07T09:16:27-03:00,RIC-0001-LEFT_2026-11-07_09-16-27.jpg,angulo,59.2,medida,,left-v3,
 2026-11-07T09:16:27-03:00,RIC-0001-LEFT_2026-11-07_09-16-27.jpg,distancia_a,155.0,medida,"descartado un objeto a t=414: tapa solo el 3 % de la barra, esta detras o al costado, no ensartado en ella",left-v3,
 2026-11-07T09:16:27-03:00,RIC-0001-LEFT_2026-11-07_09-16-27.jpg,distancia_b,144.8,medida,"descartado un objeto a t=212: tapa solo el 0 % de la barra, esta detras o al costado, no ensartado en ella | descartado un objeto a t=279: tapa solo el 38 % de la barra, esta detras o al costado, no ensartado en ella",left-v3,
+2026-11-07T11:09:28-03:00,RIC-0001-LEFT_2026-11-07_11-09-28.jpg,angulo,58.98,medida,,left-v3,
+2026-11-07T11:09:28-03:00,RIC-0001-LEFT_2026-11-07_11-09-28.jpg,distancia_a,148.2,medida,"descartado un objeto a t=349: tapa solo el 35 % de la barra, esta detras o al costado, no ensartado en ella",left-v3,
+2026-11-07T11:09:28-03:00,RIC-0001-LEFT_2026-11-07_11-09-28.jpg,distancia_b,145.1,medida,,left-v3,
