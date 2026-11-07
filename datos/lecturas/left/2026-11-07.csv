@@ -41,3 +41,6 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-07T12:56:59-03:00,RIC-0001-LEFT_2026-11-07_12-56-59.jpg,angulo,58.65,medida,"punta tomada sobre el eje de la rosca, sin tapon verde para controlar | perilla no detectada: se usa su posicion fija | ficha magenta de arriba no detectada: se usa su posicion fija | color roto: ningun punto se pudo confirmar",left-v3,
 2026-11-07T12:56:59-03:00,RIC-0001-LEFT_2026-11-07_12-56-59.jpg,distancia_a,,color_inutilizable,color inutilizable en esta foto: no se busco la ficha verde | sin ficha verde: el origen se toma en la punta fisica de la barra | color de camara roto: no se puede ver la pesa ni afirmar que no este,left-v3,
 2026-11-07T12:56:59-03:00,RIC-0001-LEFT_2026-11-07_12-56-59.jpg,distancia_b,,color_inutilizable,color inutilizable en esta foto: no se busco la ficha verde | sin ficha verde: el origen se toma en la punta fisica de la barra | color de camara roto: no se puede ver la pesa ni afirmar que no este,left-v3,
+2026-11-07T15:37:41-03:00,RIC-0001-LEFT_2026-11-07_15-37-41.jpg,angulo,70.58,medida,,left-v3,
+2026-11-07T15:37:41-03:00,RIC-0001-LEFT_2026-11-07_15-37-41.jpg,distancia_a,80.1,medida,,left-v3,
+2026-11-07T15:37:41-03:00,RIC-0001-LEFT_2026-11-07_15-37-41.jpg,distancia_b,100.7,medida,,left-v3,
