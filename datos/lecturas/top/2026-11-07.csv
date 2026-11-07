@@ -1,2 +1,7 @@
 t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-07T02:55:40-03:00,RIC-0001-TOP_2026-11-07_02-55-40.jpg,apertura,8.65,medida,tinte de camara 3.12: color corregido por balance de blancos | el mango quedo 5.5px fuera de su recorrido,top-v3,
+2026-11-07T06:22:24-03:00,RIC-0001-TOP_2026-11-07_06-22-24.jpg,apertura,,alineacion_fallida,alineacion no confiable (7 coincidencias) | sin vecina alineada a menos de 3 h,top-v3,
+2026-11-07T06:29:20-03:00,RIC-0001-TOP_2026-11-07_06-29-20.jpg,apertura,,alineacion_fallida,pocas coincidencias (18) | sin vecina alineada a menos de 3 h,top-v3,
+2026-11-07T06:35:46-03:00,RIC-0001-TOP_2026-11-07_06-35-46.jpg,apertura,,alineacion_fallida,pocas coincidencias (17) | sin vecina alineada a menos de 3 h,top-v3,
+2026-11-07T06:42:27-03:00,RIC-0001-TOP_2026-11-07_06-42-27.jpg,apertura,,alineacion_fallida,pocas coincidencias (15) | sin vecina alineada a menos de 3 h,top-v3,
+2026-11-07T06:49:06-03:00,RIC-0001-TOP_2026-11-07_06-49-06.jpg,apertura,,alineacion_fallida,"alineacion no confiable (5 coincidencias, corrimiento 799px, giro -94.4 grados, escala 0.505) | sin vecina alineada a menos de 3 h",top-v3,

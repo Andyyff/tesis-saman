@@ -1,0 +1,10 @@
+t,archivo,variable,valor,estado,detalle,version,nexlab
+2026-11-07T06:22:45-03:00,RIC-0001-LEFT_2026-11-07_06-22-45.jpg,angulo,81.89,medida,la rosca dio una punta fuera del tapon: se usa el centro del tapon verde,left-v3,
+2026-11-07T06:22:45-03:00,RIC-0001-LEFT_2026-11-07_06-22-45.jpg,distancia_a,,varilla_no_encontrada,no se encontro una recta con textura de rosca creible,left-v3,
+2026-11-07T06:22:45-03:00,RIC-0001-LEFT_2026-11-07_06-22-45.jpg,distancia_b,94.9,medida,sin ficha verde: el origen se toma en la punta fisica de la barra,left-v3,
+2026-11-07T06:36:16-03:00,RIC-0001-LEFT_2026-11-07_06-36-16.jpg,angulo,58.56,medida,,left-v3,
+2026-11-07T06:36:16-03:00,RIC-0001-LEFT_2026-11-07_06-36-16.jpg,distancia_a,162.4,medida,"descartado un objeto a t=239: tapa solo el 37 % de la barra, esta detras o al costado, no ensartado en ella",left-v3,
+2026-11-07T06:36:16-03:00,RIC-0001-LEFT_2026-11-07_06-36-16.jpg,distancia_b,133.5,medida,,left-v3,
+2026-11-07T06:49:27-03:00,RIC-0001-LEFT_2026-11-07_06-49-27.jpg,angulo,52.98,medida,perilla no detectada: se usa su posicion fija | ficha magenta de arriba no detectada: se usa su posicion fija,left-v3,
+2026-11-07T06:49:27-03:00,RIC-0001-LEFT_2026-11-07_06-49-27.jpg,distancia_a,183.8,medida,sin ficha verde: el origen se toma en la punta fisica de la barra,left-v3,
+2026-11-07T06:49:27-03:00,RIC-0001-LEFT_2026-11-07_06-49-27.jpg,distancia_b,,pesa_no_encontrada,"sin ficha verde: el origen se toma en la punta fisica de la barra | no se detecto pesa sobre esta barra: hay eje e inclinacion, no hay distancia",left-v3,
