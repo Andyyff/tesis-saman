@@ -1,5 +1,5 @@
 {
- "corrida": "2026-11-08T01:57:24-03:00",
+ "corrida": "2026-11-08T02:53:58-03:00",
  "fecha": "2026-11-08",
  "camaras": {
   "top": {
@@ -13,12 +13,10 @@
    "procesadas": 0
   },
   "amp": {
-   "nexlab": 18,
-   "ultima_foto": "2026-11-08T01:57:12-03:00",
-   "procesadas": 18
+   "nexlab": 26,
+   "ultima_foto": "2026-11-08T02:51:10-03:00",
+   "procesadas": 26
   }
  },
- "avisos": [
-  "top: no se pudo leer Nexlab (HTTPConnectionPool(host='sam-analysis.nexlab.com.uy', port=80): Read timed out. (read timeout=60)); se usan las lecturas ya guardadas"
- ]
+ "avisos": []
 }
