@@ -2,3 +2,6 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-08T22:09:55-03:00,RIC-0001-LEFT_2026-11-08_22-09-55.jpg,angulo,58.64,medida,,left-v3,
 2026-11-08T22:09:55-03:00,RIC-0001-LEFT_2026-11-08_22-09-55.jpg,distancia_a,,pesa_no_encontrada,"se descarto un objeto a t=220: esta del lado de afuera del tapon, ahi no hay barra donde ensartar una pesa",left-v3,
 2026-11-08T22:09:55-03:00,RIC-0001-LEFT_2026-11-08_22-09-55.jpg,distancia_b,106.2,medida,,left-v3,
+2026-11-08T22:43:30-03:00,RIC-0001-LEFT_2026-11-08_22-43-30.jpg,angulo,74.2,medida,,left-v3,
+2026-11-08T22:43:30-03:00,RIC-0001-LEFT_2026-11-08_22-43-30.jpg,distancia_a,103.2,medida,,left-v3,
+2026-11-08T22:43:30-03:00,RIC-0001-LEFT_2026-11-08_22-43-30.jpg,distancia_b,40.7,medida,sin ficha verde: el origen se toma en la punta fisica de la barra,left-v3,
