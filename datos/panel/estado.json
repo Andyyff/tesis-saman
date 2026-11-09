@@ -1,5 +1,5 @@
 {
- "corrida": "2026-11-08T23:16:37-03:00",
+ "corrida": "2026-11-08T23:59:47-03:00",
  "fecha": "2026-11-08",
  "camaras": {
   "top": {
@@ -13,9 +13,9 @@
    "procesadas": 2
   },
   "amp": {
-   "nexlab": 204,
-   "ultima_foto": "2026-11-08T23:12:43-03:00",
-   "procesadas": 204
+   "nexlab": 211,
+   "ultima_foto": "2026-11-08T23:57:43-03:00",
+   "procesadas": 211
   }
  },
  "avisos": []
