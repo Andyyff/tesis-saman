@@ -30,3 +30,11 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-10T03:50:04-03:00,RIC-0001-TOP_2026-11-10_03-50-04.jpg,apertura,8.415,medida,,top-v3.1,8.5
 2026-11-10T03:56:57-03:00,RIC-0001-TOP_2026-11-10_03-56-57.jpg,apertura,8.453,medida,,top-v3.1,8.6
 2026-11-10T04:10:05-03:00,RIC-0001-TOP_2026-11-10_04-10-05.jpg,apertura,0.0,medida,el mango quedo 7.8px fuera de su recorrido | en el tope de cerrada (la recta da -0.167): se informa 0,top-v3.1,0.0
+2026-11-10T04:16:45-03:00,RIC-0001-TOP_2026-11-10_04-16-45.jpg,apertura,8.262,medida,,top-v3.1,8.4
+2026-11-10T04:23:24-03:00,RIC-0001-TOP_2026-11-10_04-23-24.jpg,apertura,8.249,medida,el mango quedo 4.0px fuera de su recorrido,top-v3.1,8.6
+2026-11-10T04:30:40-03:00,RIC-0001-TOP_2026-11-10_04-30-40.jpg,apertura,8.225,medida,el mango quedo 4.5px fuera de su recorrido,top-v3.1,8.6
+2026-11-10T04:36:44-03:00,RIC-0001-TOP_2026-11-10_04-36-44.jpg,apertura,8.227,medida,,top-v3.1,8.6
+2026-11-10T04:50:09-03:00,RIC-0001-TOP_2026-11-10_04-50-09.jpg,apertura,8.186,medida,,top-v3.1,8.5
+2026-11-10T04:57:11-03:00,RIC-0001-TOP_2026-11-10_04-57-11.jpg,apertura,8.285,medida,,top-v3.1,8.7
+2026-11-10T05:16:50-03:00,RIC-0001-TOP_2026-11-10_05-16-50.jpg,apertura,8.173,medida,tinte de camara 3.19: color corregido por balance de blancos,top-v3.1,
+2026-11-10T05:23:27-03:00,RIC-0001-TOP_2026-11-10_05-23-27.jpg,apertura,0.0,medida,el mango quedo 9.0px fuera de su recorrido | en el tope de cerrada (la recta da -0.13): se informa 0,top-v3.1,0.0
