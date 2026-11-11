@@ -105,3 +105,12 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-11T12:37:09-03:00,RIC-0001-TOP_2026-11-11_12-37-09.jpg,apertura,8.945,medida,,top-v3.1,9.2
 2026-11-11T12:43:48-03:00,RIC-0001-TOP_2026-11-11_12-43-48.jpg,apertura,8.982,medida,,top-v3.1,9.2
 2026-11-11T12:50:30-03:00,RIC-0001-TOP_2026-11-11_12-50-30.jpg,apertura,8.942,medida,,top-v3.1,9.2
+2026-11-11T12:57:09-03:00,RIC-0001-TOP_2026-11-11_12-57-09.jpg,apertura,9.007,medida,,top-v3.1,9.3
+2026-11-11T13:04:13-03:00,RIC-0001-TOP_2026-11-11_13-04-13.jpg,apertura,0.0,medida,el mango quedo 7.2px fuera de su recorrido | en el tope de cerrada (la recta da -0.212): se informa 0,top-v3.1,0.0
+2026-11-11T13:17:19-03:00,RIC-0001-TOP_2026-11-11_13-17-19.jpg,apertura,0.0,medida,el mango quedo 6.9px fuera de su recorrido | en el tope de cerrada (la recta da -0.206): se informa 0,top-v3.1,0.0
+2026-11-11T13:23:51-03:00,RIC-0001-TOP_2026-11-11_13-23-51.jpg,apertura,0.0,medida,el mango quedo 7.2px fuera de su recorrido | en el tope de cerrada (la recta da -0.238): se informa 0,top-v3.1,0.0
+2026-11-11T13:30:34-03:00,RIC-0001-TOP_2026-11-11_13-30-34.jpg,apertura,0.0,medida,el mango quedo 7.5px fuera de su recorrido | en el tope de cerrada (la recta da -0.214): se informa 0,top-v3.1,0.0
+2026-11-11T13:37:09-03:00,RIC-0001-TOP_2026-11-11_13-37-09.jpg,apertura,0.0,medida,el mango quedo 6.8px fuera de su recorrido | en el tope de cerrada (la recta da -0.19): se informa 0,top-v3.1,0.0
+2026-11-11T13:43:58-03:00,RIC-0001-TOP_2026-11-11_13-43-58.jpg,apertura,0.0,medida,el mango quedo 6.1px fuera de su recorrido | en el tope de cerrada (la recta da -0.233): se informa 0,top-v3.1,0.0
+2026-11-11T13:50:35-03:00,RIC-0001-TOP_2026-11-11_13-50-35.jpg,apertura,0.0,medida,el mango quedo 7.1px fuera de su recorrido | en el tope de cerrada (la recta da -0.206): se informa 0,top-v3.1,0.0
+2026-11-11T13:57:12-03:00,RIC-0001-TOP_2026-11-11_13-57-12.jpg,apertura,0.0,medida,el mango quedo 6.7px fuera de su recorrido | en el tope de cerrada (la recta da -0.162): se informa 0,top-v3.1,0.0
