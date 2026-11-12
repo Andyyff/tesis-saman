@@ -130,3 +130,12 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-12T15:17:29-03:00,RIC-0001-TOP_2026-11-12_15-17-29.jpg,apertura,8.899,medida,,top-v3.1,9.2
 2026-11-12T15:24:09-03:00,RIC-0001-TOP_2026-11-12_15-24-09.jpg,apertura,8.922,medida,,top-v3.1,9.1
 2026-11-12T15:44:10-03:00,RIC-0001-TOP_2026-11-12_15-44-10.jpg,apertura,8.937,medida,,top-v3.1,9.0
+2026-11-12T16:04:22-03:00,RIC-0001-TOP_2026-11-12_16-04-22.jpg,apertura,,mango_no_encontrado,tinte de camara 2.42 y no aparecio el mango tras corregir el color,top-v3.1,
+2026-11-12T16:10:51-03:00,RIC-0001-TOP_2026-11-12_16-10-51.jpg,apertura,8.949,medida,,top-v3.1,9.2
+2026-11-12T16:17:43-03:00,RIC-0001-TOP_2026-11-12_16-17-43.jpg,apertura,8.878,medida,,top-v3.1,9.0
+2026-11-12T16:24:09-03:00,RIC-0001-TOP_2026-11-12_16-24-09.jpg,apertura,8.905,medida,,top-v3.1,9.0
+2026-11-12T16:30:50-03:00,RIC-0001-TOP_2026-11-12_16-30-50.jpg,apertura,8.889,medida,,top-v3.1,9.2
+2026-11-12T16:37:31-03:00,RIC-0001-TOP_2026-11-12_16-37-31.jpg,apertura,8.905,medida,,top-v3.1,9.1
+2026-11-12T16:44:11-03:00,RIC-0001-TOP_2026-11-12_16-44-11.jpg,apertura,8.976,medida,,top-v3.1,9.4
+2026-11-12T16:50:52-03:00,RIC-0001-TOP_2026-11-12_16-50-52.jpg,apertura,8.915,medida,,top-v3.1,9.2
+2026-11-12T16:57:31-03:00,RIC-0001-TOP_2026-11-12_16-57-31.jpg,apertura,0.0,medida,el mango quedo 7.1px fuera de su recorrido | en el tope de cerrada (la recta da -0.242): se informa 0,top-v3.1,
