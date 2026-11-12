@@ -112,3 +112,10 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-12T12:44:11-03:00,RIC-0001-TOP_2026-11-12_12-44-11.jpg,apertura,,alineacion_fallida,alineacion no confiable (31 coincidencias) | sin vecina alineada a menos de 3 h,top-v3.1,
 2026-11-12T12:51:13-03:00,RIC-0001-TOP_2026-11-12_12-51-13.jpg,apertura,,alineacion_fallida,alineacion no confiable (34 coincidencias) | sin vecina alineada a menos de 3 h,top-v3.1,
 2026-11-12T12:57:28-03:00,RIC-0001-TOP_2026-11-12_12-57-28.jpg,apertura,,alineacion_fallida,alineacion no confiable (38 coincidencias) | sin vecina alineada a menos de 3 h,top-v3.1,
+2026-11-12T13:24:16-03:00,RIC-0001-TOP_2026-11-12_13-24-16.jpg,apertura,,color_inutilizable,"tinte de camara 211.73: el color no se puede recuperar, no se mide",top-v3.1,7.9
+2026-11-12T13:31:03-03:00,RIC-0001-TOP_2026-11-12_13-31-03.jpg,apertura,8.928,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-12T13:37:28-03:00,RIC-0001-TOP_2026-11-12_13-37-28.jpg,apertura,8.936,medida,,top-v3.1,
+2026-11-12T13:44:19-03:00,RIC-0001-TOP_2026-11-12_13-44-19.jpg,apertura,8.919,medida,,top-v3.1,
+2026-11-12T13:50:50-03:00,RIC-0001-TOP_2026-11-12_13-50-50.jpg,apertura,8.918,medida,,top-v3.1,
+2026-11-12T13:57:29-03:00,RIC-0001-TOP_2026-11-12_13-57-29.jpg,apertura,8.895,medida,,top-v3.1,
+2026-11-12T14:04:08-03:00,RIC-0001-TOP_2026-11-12_14-04-08.jpg,apertura,8.927,medida,,top-v3.1,
