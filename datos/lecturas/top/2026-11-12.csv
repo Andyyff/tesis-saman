@@ -91,3 +91,18 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-12T10:04:06-03:00,RIC-0001-TOP_2026-11-12_10-04-06.jpg,apertura,8.919,medida,,top-v3.1,9.2
 2026-11-12T10:10:45-03:00,RIC-0001-TOP_2026-11-12_10-10-45.jpg,apertura,8.943,medida,,top-v3.1,9.2
 2026-11-12T10:17:25-03:00,RIC-0001-TOP_2026-11-12_10-17-25.jpg,apertura,8.93,medida,,top-v3.1,9.2
+2026-11-12T10:24:08-03:00,RIC-0001-TOP_2026-11-12_10-24-08.jpg,apertura,8.939,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-12T10:30:47-03:00,RIC-0001-TOP_2026-11-12_10-30-47.jpg,apertura,8.94,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-12T10:37:27-03:00,RIC-0001-TOP_2026-11-12_10-37-27.jpg,apertura,8.94,medida,,top-v3.1,
+2026-11-12T10:44:07-03:00,RIC-0001-TOP_2026-11-12_10-44-07.jpg,apertura,8.937,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-12T10:51:06-03:00,RIC-0001-TOP_2026-11-12_10-51-06.jpg,apertura,8.931,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-12T10:57:27-03:00,RIC-0001-TOP_2026-11-12_10-57-27.jpg,apertura,8.94,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-12T11:04:07-03:00,RIC-0001-TOP_2026-11-12_11-04-07.jpg,apertura,8.948,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-12T11:10:56-03:00,RIC-0001-TOP_2026-11-12_11-10-56.jpg,apertura,8.925,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-12T11:17:27-03:00,RIC-0001-TOP_2026-11-12_11-17-27.jpg,apertura,8.942,medida,,top-v3.1,
+2026-11-12T11:24:08-03:00,RIC-0001-TOP_2026-11-12_11-24-08.jpg,apertura,8.927,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-12T11:30:48-03:00,RIC-0001-TOP_2026-11-12_11-30-48.jpg,apertura,8.93,medida,,top-v3.1,
+2026-11-12T11:37:27-03:00,RIC-0001-TOP_2026-11-12_11-37-27.jpg,apertura,0.0,medida,el mango quedo 6.6px fuera de su recorrido | en el tope de cerrada (la recta da -0.191): se informa 0,top-v3.1,
+2026-11-12T11:44:08-03:00,RIC-0001-TOP_2026-11-12_11-44-08.jpg,apertura,0.0,medida,el mango quedo 5.7px fuera de su recorrido | alineacion prestada de una foto vecina (la camara esta fija) | en el tope de cerrada (la recta da -0.19): se informa 0,top-v3.1,
+2026-11-12T11:50:49-03:00,RIC-0001-TOP_2026-11-12_11-50-49.jpg,apertura,0.0,medida,el mango quedo 6.7px fuera de su recorrido | alineacion prestada de una foto vecina (la camara esta fija) | en el tope de cerrada (la recta da -0.218): se informa 0,top-v3.1,
+2026-11-12T11:57:32-03:00,RIC-0001-TOP_2026-11-12_11-57-32.jpg,apertura,8.056,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
