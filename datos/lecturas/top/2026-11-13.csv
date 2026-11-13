@@ -36,3 +36,18 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-13T04:04:19-03:00,RIC-0001-TOP_2026-11-13_04-04-19.jpg,apertura,8.322,medida,,top-v3.1,8.4
 2026-11-13T04:10:59-03:00,RIC-0001-TOP_2026-11-13_04-10-59.jpg,apertura,8.301,medida,,top-v3.1,8.5
 2026-11-13T04:17:39-03:00,RIC-0001-TOP_2026-11-13_04-17-39.jpg,apertura,8.246,medida,,top-v3.1,8.5
+2026-11-13T04:24:22-03:00,RIC-0001-TOP_2026-11-13_04-24-22.jpg,apertura,8.38,medida,,top-v3.1,8.7
+2026-11-13T04:30:58-03:00,RIC-0001-TOP_2026-11-13_04-30-58.jpg,apertura,8.306,medida,,top-v3.1,8.4
+2026-11-13T04:37:39-03:00,RIC-0001-TOP_2026-11-13_04-37-39.jpg,apertura,8.301,medida,el mango quedo 4.8px fuera de su recorrido,top-v3.1,8.6
+2026-11-13T04:44:20-03:00,RIC-0001-TOP_2026-11-13_04-44-20.jpg,apertura,8.273,medida,,top-v3.1,8.4
+2026-11-13T04:50:59-03:00,RIC-0001-TOP_2026-11-13_04-50-59.jpg,apertura,,mango_no_visible,"no se ve el mango verde sobre su recorrido (por ejemplo, el operario lo esta tapando con la mano)",top-v3.1,8.6
+2026-11-13T04:57:38-03:00,RIC-0001-TOP_2026-11-13_04-57-38.jpg,apertura,8.163,medida,el mango quedo -4.9px fuera de su recorrido,top-v3.1,8.3
+2026-11-13T05:04:21-03:00,RIC-0001-TOP_2026-11-13_05-04-21.jpg,apertura,8.344,medida,,top-v3.1,8.5
+2026-11-13T05:11:03-03:00,RIC-0001-TOP_2026-11-13_05-11-03.jpg,apertura,8.294,medida,,top-v3.1,8.4
+2026-11-13T05:17:40-03:00,RIC-0001-TOP_2026-11-13_05-17-40.jpg,apertura,8.313,medida,,top-v3.1,8.5
+2026-11-13T05:24:20-03:00,RIC-0001-TOP_2026-11-13_05-24-20.jpg,apertura,8.288,medida,,top-v3.1,8.6
+2026-11-13T05:31:01-03:00,RIC-0001-TOP_2026-11-13_05-31-01.jpg,apertura,8.304,medida,el mango quedo -4.1px fuera de su recorrido,top-v3.1,8.3
+2026-11-13T05:37:40-03:00,RIC-0001-TOP_2026-11-13_05-37-40.jpg,apertura,8.376,medida,,top-v3.1,8.7
+2026-11-13T05:44:35-03:00,RIC-0001-TOP_2026-11-13_05-44-35.jpg,apertura,8.285,medida,,top-v3.1,8.5
+2026-11-13T05:51:37-03:00,RIC-0001-TOP_2026-11-13_05-51-37.jpg,apertura,8.303,medida,,top-v3.1,8.4
+2026-11-13T05:57:40-03:00,RIC-0001-TOP_2026-11-13_05-57-40.jpg,apertura,8.34,medida,,top-v3.1,8.6
