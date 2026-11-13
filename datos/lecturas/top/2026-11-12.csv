@@ -172,3 +172,15 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-12T20:30:54-03:00,RIC-0001-TOP_2026-11-12_20-30-54.jpg,apertura,8.942,medida,,top-v3.1,9.3
 2026-11-12T20:37:33-03:00,RIC-0001-TOP_2026-11-12_20-37-33.jpg,apertura,8.996,medida,,top-v3.1,9.3
 2026-11-12T20:44:14-03:00,RIC-0001-TOP_2026-11-12_20-44-14.jpg,apertura,8.936,medida,,top-v3.1,9.1
+2026-11-12T20:50:55-03:00,RIC-0001-TOP_2026-11-12_20-50-55.jpg,apertura,8.883,medida,,top-v3.1,9.0
+2026-11-12T20:57:35-03:00,RIC-0001-TOP_2026-11-12_20-57-35.jpg,apertura,8.916,medida,,top-v3.1,9.1
+2026-11-12T21:04:14-03:00,RIC-0001-TOP_2026-11-12_21-04-14.jpg,apertura,8.921,medida,,top-v3.1,9.1
+2026-11-12T21:10:54-03:00,RIC-0001-TOP_2026-11-12_21-10-54.jpg,apertura,0.0,medida,el mango quedo 6.4px fuera de su recorrido | en el tope de cerrada (la recta da -0.234): se informa 0,top-v3.1,0.0
+2026-11-12T21:17:33-03:00,RIC-0001-TOP_2026-11-12_21-17-33.jpg,apertura,0.0,medida,el mango quedo 5.0px fuera de su recorrido | en el tope de cerrada (la recta da -0.262): se informa 0,top-v3.1,0.0
+2026-11-12T21:30:54-03:00,RIC-0001-TOP_2026-11-12_21-30-54.jpg,apertura,0.0,medida,el mango quedo 7.0px fuera de su recorrido | en el tope de cerrada (la recta da -0.223): se informa 0,top-v3.1,0.0
+2026-11-12T21:37:35-03:00,RIC-0001-TOP_2026-11-12_21-37-35.jpg,apertura,8.874,medida,,top-v3.1,9.1
+2026-11-12T21:44:30-03:00,RIC-0001-TOP_2026-11-12_21-44-30.jpg,apertura,8.933,medida,,top-v3.1,9.3
+2026-11-12T21:51:17-03:00,RIC-0001-TOP_2026-11-12_21-51-17.jpg,apertura,8.902,medida,,top-v3.1,9.0
+2026-11-12T21:57:45-03:00,RIC-0001-TOP_2026-11-12_21-57-45.jpg,apertura,8.886,medida,,top-v3.1,9.1
+2026-11-12T22:04:15-03:00,RIC-0001-TOP_2026-11-12_22-04-15.jpg,apertura,8.889,medida,,top-v3.1,9.0
+2026-11-12T22:10:54-03:00,RIC-0001-TOP_2026-11-12_22-10-54.jpg,apertura,8.957,medida,,top-v3.1,9.3
