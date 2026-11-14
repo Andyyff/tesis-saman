@@ -1,21 +1,21 @@
 {
- "corrida": "2026-11-14T02:55:11-03:00",
+ "corrida": "2026-11-14T04:05:49-03:00",
  "fecha": "2026-11-14",
  "camaras": {
   "top": {
-   "nexlab": 26,
-   "ultima_foto": "2026-11-14T02:51:24-03:00",
-   "procesadas": 26
+   "nexlab": 37,
+   "ultima_foto": "2026-11-14T03:59:17-03:00",
+   "procesadas": 37
   },
   "left": {
-   "nexlab": 26,
-   "ultima_foto": "2026-11-14T02:51:38-03:00",
-   "procesadas": 26
+   "nexlab": 37,
+   "ultima_foto": "2026-11-14T04:01:08-03:00",
+   "procesadas": 37
   },
   "amp": {
-   "nexlab": 26,
-   "ultima_foto": "2026-11-14T02:52:01-03:00",
-   "procesadas": 26
+   "nexlab": 37,
+   "ultima_foto": "2026-11-14T04:01:31-03:00",
+   "procesadas": 37
   }
  },
  "avisos": []
