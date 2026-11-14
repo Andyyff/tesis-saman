@@ -53,3 +53,11 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-14T05:39:19-03:00,RIC-0001-TOP_2026-11-14_05-39-19.jpg,apertura,8.325,medida,,top-v3.1,8.7
 2026-11-14T05:45:59-03:00,RIC-0001-TOP_2026-11-14_05-45-59.jpg,apertura,8.365,medida,,top-v3.1,8.6
 2026-11-14T05:52:40-03:00,RIC-0001-TOP_2026-11-14_05-52-40.jpg,apertura,8.324,medida,,top-v3.1,8.5
+2026-11-14T05:59:19-03:00,RIC-0001-TOP_2026-11-14_05-59-19.jpg,apertura,8.359,medida,,top-v3.1,8.6
+2026-11-14T06:06:00-03:00,RIC-0001-TOP_2026-11-14_06-06-00.jpg,apertura,8.373,medida,,top-v3.1,8.7
+2026-11-14T06:12:39-03:00,RIC-0001-TOP_2026-11-14_06-12-39.jpg,apertura,0.0,medida,el mango quedo 6.0px fuera de su recorrido | en el tope de cerrada (la recta da -0.265): se informa 0,top-v3.1,0.0
+2026-11-14T06:19:24-03:00,RIC-0001-TOP_2026-11-14_06-19-24.jpg,apertura,0.0,medida,el mango quedo 6.3px fuera de su recorrido | en el tope de cerrada (la recta da -0.289): se informa 0,top-v3.1,0.0
+2026-11-14T06:26:03-03:00,RIC-0001-TOP_2026-11-14_06-26-03.jpg,apertura,8.365,medida,,top-v3.1,8.6
+2026-11-14T06:32:38-03:00,RIC-0001-TOP_2026-11-14_06-32-38.jpg,apertura,8.377,medida,,top-v3.1,8.6
+2026-11-14T06:39:19-03:00,RIC-0001-TOP_2026-11-14_06-39-19.jpg,apertura,8.331,medida,,top-v3.1,8.5
+2026-11-14T06:46:38-03:00,RIC-0001-TOP_2026-11-14_06-46-38.jpg,apertura,8.356,medida,,top-v3.1,8.6
