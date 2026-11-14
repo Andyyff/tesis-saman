@@ -617,3 +617,6 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-13T23:51:42-03:00,RIC-0001-LEFT_2026-11-13_23-51-42.jpg,angulo,69.75,medida,,left-v3,
 2026-11-13T23:51:42-03:00,RIC-0001-LEFT_2026-11-13_23-51-42.jpg,distancia_a,170.9,medida,sin ficha verde: el origen se toma en la punta fisica de la barra,left-v3,
 2026-11-13T23:51:42-03:00,RIC-0001-LEFT_2026-11-13_23-51-42.jpg,distancia_b,137.8,medida,,left-v3,
+2026-11-13T23:58:11-03:00,RIC-0001-LEFT_2026-11-13_23-58-11.jpg,angulo,69.86,medida,,left-v3,
+2026-11-13T23:58:11-03:00,RIC-0001-LEFT_2026-11-13_23-58-11.jpg,distancia_a,152.5,medida,,left-v3,
+2026-11-13T23:58:11-03:00,RIC-0001-LEFT_2026-11-13_23-58-11.jpg,distancia_b,140.8,medida,,left-v3,
