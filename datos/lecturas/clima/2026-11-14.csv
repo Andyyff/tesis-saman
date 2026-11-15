@@ -2805,3 +2805,11 @@ t,variable,valor,estado
 2026-11-14T23:53:59-03:00,temperatura,23.9,medida
 2026-11-14T23:55:02-03:00,humedad,78.0,medida
 2026-11-14T23:55:02-03:00,temperatura,23.9,medida
+2026-11-14T23:55:59-03:00,humedad,78.1,medida
+2026-11-14T23:55:59-03:00,temperatura,23.8,medida
+2026-11-14T23:56:59-03:00,humedad,78.1,medida
+2026-11-14T23:56:59-03:00,temperatura,23.9,medida
+2026-11-14T23:57:59-03:00,humedad,78.2,medida
+2026-11-14T23:57:59-03:00,temperatura,23.8,medida
+2026-11-14T23:58:59-03:00,humedad,78.3,medida
+2026-11-14T23:58:59-03:00,temperatura,23.9,medida
