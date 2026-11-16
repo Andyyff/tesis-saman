@@ -1,0 +1,4 @@
+t,archivo,variable,valor,estado,detalle,version,nexlab
+2026-11-16T00:01:00-03:00,RIC-0001-AMP_2026-11-16_00-01-00.jpg,f1,,no_valido_digito,,amp-v10,64.87
+2026-11-16T00:01:00-03:00,RIC-0001-AMP_2026-11-16_00-01-00.jpg,f2,63.53,medida,V5,amp-v10,63.53
+2026-11-16T00:01:00-03:00,RIC-0001-AMP_2026-11-16_00-01-00.jpg,f3,62.37,medida,V6_META>=0.925,amp-v10,
