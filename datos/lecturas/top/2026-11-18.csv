@@ -18,3 +18,9 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-18T01:53:52-03:00,RIC-0001-TOP_2026-11-18_01-53-52.jpg,apertura,8.89,medida,,top-v3.1,9.5
 2026-11-18T02:02:03-03:00,RIC-0001-TOP_2026-11-18_02-02-03.jpg,apertura,8.936,medida,,top-v3.1,9.4
 2026-11-18T08:07:18-03:00,RIC-0001-TOP_2026-11-18_08-07-18.jpg,apertura,,color_inutilizable,"tinte de camara 6.82: el color no se puede recuperar, no se mide",top-v3.1,0.0
+2026-11-18T08:13:56-03:00,RIC-0001-TOP_2026-11-18_08-13-56.jpg,apertura,0.0,medida,el mango quedo 7.5px fuera de su recorrido | en el tope de cerrada (la recta da -0.313): se informa 0,top-v3.1,0.0
+2026-11-18T08:20:35-03:00,RIC-0001-TOP_2026-11-18_08-20-35.jpg,apertura,7.773,medida,,top-v3.1,7.3
+2026-11-18T08:27:17-03:00,RIC-0001-TOP_2026-11-18_08-27-17.jpg,apertura,8.322,medida,,top-v3.1,8.0
+2026-11-18T08:34:16-03:00,RIC-0001-TOP_2026-11-18_08-34-16.jpg,apertura,8.337,medida,,top-v3.1,8.0
+2026-11-18T08:54:02-03:00,RIC-0001-TOP_2026-11-18_08-54-02.jpg,apertura,8.338,medida,tinte de camara 2.99: color corregido por balance de blancos,top-v3.1,
+2026-11-18T09:00:34-03:00,RIC-0001-TOP_2026-11-18_09-00-34.jpg,apertura,8.334,medida,,top-v3.1,8.1
