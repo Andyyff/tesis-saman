@@ -1,25 +1,22 @@
 {
- "corrida": "2026-11-20T17:05:58-03:00",
+ "corrida": "2026-11-20T17:57:02-03:00",
  "fecha": "2026-11-20",
  "camaras": {
   "top": {
-   "nexlab": 142,
-   "ultima_foto": "2026-11-20T17:01:18-03:00",
-   "procesadas": 142
+   "nexlab": 150,
+   "ultima_foto": "2026-11-20T17:54:43-03:00",
+   "procesadas": 150
   },
   "left": {
-   "nexlab": 153,
-   "ultima_foto": "2026-11-20T17:01:43-03:00",
-   "procesadas": 153
+   "nexlab": 161,
+   "ultima_foto": "2026-11-20T17:55:08-03:00",
+   "procesadas": 161
   },
   "amp": {
-   "nexlab": 150,
-   "ultima_foto": "2026-11-20T17:01:59-03:00",
-   "procesadas": 150
+   "nexlab": 158,
+   "ultima_foto": "2026-11-20T17:55:33-03:00",
+   "procesadas": 158
   }
  },
- "avisos": [
-  "clima: no se pudo leer Nexlab (500 Server Error: Internal Server Error for url: https://apis.nexlab.com.uy/control/a7b2c3d4/nodes/1/sensors/1/history?startDate=2026-11-19T03%3A00%3A00Z&endDate=2026-11-20T02%3A59%3A59Z); se usan las lecturas ya guardadas",
-  "clima: no se pudo leer Nexlab (500 Server Error: Internal Server Error for url: https://apis.nexlab.com.uy/control/a7b2c3d4/nodes/1/sensors/1/history?startDate=2026-11-20T03%3A00%3A00Z&endDate=2026-11-21T02%3A59%3A59Z); se usan las lecturas ya guardadas"
- ]
+ "avisos": []
 }
