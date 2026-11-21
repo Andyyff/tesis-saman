@@ -78,3 +78,7 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-21T09:41:41-03:00,RIC-0001-TOP_2026-11-21_09-41-41.jpg,apertura,7.746,medida,,top-v3.1,
 2026-11-21T09:48:15-03:00,RIC-0001-TOP_2026-11-21_09-48-15.jpg,apertura,0.0,medida,el mango quedo 7.8px fuera de su recorrido | en el tope de cerrada (la recta da -0.254): se informa 0,top-v3.1,
 2026-11-21T09:54:56-03:00,RIC-0001-TOP_2026-11-21_09-54-56.jpg,apertura,0.0,medida,el mango quedo 7.4px fuera de su recorrido | en el tope de cerrada (la recta da -0.26): se informa 0,top-v3.1,
+2026-11-21T17:28:56-03:00,RIC-0001-TOP_2026-11-21_17-28-56.jpg,apertura,1.894,medida,tinte de camara 5.93: color corregido por balance de blancos,top-v3.1,2.0
+2026-11-21T17:34:58-03:00,RIC-0001-TOP_2026-11-21_17-34-58.jpg,apertura,1.664,medida,,top-v3.1,
+2026-11-21T17:41:43-03:00,RIC-0001-TOP_2026-11-21_17-41-43.jpg,apertura,1.67,medida,,top-v3.1,
+2026-11-21T17:48:37-03:00,RIC-0001-TOP_2026-11-21_17-48-37.jpg,apertura,1.636,medida,,top-v3.1,
