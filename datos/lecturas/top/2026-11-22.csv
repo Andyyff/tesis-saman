@@ -92,3 +92,7 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-22T10:48:35-03:00,RIC-0001-TOP_2026-11-22_10-48-35.jpg,apertura,6.74,medida,,top-v3.1,
 2026-11-22T10:55:14-03:00,RIC-0001-TOP_2026-11-22_10-55-14.jpg,apertura,6.765,medida,,top-v3.1,
 2026-11-22T11:01:56-03:00,RIC-0001-TOP_2026-11-22_11-01-56.jpg,apertura,6.792,medida,,top-v3.1,2.1
+2026-11-22T11:08:48-03:00,RIC-0001-TOP_2026-11-22_11-08-48.jpg,apertura,6.754,medida,,top-v3.1,
+2026-11-22T11:15:18-03:00,RIC-0001-TOP_2026-11-22_11-15-18.jpg,apertura,6.766,medida,,top-v3.1,
+2026-11-22T11:21:55-03:00,RIC-0001-TOP_2026-11-22_11-21-55.jpg,apertura,6.804,medida,,top-v3.1,5.9
+2026-11-22T11:48:37-03:00,RIC-0001-TOP_2026-11-22_11-48-37.jpg,apertura,,color_inutilizable,"tinte de camara 192.57: el color no se puede recuperar, no se mide",top-v3.1,3.8
