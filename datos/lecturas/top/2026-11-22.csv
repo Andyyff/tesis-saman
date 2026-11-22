@@ -125,3 +125,10 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-22T15:29:33-03:00,RIC-0001-TOP_2026-11-22_15-29-33.jpg,apertura,6.779,medida,,top-v3.1,
 2026-11-22T15:42:12-03:00,RIC-0001-TOP_2026-11-22_15-42-12.jpg,apertura,6.766,medida,tinte de camara 1.67: color corregido por balance de blancos,top-v3.1,5.6
 2026-11-22T15:49:10-03:00,RIC-0001-TOP_2026-11-22_15-49-10.jpg,apertura,6.765,medida,tinte de camara 1.58: color corregido por balance de blancos,top-v3.1,6.1
+2026-11-22T15:56:10-03:00,RIC-0001-TOP_2026-11-22_15-56-10.jpg,apertura,6.776,medida,tinte de camara 1.3: color corregido por balance de blancos,top-v3.1,
+2026-11-22T16:16:16-03:00,RIC-0001-TOP_2026-11-22_16-16-16.jpg,apertura,,color_inutilizable,"tinte de camara 222.96: el color no se puede recuperar, no se mide",top-v3.1,
+2026-11-22T16:22:30-03:00,RIC-0001-TOP_2026-11-22_16-22-30.jpg,apertura,6.794,medida,tinte de camara 1.32: color corregido por balance de blancos,top-v3.1,1.5
+2026-11-22T16:29:30-03:00,RIC-0001-TOP_2026-11-22_16-29-30.jpg,apertura,6.756,medida,,top-v3.1,
+2026-11-22T16:35:40-03:00,RIC-0001-TOP_2026-11-22_16-35-40.jpg,apertura,6.813,medida,,top-v3.1,0.0
+2026-11-22T16:42:05-03:00,RIC-0001-TOP_2026-11-22_16-42-05.jpg,apertura,6.808,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,0.0
+2026-11-22T16:48:49-03:00,RIC-0001-TOP_2026-11-22_16-48-49.jpg,apertura,6.814,medida,tinte de camara 1.4: color corregido por balance de blancos,top-v3.1,
