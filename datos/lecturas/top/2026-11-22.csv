@@ -116,3 +116,12 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-22T14:01:56-03:00,RIC-0001-TOP_2026-11-22_14-01-56.jpg,apertura,6.759,medida,,top-v3.1,
 2026-11-22T14:08:59-03:00,RIC-0001-TOP_2026-11-22_14-08-59.jpg,apertura,6.811,medida,,top-v3.1,
 2026-11-22T14:15:17-03:00,RIC-0001-TOP_2026-11-22_14-15-17.jpg,apertura,6.751,medida,,top-v3.1,
+2026-11-22T14:49:38-03:00,RIC-0001-TOP_2026-11-22_14-49-38.jpg,apertura,,color_inutilizable,"tinte de camara 224.7: el color no se puede recuperar, no se mide",top-v3.1,
+2026-11-22T14:56:26-03:00,RIC-0001-TOP_2026-11-22_14-56-26.jpg,apertura,6.803,medida,,top-v3.1,
+2026-11-22T15:02:20-03:00,RIC-0001-TOP_2026-11-22_15-02-20.jpg,apertura,6.765,medida,,top-v3.1,
+2026-11-22T15:09:08-03:00,RIC-0001-TOP_2026-11-22_15-09-08.jpg,apertura,6.788,medida,,top-v3.1,
+2026-11-22T15:15:58-03:00,RIC-0001-TOP_2026-11-22_15-15-58.jpg,apertura,6.775,medida,,top-v3.1,
+2026-11-22T15:22:22-03:00,RIC-0001-TOP_2026-11-22_15-22-22.jpg,apertura,6.773,medida,,top-v3.1,0.0
+2026-11-22T15:29:33-03:00,RIC-0001-TOP_2026-11-22_15-29-33.jpg,apertura,6.779,medida,,top-v3.1,
+2026-11-22T15:42:12-03:00,RIC-0001-TOP_2026-11-22_15-42-12.jpg,apertura,6.766,medida,tinte de camara 1.67: color corregido por balance de blancos,top-v3.1,5.6
+2026-11-22T15:49:10-03:00,RIC-0001-TOP_2026-11-22_15-49-10.jpg,apertura,6.765,medida,tinte de camara 1.58: color corregido por balance de blancos,top-v3.1,6.1
