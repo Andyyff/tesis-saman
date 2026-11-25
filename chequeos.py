@@ -11,7 +11,7 @@ Con la máquina apagada no se evalúan patrones: es normal; solo se informa (tip
 from datetime import datetime
 
 MAX_ATRASO_MIN = 90          # el flujo corre cada hora y Nexlab tarda ~10 min: más que esto es una falla
-FOTOS_DIA = 144              # una foto cada 10 min por cámara (sacan una cada ~7)
+FOTOS_DIA = 205              # cada cámara saca una foto cada ~7 min (mediana real oct-nov: 190 a 206 por día)
 MIN_FOTOS = 0.5              # menos de la mitad de las fotos esperadas: falla la toma de datos
 MAX_ERRORES = 0.30           # más del 30 % de las fotos (máquina encendida) sin poder leer una variable
 MIN_FOTOS_PARA_ERRORES = 10

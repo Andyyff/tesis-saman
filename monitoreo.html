@@ -91,6 +91,11 @@ td { padding:8px 10px; border-bottom:1px solid var(--borde); vertical-align:top;
       <div id="avisos" style="margin-top:10px"></div>
     </div>
     <div class="tarjeta">
+      <h3>Fotos por día: cuántas se sacaron y cuántas se esperaban</h3>
+      <p class="ayuda" style="margin-bottom:10px">Cada cámara saca una foto cada ~7 min: unas 205 por día (la línea punteada; hoy, lo que va del día). Si una barra queda muy abajo, falla la toma de datos (cámara o subida de fotos), no los modelos. El período se elige abajo, en el alcance.</p>
+      <div class="lienzo" style="height:240px"><canvas id="graf-fotos"></canvas></div>
+    </div>
+    <div class="tarjeta">
       <h3>Alcance por modelo: qué parte de las fotos logra leer
         <select id="rango"><option value="7">Últimos 7 días</option><option value="30" selected>Últimos 30 días</option><option value="0">Todo</option></select></h3>
       <p class="ayuda" style="margin-bottom:10px">Por día y solo con la máquina encendida, porcentaje de fotos con respuesta válida: midió el valor, o constató que la varilla no tiene pesa. Si una línea cae, algo cambió (cámara movida, luz).</p>
@@ -127,6 +132,8 @@ td { padding:8px 10px; border-bottom:1px solid var(--borde); vertical-align:top;
       <p class="ayuda">Flechas del teclado: foto anterior / siguiente. Clic en la foto: zoom. En naranja, las que el modelo no pudo medir; en gris, con la máquina apagada.</p>
     </div>
     <div class="tarjeta"><h3 id="titulo-explica"></h3><div class="explica" id="explica"></div></div>
+    <div class="tarjeta"><h3>Detalle técnico: de dónde sale cada número</h3><div id="tecnico"></div></div>
+    <div class="tarjeta"><h3>Reglas del sistema: máquina encendida, fotos esperadas y alertas</h3><div id="general"></div></div>
   </section>
 </div>
 <script>
@@ -207,9 +214,26 @@ async function pintarSalud() {
 }
 
 let historial = [], graficos = [];
+let grafFotos = null;
+const FOTOS_DIA = 205;
+function pintarFotos(dias) {
+  const ahoraUY = new Date(Date.now() - 3 * 3600e3).toISOString();
+  const esperadas = d => d.fecha === ahoraUY.slice(0, 10)
+    ? Math.round(FOTOS_DIA * (+ahoraUY.slice(11, 13) * 60 + +ahoraUY.slice(14, 16)) / 1440) : FOTOS_DIA;
+  if (grafFotos) grafFotos.destroy();
+  grafFotos = new Chart(document.getElementById("graf-fotos"), { type: "bar",
+    data: { labels: dias.map(d => d.fecha.slice(5)), datasets: [
+      ...CAMARAS.map((c, k) => ({ label: c, data: dias.map(d => d.camaras[c]?.fotos ?? 0), backgroundColor: COLORES[k] })),
+      { type: "line", label: "Esperadas", data: dias.map(esperadas), borderColor: "#888", borderDash: [5, 4], pointRadius: 0, borderWidth: 1.5 }] },
+    options: { responsive: true, maintainAspectRatio: false, animation: false, interaction: { mode: "index", intersect: false },
+      plugins: { legend: { position: "top", labels: { usePointStyle: true, boxWidth: 8 } } },
+      scales: { x: { grid: { display: false } }, y: { beginAtZero: true } } } });
+}
+
 function pintarAlcance() {
   const n = +document.getElementById("rango").value;
   const dias = n ? historial.slice(-n) : historial;
+  pintarFotos(dias);
   graficos.forEach(g => g.destroy()); graficos = [];
   const cont = document.getElementById("graficos"); cont.innerHTML = "";
   const filas = [];
@@ -265,6 +289,41 @@ async function cargarOperacion() {
   pintarAlcance(); pintarAlertas();
 }
 
+
+// Detalle técnico: de dónde sale cada número (resumen de los README de modelos/ y del código).
+const TECNICO = {
+  top: [
+    ["Herramientas", "Python con OpenCV (procesamiento de imagen) y NumPy. Sin entrenamiento: reglas geométricas y de color calibradas con fotos reales."],
+    ["Alineación", "Se buscan puntos característicos (ORB) en la foto y en una foto de referencia (02/09/2026) y se calcula el corrimiento, giro y escala que las superpone (RANSAC descarta coincidencias falsas). Se excluye la zona de la palanca y la tapa con arroz, que cambian. Si la cámara se movió más de 40 px, 1,5° o 3 % de escala, se rechaza; si no se puede alinear, se usa la alineación de una foto vecina (hasta 3 h)."],
+    ["Corrección de color", "Balance de blancos usando el disco blanco de la tapa como referencia: así el verde del mango se reconoce aunque la luz cambie. Si el tinte de la cámara es extremo (foto verde o violeta irrecuperable), no se mide."],
+    ["Mango", "Mancha verde (color Lab: a* < −25, b* > 5) de 200 a 2.000 píxeles, sobre la curva que recorre el mango. Esa curva (x = a·y² + b·y + c) se ajustó con 657 fotos de 4 días; las fotos se apartan de ella 0,7 px de mediana."],
+    ["Calibración 0-10", "apertura = 0,02909 × posición + 8,9553 (1 unidad = 34,4 px a lo largo de la curva). Es una recta ajustada con 682 fotos de 4 días que cubren toda la escala, de válvula cerrada (0, verificado a ojo) a 9,5, contra el valor que daba el sistema de control actual, descartando sus errores groseros. Validación dejando un día afuera: error típico 0,07 a 0,17 (95 % de las fotos con error ≤ 0,30). Desde la v3.1, un valor menor a 0 se informa 0 (válvula cerrada)."],
+  ],
+  left: [
+    ["Herramientas", "Python con OpenCV y NumPy. Sin entrenamiento: geometría y color."],
+    ["Alineación", "Igual que top (puntos ORB + RANSAC contra una foto de referencia), con un testigo: la perilla roja del extremo de la varilla, que está atornillada, tiene que quedar en su lugar después de alinear."],
+    ["Encontrar la varilla", "La rosca tiene una hendidura cada 10 mm: es un patrón que se repite. Se busca la recta donde la imagen tiene esa repetición (transformada de Fourier del perfil de brillo). El período medido en píxeles es la regla: 1 período = 10 mm."],
+    ["Distancia", "Se ubica el tapón verde (por color) y la pesa (celeste, por color y porque tapa la barra). distancia (mm) = píxeles entre tapón y pesa ÷ píxeles por hendidura × 10. Como la regla es la propia rosca, no depende de a qué distancia esté la cámara. Si da fuera del largo físico de la barra (230 mm), se descarta."],
+    ["Ángulo", "Ángulo en la perilla roja entre la recta que va al tapón verde y la ficha magenta fija de la máquina."],
+    ["Control de errores sueltos", "Si una distancia se aleja más de 30 mm de las fotos de antes y de después, y esas coinciden entre sí, se descarta (ej.: un operario delante de la varilla). No se reemplaza por otro valor."],
+  ],
+  amp: [
+    ["Herramientas", "Python con OpenCV y scikit-learn (aprendizaje automático para reconocer dígitos)."],
+    ["Preparación", "La foto se gira 180° y se alinea contra una referencia fija (puntos ORB + RANSAC). Si la sala está a oscuras no se puede alinear: con la máquina apagada se informa 0."],
+    ["Lectura de dígitos", "Se recortan los 12 dígitos (3 fases × 4). Cada uno se lee con un clasificador entrenado con dígitos etiquetados (HOG: histograma de bordes + SVM) y se confirma con la evidencia física de los 7 segmentos encendidos. Varios lectores votan; si no hay acuerdo suficiente, no se da un número."],
+    ["Punto decimal", "Se detecta mirando la foto, no por el tamaño del número."],
+    ["Precisión medida", "En 3.093 lecturas de 5 días verificadas a ojo: responde el 93 % y acierta el 99,7 % de las veces que responde."],
+  ],
+};
+const GENERAL = [
+  ["Máquina encendida", "Por intervalo de 10 min: encendida si el amperaje supera 5 A. Si amp no puede leer (sala a oscuras), decide la temperatura del arroz: encendida si la salida está 4,5 °C o más arriba de la entrada (andando la diferencia tiene mediana 5,8 °C; parada, −0,2 °C)."],
+  ["Fotos esperadas", "Cada cámara saca una foto cada ~7 min: unas 205 por día. Menos de la mitad es alerta de equipo: falla la toma de datos (cámara o subida de fotos), no los modelos."],
+  ["Alertas de datos", "Solo con la máquina encendida y nunca por una foto suelta: más del 30 % de las fotos del día sin poder leer una variable; una fase de amperaje más de 15 A separada de las otras dos por 30 min o más; diferencia de temperatura del arroz fuera de 2 a 9 °C por 30 min o más."],
+];
+function tablaTecnica(filas) {
+  return `<table>${filas.map(([k, v]) => `<tr><td style="width:170px;font-weight:600">${k}</td><td>${v}</td></tr>`).join("")}</table>`;
+}
+
 // ------------------------------------------------------------------ Fotos
 let cam = "top", fotos = [], vista = [], i = 0, variables = {}, descartadas = {};
 const casillero = t => t.slice(0, 15) + "0" + t.slice(19);   // "…T10:13:35-03:00" -> "…T10:10-03:00"
@@ -287,6 +346,8 @@ function urlFoto(archivo) {
 function pintarExplicacion() {
   const m = MODELOS[cam];
   document.getElementById("titulo-explica").textContent = "Cómo funciona — " + m.titulo;
+  document.getElementById("tecnico").innerHTML = tablaTecnica(TECNICO[cam]);
+  document.getElementById("general").innerHTML = tablaTecnica(GENERAL);
   document.getElementById("explica").innerHTML = `<ol>${m.pasos.map(p => `<li>${p}</li>`).join("")}</ol>` +
     (m.img ? `<div><img src="${m.img}" alt="Esquema del modelo ${cam}"></div>` : `<div class="ayuda">Sin esquema todavía para este modelo.</div>`);
 }
@@ -343,6 +404,7 @@ function mostrarFoto() {
     f.filas.map(x => {
       const m = variables[`${cam}.${x.variable}`] || {}, u = m.unidad === "0-10" ? "" : (m.unidad || "");
       const valor = x.valor !== "" ? `<div class="v">${(+x.valor).toFixed(1)} ${u}</div>`
+        : f.apagada && cam === "amp" ? `<div class="v">0 ${u} <span style="font-size:14px;font-weight:500;color:var(--sub)">máquina apagada</span></div>`
         : f.apagada ? `<div class="v no" style="color:var(--sub)">Máquina apagada (${motivo(x.estado)})</div>`
         : `<div class="v no">No midió: ${motivo(x.estado)}</div>`;
       const desc = descartadas[f.archivo]?.[`${cam}.${x.variable}`];

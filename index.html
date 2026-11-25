@@ -59,7 +59,11 @@ footer { font-size:12px; color:var(--sub); text-align:center; padding:8px; }
   <div class="controles">
     <button data-vista="detalle" class="activo">Detalle</button>
     <button data-vista="mensual">Por mes</button>
-    <span id="rango"><label>Desde <select id="desde"></select></label> <label>Hasta <select id="hasta"></select></label></span>
+    <span id="rango" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+      <button data-preset="hoy">Hoy</button><button data-preset="7">Últimos 7 días</button><button data-preset="mes">Este mes</button>
+      <button data-preset="mes-1">Mes anterior</button><button data-preset="anio">Este año</button><button data-preset="todo">Todo</button>
+      <label>Desde <select id="desde"></select></label> <label>Hasta <select id="hasta"></select></label>
+      <span id="paso" class="nota" style="color:var(--sub)"></span></span>
     <a id="alertas" class="chip" href="monitoreo.html"></a>
   </div>
   <div class="error" id="error"></div>
@@ -93,7 +97,6 @@ footer { font-size:12px; color:var(--sub); text-align:center; padding:8px; }
 <script>
 const BASE = "datos/panel/";
 const COLORES = ["#4C72B0", "#DD8452", "#55A868", "#C44E52", "#8172B3"];
-const MAX_DIAS = 31;
 // Qué se grafica junto, en este orden. "maquina": solo con la máquina encendida.
 const GRAFICOS = [
   { seccion: "Operación de la máquina" },
@@ -145,8 +148,37 @@ async function cargarIndice() {
 function diasDelRango() {
   let a = document.getElementById("desde").value, b = document.getElementById("hasta").value;
   if (a > b) [a, b] = [b, a];
-  const dias = indice.dias.filter(d => d >= a && d <= b);
-  return dias.slice(-MAX_DIAS);
+  return indice.dias.filter(d => d >= a && d <= b);
+}
+
+function aplicarPreset(p) {
+  const dias = indice.dias, ultimo = dias[dias.length - 1], mes = ultimo.slice(0, 7);
+  const anterior = new Date(Date.UTC(+mes.slice(0, 4), +mes.slice(5, 7) - 2, 1)).toISOString().slice(0, 7);
+  const elegidos = { hoy: [ultimo], "7": dias.slice(-7), mes: dias.filter(d => d.startsWith(mes)),
+                     "mes-1": dias.filter(d => d.startsWith(anterior)), anio: dias.filter(d => d.startsWith(ultimo.slice(0, 4))),
+                     todo: dias }[p];
+  if (!elegidos.length) return;
+  document.getElementById("desde").value = elegidos[0];
+  document.getElementById("hasta").value = elegidos[elegidos.length - 1];
+  mostrar();
+}
+
+// Promedia los casilleros de 10 min por hora o por día para que un rango largo se pueda leer.
+// Los datos de la máquina solo entran si estaba encendida (igual que en el detalle).
+function agrupar(filas, largo, maquinaVars) {
+  const grupos = new Map();
+  for (const f of filas) {
+    const k = f.t.slice(0, largo);
+    if (!grupos.has(k)) grupos.set(k, { t: f.t, suma: {}, n: {}, encendidos: 0, total: 0 });
+    const g = grupos.get(k);
+    g.total++; if (f.m === "encendida") g.encendidos++;
+    for (const [vid, x] of Object.entries(f.v)) {
+      if (x == null || (maquinaVars.has(vid) && f.m !== "encendida")) continue;
+      g.suma[vid] = (g.suma[vid] || 0) + x; g.n[vid] = (g.n[vid] || 0) + 1;
+    }
+  }
+  return [...grupos.values()].map(g => ({ t: g.t, m: g.encendidos ? "encendida" : "apagada", encendidos: g.encendidos, total: g.total,
+    v: Object.fromEntries(Object.keys(g.suma).map(vid => [vid, Math.round(100 * g.suma[vid] / g.n[vid]) / 100])) }));
 }
 
 function pintarAlertas(dias) {
@@ -154,6 +186,17 @@ function pintarAlertas(dias) {
   const el = document.getElementById("alertas");
   el.textContent = n ? `${n} alerta${n > 1 ? "s" : ""} en el período · ver en monitoreo` : "Sin alertas en el período";
   el.className = "chip " + (n ? "revisar" : "ok");
+}
+
+function pintarAlertasHist(hist) {
+  pintarAlertas(hist.map(d => ({ calidad: { alertas: d.alertas } })));
+}
+
+function pintarAhoraHist(hist, ultimoDia) {
+  const horas = hist.reduce((s, d) => s + d.horas_encendida, 0);
+  pintarAhora([ultimoDia], ultimoDia.filas);
+  document.getElementById("ahora").firstElementChild.nextElementSibling.innerHTML =
+    `Encendida en el período: <b>${Math.round(horas)} h</b> de ${hist.length * 24} h`;
 }
 
 function pintarAhora(dias, filas) {
@@ -185,14 +228,11 @@ function opciones(extra = {}) {
            scales: { x: { grid: { display: false }, ticks: { maxTicksLimit: 12 } }, y: { beginAtZero: false }, ...extra } };
 }
 
-function pintarDetalle(dias) {
+function pintarDetalle(filas, variables, paso) {
   graficos.forEach(g => g.destroy()); graficos = [];
   const cont = document.getElementById("graficos"); cont.innerHTML = "";
-  const filas = dias.flatMap(d => d.filas);
-  const variables = Object.assign({}, ...dias.map(d => d.variables));
-  const varios = dias.length > 1;
-  const etiquetas = filas.map(f => varios ? `${f.t.slice(8, 10)}/${f.t.slice(5, 7)} ${hora(f.t)}` : hora(f.t));
-  pintarAhora(dias, filas);
+  const etiquetas = filas.map(f => paso === "dia" ? `${f.t.slice(8, 10)}/${f.t.slice(5, 7)}`
+    : filas.length > 144 ? `${f.t.slice(8, 10)}/${f.t.slice(5, 7)} ${hora(f.t)}` : hora(f.t));
   for (const def of GRAFICOS) {
     if (def.seccion) {
       const h = document.createElement("div"); h.className = "seccion"; h.style.gridColumn = "1 / -1"; h.textContent = def.seccion;
@@ -202,7 +242,7 @@ function pintarDetalle(dias) {
     if (!vars.length) continue;
     const datasets = vars.map((vid, i) => ({
       label: NOMBRES[vid] || variables[vid].nombre, borderColor: COLORES[i], backgroundColor: COLORES[i],
-      data: filas.map(f => def.maquina && f.m !== "encendida" ? null : (f.v[vid] ?? null)),
+      data: filas.map(f => paso === "10 min" && def.maquina && f.m !== "encendida" ? null : (f.v[vid] ?? null)),
       borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: 0.2, spanGaps: false, yAxisID: def.dosEjes && i === 1 ? "y2" : "y" }));
     grafico(cont, def.titulo, def.nota, { type: "line", data: { labels: etiquetas, datasets },
       options: opciones(def.dosEjes ? { y2: { position: "right", grid: { display: false } } } : {}) });
@@ -246,8 +286,29 @@ async function mostrar() {
   try {
     await cargarIndice();
     if (vista === "detalle") {
-      const dias = await Promise.all(diasDelRango().map(d => leer(d + ".json")));
-      pintarDetalle(dias); pintarAlertas(dias);
+      const lista = diasDelRango();
+      const maquinaVars = new Set(GRAFICOS.filter(g => g.maquina).flatMap(g => g.vars));
+      let filas, variables, paso;
+      if (lista.length > 45) {           // rango largo: un punto por día, del resumen diario (máquina encendida)
+        const hist = (await leer("historial.json")).dias.filter(d => lista.includes(d.fecha));
+        filas = hist.map(d => ({ t: d.fecha + "T00:00", m: d.horas_encendida ? "encendida" : "apagada",
+                                 v: Object.fromEntries(Object.entries(d.resumen || {}).map(([k, x]) => [k, x[0]])) }));
+        const ultimoDia = await leer(lista[lista.length - 1] + ".json");
+        variables = ultimoDia.variables; paso = "dia";
+        pintarAlertasHist(hist);
+        pintarAhoraHist(hist, ultimoDia);
+      } else {
+        const dias = await Promise.all(lista.map(d => leer(d + ".json")));
+        variables = Object.assign({}, ...dias.map(d => d.variables));
+        const crudas = dias.flatMap(d => d.filas);
+        pintarAhora(dias, crudas);
+        pintarAlertas(dias);
+        paso = lista.length > 7 ? "hora" : "10 min";
+        filas = paso === "hora" ? agrupar(crudas, 13, maquinaVars) : crudas;
+      }
+      document.getElementById("paso").textContent = `${lista.length} día${lista.length > 1 ? "s" : ""} · ` +
+        { "10 min": "un dato cada 10 min", hora: "promedio por hora", dia: "promedio por día (máquina encendida)" }[paso];
+      pintarDetalle(filas, variables, paso);
     } else {
       pintarMensual((await leer("historial.json")).dias);
     }
@@ -265,6 +326,7 @@ document.querySelectorAll("[data-vista]").forEach(b => b.addEventListener("click
   for (const id of ["rango", "alertas"]) document.getElementById(id).style.display = vista === "detalle" ? "" : "none";
   mostrar();
 }));
+document.querySelectorAll("[data-preset]").forEach(b => b.addEventListener("click", () => aplicarPreset(b.dataset.preset)));
 document.getElementById("desde").addEventListener("change", mostrar);
 document.getElementById("hasta").addEventListener("change", mostrar);
 mostrar();

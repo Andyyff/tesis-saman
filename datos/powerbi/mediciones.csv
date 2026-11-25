@@ -96527,3 +96527,15 @@ fecha_hora,variable,valor,valor_nexlab,motivo,salto
 2026-11-25 20:30,clima.temp_entrada,24.11,,,False
 2026-11-25 20:30,clima.temp_salida,30.0,,,False
 2026-11-25 20:30,clima.dif_temp,5.89,,,False
+2026-11-25 20:40,top.apertura,,,sin_dato,False
+2026-11-25 20:40,left.distancia_a,,,sin_dato,False
+2026-11-25 20:40,left.distancia_b,,,sin_dato,False
+2026-11-25 20:40,left.angulo,,,sin_dato,False
+2026-11-25 20:40,amp.f1,,,sin_dato,False
+2026-11-25 20:40,amp.f2,,,sin_dato,False
+2026-11-25 20:40,amp.f3,,,sin_dato,False
+2026-11-25 20:40,clima.temperatura,,,sin_dato,False
+2026-11-25 20:40,clima.humedad,,,sin_dato,False
+2026-11-25 20:40,clima.temp_entrada,,,sin_dato,False
+2026-11-25 20:40,clima.temp_salida,,,sin_dato,False
+2026-11-25 20:40,clima.dif_temp,,,sin_dato,False
