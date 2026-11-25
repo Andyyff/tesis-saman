@@ -12,6 +12,9 @@ import algoritmos, chequeos, nexlab
 
 UY = timezone(timedelta(hours=-3))           # Uruguay no tiene horario de verano desde 2015
 GRILLA_MIN = 10
+AMP_ENCENDIDA = 5.0       # A: con menos corriente en las tres fases la máquina está apagada
+DIF_TEMP_ENCENDIDA = 4.5  # °C: si amp no lee (sala a oscuras), salida - entrada >= 4,5 indica que está andando
+# (andando: mediana 5,8 °C, el 75 % arriba de 4,8; apagada: mediana -0,2, pero de día al sol puede llegar a 3,8)
 DATOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "datos")
 CACHE_FOTOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".cache", "fotos")
 CAMPOS = ["t", "archivo", "variable", "valor", "estado", "detalle", "version", "nexlab"]
@@ -195,16 +198,61 @@ def armar_dia(fecha, lecturas_cam, lecturas_clima, ahora):
                 suma.setdefault(s, []).append(float(f["valor"]))
         for s, xs in suma.items():
             v[s][vid] = round(sum(xs) / len(xs), 2)
+    variables["clima.dif_temp"] = dict(nombre="Diferencia salida − entrada arroz", unidad="°C", fuente="clima",
+                                       version="nexlab-sensores", salto_max=None)
+    for s in slots:
+        if "clima.temp_salida" in v[s] and "clima.temp_entrada" in v[s]:
+            v[s]["clima.dif_temp"] = round(v[s]["clima.temp_salida"] - v[s]["clima.temp_entrada"], 2)
 
+    maquina = estado_maquina(slots, v)
     filas = []
     for s in slots:
         for vid in variables:
             if vid not in v[s] and vid not in e[s] and not vid.endswith("_nexlab"):
                 e[s][vid] = "sin_dato"
-        filas.append({"t": s, "v": v[s], "e": e[s]})
+        filas.append({"t": s, "m": maquina[s], "v": v[s], "e": e[s]})
     return {"fecha": fecha, "zona_horaria": "-03:00", "grilla_min": GRILLA_MIN,
             "generado": ahora.isoformat(timespec="seconds"), "variables": variables, "filas": filas,
-            "descartadas": descartadas}
+            "descartadas": descartadas, "camaras": resumen_camaras(lecturas_cam, maquina)}
+
+
+def estado_maquina(slots, v):
+    """{casillero: "encendida" | "apagada" | "sin_dato"}. Manda la corriente que lee amp; si amp no leyó
+    (sala a oscuras), la diferencia de temperatura del arroz. Sin ninguna de las dos, se repite el estado
+    anterior hasta 30 min."""
+    estado, ultimo, desde = {}, "sin_dato", None
+    for s in slots:
+        amp = [v[s][f"amp.f{i}"] for i in (1, 2, 3) if f"amp.f{i}" in v[s]]
+        dif = v[s].get("clima.dif_temp")
+        if amp:
+            m = "encendida" if max(amp) >= AMP_ENCENDIDA else "apagada"
+        elif dif is not None:
+            m = "encendida" if dif >= DIF_TEMP_ENCENDIDA else "apagada"
+        elif desde and datetime.fromisoformat(s) - desde <= timedelta(minutes=30):
+            m = ultimo
+        else:
+            m = "sin_dato"
+        if m != "sin_dato" and (amp or dif is not None):
+            ultimo, desde = m, datetime.fromisoformat(s)
+        estado[s] = m
+    return estado
+
+
+def resumen_camaras(lecturas_cam, maquina):
+    """Por cámara: fotos del día, cuántas con la máquina encendida y, de esas, cuántas no pudo leer cada variable
+    (sin contar "sin pesa", que es una respuesta válida). Es la base de las alertas por volumen."""
+    salida = {}
+    for camara, filas in lecturas_cam.items():
+        fotos, encendidas, errores = set(), set(), {}
+        for f in filas:
+            fotos.add(f["archivo"])
+            if maquina.get(casillero(f["t"])) != "encendida":
+                continue
+            encendidas.add(f["archivo"])
+            if f["valor"] == "" and f["estado"] != "sin_pesa":
+                errores[f["variable"]] = errores.get(f["variable"], 0) + 1
+        salida[camara] = dict(fotos=len(fotos), fotos_encendida=len(encendidas), errores=errores)
+    return salida
 
 
 def correr(fechas, ahora=None):
@@ -253,34 +301,41 @@ def publicar(ahora=None):
 
 
 def escribir_historial(dias):
-    """historial.json para el monitoreo: por día y cámara, cuántas fotos hubo, cuántas midió cada variable
-    y por qué no; más las alertas del día. Sale de lecturas/ y panel/, así que se rehace entero cada vez."""
+    """historial.json para el monitoreo y la vista mensual. Por día: horas de máquina encendida; por cámara, fotos
+    del día y, solo con la máquina encendida, cuántas leyó cada variable y por qué no; promedio, mínimo y máximo de
+    cada variable con la máquina encendida; y las alertas. Sale de lecturas/ y panel/: se rehace entero cada vez."""
     salida = []
     for fecha in dias:
+        with open(os.path.join(DATOS, "panel", f"{fecha}.json"), encoding="utf-8") as f:
+            panel = json.load(f)
+        estado = {f["t"]: f.get("m", "sin_dato") for f in panel["filas"]}
+        descartadas = panel.get("descartadas", {})
         camaras = {}
         for c in algoritmos.CAMARAS:
             filas = leer_csv(os.path.join(DATOS, "lecturas", c, f"{fecha}.csv"))
             if not filas:
                 continue
-            var = {}
+            var, encendidas = {}, set()
             for f in filas:
+                if estado.get(casillero(f["t"])) != "encendida":
+                    continue
+                encendidas.add(f["archivo"])
                 v = var.setdefault(f["variable"], dict(medidas=0, motivos={}))
-                if f["valor"] != "":
-                    v["medidas"] += 1
+                motivo = ("distinta_a_vecinas" if f"{c}.{f['variable']}" in descartadas.get(f["archivo"], {})
+                          else None if f["valor"] != "" else f["estado"])
+                if motivo:
+                    v["motivos"][motivo] = v["motivos"].get(motivo, 0) + 1
                 else:
-                    v["motivos"][f["estado"]] = v["motivos"].get(f["estado"], 0) + 1
-            camaras[c] = dict(fotos=len({f["archivo"] for f in filas}), variables=var)
-        with open(os.path.join(DATOS, "panel", f"{fecha}.json"), encoding="utf-8") as f:
-            panel = json.load(f)
-        calidad = panel["calidad"]
-        for archivo, por_var in panel.get("descartadas", {}).items():
-            for vid in por_var:
-                c, var = vid.split(".")
-                m = camaras.get(c, {}).get("variables", {}).get(var)
-                if m:
-                    m["medidas"] -= 1
-                    m["motivos"]["distinta_a_vecinas"] = m["motivos"].get("distinta_a_vecinas", 0) + 1
-        salida.append(dict(fecha=fecha, camaras=camaras, estado=calidad["estado"], alertas=calidad["alertas"]))
+                    v["medidas"] += 1
+            camaras[c] = dict(fotos=len({f["archivo"] for f in filas}), fotos_encendida=len(encendidas), variables=var)
+        resumen = {}
+        for vid in panel["variables"]:
+            xs = [f["v"][vid] for f in panel["filas"] if f.get("m") == "encendida" and f["v"].get(vid) is not None]
+            if xs and not vid.endswith("_nexlab"):
+                resumen[vid] = [round(sum(xs) / len(xs), 2), round(min(xs), 2), round(max(xs), 2), len(xs)]
+        horas = sum(f.get("m") == "encendida" for f in panel["filas"]) * panel["grilla_min"] / 60
+        salida.append(dict(fecha=fecha, horas_encendida=round(horas, 1), camaras=camaras, resumen=resumen,
+                           estado=panel["calidad"]["estado"], alertas=panel["calidad"]["alertas"]))
     with open(os.path.join(DATOS, "panel", "historial.json"), "w", encoding="utf-8") as f:
         json.dump({"dias": salida}, f, ensure_ascii=False, separators=(",", ":"))
 

@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Panel Samán</title>
-<!-- Página estática: lee datos/panel/indice.json y datos/panel/AAAA-MM-DD.json, que flujo.py actualiza cada hora.
-     Se sirve desde la carpeta del proyecto con cualquier servidor de archivos (prueba local: python -m http.server). -->
+<title>Panel saman</title>
+<!-- Página estática: lee datos/panel/indice.json, AAAA-MM-DD.json e historial.json, que flujo.py actualiza cada hora.
+     Se sirve desde la carpeta del proyecto con cualquier servidor de archivos (prueba local: python -m http.server).
+     Con la máquina apagada (campo "m" de cada casillero) los datos de la máquina no se grafican (pedido de Latitud). -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
 <style>
 :root { --bg:#f5f6f8; --card:#fff; --head:#1f2a36; --txt:#1d2329; --sub:#66707a; --borde:#e3e6ea;
@@ -13,31 +14,35 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--txt); line-height:1.5; }
 .contenedor { max-width:1400px; margin:0 auto; padding:var(--gap); }
-header { background:var(--head); color:#fff; padding:18px 24px; border-radius:var(--radius); margin-bottom:var(--gap);
+header { background:var(--head); color:#fff; padding:16px 24px; border-radius:var(--radius); margin-bottom:12px;
          display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
 header h1 { font-size:20px; font-weight:600; }
 header .sub { font-size:13px; color:rgba(255,255,255,.7); }
-.controles { display:flex; gap:12px; align-items:center; flex-wrap:wrap; font-size:13px; }
-.controles select { padding:6px 10px; border-radius:4px; border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.1); color:#fff; font-size:13px; }
-.controles select option { color:var(--txt); }
-.estado { padding:3px 10px; border-radius:12px; font-weight:600; font-size:12px; }
-.estado.ok { background:#dff3e5; color:var(--ok); } .estado.revisar { background:#fbefd9; color:var(--revisar); } .estado.mal { background:#f8dedb; color:var(--mal); }
-.kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:var(--gap); margin-bottom:var(--gap); }
-.kpi, .tarjeta { background:var(--card); border-radius:var(--radius); padding:16px 20px; box-shadow:0 1px 3px rgba(0,0,0,.08); }
-.kpi .nombre { font-size:12px; color:var(--sub); text-transform:uppercase; letter-spacing:.4px; }
-.kpi .valor { font-size:26px; font-weight:700; }
-.kpi .valor small { font-size:14px; font-weight:500; color:var(--sub); }
-.kpi .pie { font-size:12px; color:var(--sub); }
+header a { color:#fff; font-size:13px; }
+.controles { display:flex; gap:10px; align-items:center; flex-wrap:wrap; font-size:13px; margin-bottom:12px; }
+.controles select, .controles button { padding:6px 12px; border-radius:6px; border:1px solid var(--borde); background:var(--card); font-size:13px; cursor:pointer; }
+.controles button.activo { background:var(--head); color:#fff; border-color:var(--head); }
+.chip { padding:3px 10px; border-radius:12px; font-weight:600; font-size:12px; text-decoration:none; }
+.chip.ok { background:#dff3e5; color:var(--ok); } .chip.revisar { background:#fbefd9; color:var(--revisar); }
+.ahora { display:flex; gap:8px 20px; flex-wrap:wrap; font-size:13px; color:var(--sub); background:var(--card); border-radius:var(--radius);
+         padding:8px 16px; margin-bottom:var(--gap); box-shadow:0 1px 3px rgba(0,0,0,.08); }
+.ahora b { color:var(--txt); }
 .graficos { display:grid; grid-template-columns:repeat(auto-fit,minmax(460px,1fr)); gap:var(--gap); margin-bottom:var(--gap); }
-.tarjeta h3 { font-size:14px; font-weight:600; margin-bottom:12px; }
+.tarjeta { background:var(--card); border-radius:var(--radius); padding:16px 20px; box-shadow:0 1px 3px rgba(0,0,0,.08); }
+.tarjeta h3 { font-size:14px; font-weight:600; margin-bottom:4px; }
+.tarjeta .nota { font-size:12px; color:var(--sub); margin-bottom:8px; }
 .lienzo { position:relative; height:260px; }
-.alertas li { font-size:13px; margin:4px 0 4px 18px; color:var(--revisar); }
-.alertas p { font-size:13px; color:var(--ok); }
+.seccion { font-size:13px; font-weight:600; color:var(--sub); text-transform:uppercase; letter-spacing:.5px; margin:8px 0 8px; }
 table { width:100%; border-collapse:collapse; font-size:13px; }
 th { text-align:left; padding:8px 10px; border-bottom:2px solid var(--borde); color:var(--sub); font-size:12px; text-transform:uppercase; letter-spacing:.4px; }
-td { padding:8px 10px; border-bottom:1px solid var(--borde); vertical-align:top; }
-.tabla { overflow-x:auto; margin-bottom:var(--gap); }
+td { padding:8px 10px; border-bottom:1px solid var(--borde); }
+.esquema { display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:13px; }
+.esquema .bloque { border:1px solid var(--borde); border-radius:8px; padding:10px 14px; background:#f9fafb; min-width:150px; }
+.esquema .bloque b { display:block; font-size:13px; }
+.esquema .bloque span { color:var(--sub); font-size:12px; }
+.esquema .flecha { color:var(--sub); font-size:20px; }
 .error { background:#f8dedb; color:var(--mal); padding:12px 16px; border-radius:var(--radius); margin-bottom:var(--gap); display:none; }
+.oculto { display:none; }
 footer { font-size:12px; color:var(--sub); text-align:center; padding:8px; }
 @media (max-width:768px) { .graficos { grid-template-columns:1fr; } header { flex-direction:column; align-items:flex-start; } }
 </style>
@@ -45,43 +50,76 @@ footer { font-size:12px; color:var(--sub); text-align:center; padding:8px; }
 <body>
 <div class="contenedor">
   <header>
-    <div><h1>Pulido por abrasión · Samán</h1><div class="sub">Lecturas por cámara cada 10 minutos (hora de Uruguay)</div></div>
-    <div class="controles">
-      <label>Día <select id="dia"></select></label>
-      <span class="estado" id="estado"></span>
-      <span id="actualizado"></span>
-      <a href="monitoreo.html" style="color:#fff">Monitoreo de los modelos →</a>
+    <div><h1>Pulido por abrasión · saman</h1><div class="sub">Datos de la máquina leídos por cámara, cada 10 minutos (hora de Uruguay)</div></div>
+    <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+      <span id="actualizado" class="sub"></span>
+      <a href="monitoreo.html">Monitoreo de los modelos →</a>
     </div>
   </header>
+  <div class="controles">
+    <button data-vista="detalle" class="activo">Detalle</button>
+    <button data-vista="mensual">Por mes</button>
+    <span id="rango"><label>Desde <select id="desde"></select></label> <label>Hasta <select id="hasta"></select></label></span>
+    <a id="alertas" class="chip" href="monitoreo.html"></a>
+  </div>
   <div class="error" id="error"></div>
-  <section class="kpis" id="kpis"></section>
-  <section class="graficos" id="graficos"></section>
-  <section class="graficos">
-    <div class="tarjeta"><h3>Alertas del día</h3><div class="alertas" id="alertas"></div></div>
-    <div class="tarjeta tabla"><h3>Calidad por variable</h3><table><thead><tr><th>Variable</th><th>Con dato</th><th>Igual a Nexlab</th><th>Por qué falta</th></tr></thead><tbody id="calidad"></tbody></table></div>
+
+  <section id="detalle">
+    <div class="ahora" id="ahora"></div>
+    <div class="graficos" id="graficos"></div>
   </section>
-  <footer>Datos: cámaras de Nexlab procesadas con los modelos de la tesis (top, left, amp) y sensores de ambiente. Se actualiza solo cada 5 minutos.</footer>
+
+  <section id="mensual" class="oculto">
+    <div class="graficos" id="graficos-mes"></div>
+    <div class="tarjeta" style="margin-bottom:var(--gap);overflow-x:auto"><h3>Resumen por mes (con la máquina encendida)</h3><table id="tabla-mes"></table></div>
+  </section>
+
+  <div class="tarjeta" style="margin-bottom:var(--gap)">
+    <h3>Cómo se obtienen estos datos</h3>
+    <div class="esquema" style="margin-top:8px">
+      <div class="bloque"><b>3 cámaras en la máquina</b><span>una foto cada ~7 min: válvula, pesas, amperímetro</span></div>
+      <div class="flecha">+</div>
+      <div class="bloque"><b>Sensores</b><span>temperatura de entrada y salida del arroz, ambiente</span></div>
+      <div class="flecha">→</div>
+      <div class="bloque"><b>Plataforma web</b><span>guarda las fotos y las mediciones de los sensores</span></div>
+      <div class="flecha">→</div>
+      <div class="bloque"><b>Proceso automático, cada hora</b><span>los modelos leen cada foto y se controla que los datos tengan sentido</span></div>
+      <div class="flecha">→</div>
+      <div class="bloque"><b>Este panel</b><span>y el monitoreo de los modelos</span></div>
+    </div>
+  </div>
+  <footer>Con la máquina apagada los datos de la máquina no se grafican. Se actualiza solo cada 5 minutos.</footer>
 </div>
 <script>
 const BASE = "datos/panel/";
 const COLORES = ["#4C72B0", "#DD8452", "#55A868", "#C44E52", "#8172B3"];
-// Qué se grafica junto. Las variables que no estén en el JSON del día se saltean.
+const MAX_DIAS = 31;
+// Qué se grafica junto, en este orden. "maquina": solo con la máquina encendida.
 const GRAFICOS = [
-  { titulo: "Apertura de válvula (0-10)", vars: ["top.apertura", "top.apertura_nexlab"] },
-  { titulo: "Distancia de las pesas (mm)", vars: ["left.distancia_a", "left.distancia_b"] },
-  { titulo: "Ángulo de la palanca (°)", vars: ["left.angulo"] },
-  { titulo: "Amperaje (A)", vars: ["amp.f1", "amp.f2", "amp.f3"] },
+  { seccion: "Operación de la máquina" },
+  { titulo: "Apertura de válvula (0-10)", vars: ["top.apertura"], maquina: true },
+  { titulo: "Amperaje por fase (A)", vars: ["amp.f1", "amp.f2", "amp.f3"], maquina: true },
+  { titulo: "Temperatura del arroz (°C)", vars: ["clima.temp_entrada", "clima.temp_salida"], maquina: true },
+  { titulo: "Diferencia de temperatura salida − entrada (°C)", vars: ["clima.dif_temp"], maquina: true,
+    nota: "Con la máquina andando se espera alrededor de 5 °C; fuera de 2 a 9 °C por 30 min es alerta." },
+  { seccion: "Pesas (validación del modelo left)" },
+  { titulo: "Distancia de las pesas (mm)", vars: ["left.distancia_a", "left.distancia_b"], maquina: true },
+  { titulo: "Ángulo de la palanca (°)", vars: ["left.angulo"], maquina: true },
+  { seccion: "Ambiente" },
   { titulo: "Temperatura (°C) y humedad (%) ambiente", vars: ["clima.temperatura", "clima.humedad"], dosEjes: true },
 ];
-const MOTIVOS = { sin_dato: "sin foto en el casillero", sin_pesa: "varilla sin pesa", fuera_de_rango: "fuera de rango",
-                  no_valido_alineacion: "no se pudo alinear (¿poca luz?)", color_inutilizable: "color inutilizable",
-                  mango_no_visible: "mango no visible", mango_no_encontrado: "mango no encontrado",
-                  pesa_no_encontrada: "pesa no encontrada", distinta_a_vecinas: "muy distinto a las fotos vecinas", alineacion_fallida: "alineación fallida" };
-let graficos = [];
+const MENSUAL = [
+  { titulo: "Horas de máquina encendida", tipo: "horas" },
+  { titulo: "Apertura de válvula promedio (0-10)", vars: ["top.apertura"] },
+  { titulo: "Amperaje promedio por fase (A)", vars: ["amp.f1", "amp.f2", "amp.f3"] },
+  { titulo: "Diferencia de temperatura del arroz promedio (°C)", vars: ["clima.dif_temp"] },
+];
+const NOMBRES = { "top.apertura": "Apertura", "amp.f1": "F1", "amp.f2": "F2", "amp.f3": "F3", "clima.dif_temp": "Salida − entrada",
+                  "clima.temp_entrada": "Entrada", "clima.temp_salida": "Salida", "left.distancia_a": "Pesa A", "left.distancia_b": "Pesa B" };
+let graficos = [], vista = "detalle", indice = null;
 
 const hora = t => t.slice(11, 16);
-const pct = x => x == null ? "—" : Math.round(x * 100) + "%";
-const fmt = (v, u) => v == null ? "—" : (Math.abs(v) >= 100 ? v.toFixed(0) : v.toFixed(1));
+const fmt = v => v == null ? "—" : (Math.abs(v) >= 100 ? v.toFixed(0) : v.toFixed(1));
 
 async function leer(ruta) {
   const r = await fetch(BASE + ruta + "?t=" + Date.now());   // sin caché: el flujo reescribe los archivos
@@ -90,83 +128,129 @@ async function leer(ruta) {
 }
 
 async function cargarIndice() {
-  const ind = await leer("indice.json");
-  const sel = document.getElementById("dia"), elegido = sel.value;
-  sel.innerHTML = ind.dias.slice().reverse().map(d => `<option>${d}</option>`).join("");
-  sel.value = ind.dias.includes(elegido) ? elegido : ind.dias[ind.dias.length - 1];
-  document.getElementById("actualizado").textContent = "Actualizado " + ind.actualizado.slice(0, 16).replace("T", " ");
+  const nuevo = await leer("indice.json");
+  const desde = document.getElementById("desde"), hasta = document.getElementById("hasta");
+  const ultimoAntes = indice && indice.dias[indice.dias.length - 1];
+  const seguia = !indice || hasta.value === ultimoAntes;      // si miraba el último día, sigue al día nuevo
+  const [d0, h0] = [desde.value, hasta.value];
+  indice = nuevo;
+  const ops = indice.dias.slice().reverse().map(d => `<option>${d}</option>`).join("");
+  desde.innerHTML = ops; hasta.innerHTML = ops;
+  const ultimo = indice.dias[indice.dias.length - 1];
+  hasta.value = seguia ? ultimo : h0;
+  desde.value = seguia && d0 === ultimoAntes ? ultimo : (d0 || ultimo);
+  document.getElementById("actualizado").textContent = "Actualizado " + indice.actualizado.slice(0, 16).replace("T", " ");
 }
 
-function ultimo(dia, vid) {
-  for (let i = dia.filas.length - 1; i >= 0; i--)
-    if (dia.filas[i].v[vid] != null) return { valor: dia.filas[i].v[vid], t: dia.filas[i].t };
-  return null;
+function diasDelRango() {
+  let a = document.getElementById("desde").value, b = document.getElementById("hasta").value;
+  if (a > b) [a, b] = [b, a];
+  const dias = indice.dias.filter(d => d >= a && d <= b);
+  return dias.slice(-MAX_DIAS);
 }
 
-function pintarKpis(dia) {
-  document.getElementById("kpis").innerHTML = Object.entries(dia.variables)
-    .filter(([vid]) => !vid.endsWith("_nexlab"))
-    .map(([vid, m]) => {
-      const u = ultimo(dia, vid), q = dia.calidad.variables[vid] || {};
-      return `<div class="kpi"><div class="nombre">${m.nombre}</div>
-        <div class="valor">${u ? fmt(u.valor) : "—"} <small>${m.unidad}</small></div>
-        <div class="pie">${u ? "a las " + hora(u.t) : "sin lecturas"} · ${pct(q.cobertura)} con dato</div></div>`;
-    }).join("");
+function pintarAlertas(dias) {
+  const n = dias.reduce((s, d) => s + d.calidad.alertas.filter(a => a.tipo !== "info").length, 0);
+  const el = document.getElementById("alertas");
+  el.textContent = n ? `${n} alerta${n > 1 ? "s" : ""} en el período · ver en monitoreo` : "Sin alertas en el período";
+  el.className = "chip " + (n ? "revisar" : "ok");
 }
 
-function pintarGraficos(dia) {
-  graficos.forEach(g => g.destroy());
-  graficos = [];
-  const cont = document.getElementById("graficos");
-  cont.innerHTML = "";
-  const etiquetas = dia.filas.map(f => hora(f.t));
-  GRAFICOS.forEach(def => {
-    const vars = def.vars.filter(v => dia.variables[v]);
-    if (!vars.length) return;
-    const div = document.createElement("div");
-    div.className = "tarjeta";
-    div.innerHTML = `<h3>${def.titulo}</h3><div class="lienzo"><canvas></canvas></div>`;
-    cont.appendChild(div);
-    const datasets = vars.map((vid, i) => {
-      const nexlab = vid.endsWith("_nexlab");
-      return { label: dia.variables[vid].nombre, data: dia.filas.map(f => f.v[vid] ?? null),
-               borderColor: nexlab ? "#9aa3ad" : COLORES[i], backgroundColor: nexlab ? "#9aa3ad" : COLORES[i],
-               borderDash: nexlab ? [5, 4] : [], borderWidth: nexlab ? 1.5 : 2, pointRadius: 0, pointHoverRadius: 4,
-               tension: 0.2, spanGaps: false, yAxisID: def.dosEjes && i === 1 ? "y2" : "y" };
-    });
-    const escalas = { x: { grid: { display: false }, ticks: { maxTicksLimit: 12 } }, y: { beginAtZero: false } };
-    if (def.dosEjes) escalas.y2 = { position: "right", grid: { display: false } };
-    graficos.push(new Chart(div.querySelector("canvas"), {
-      type: "line", data: { labels: etiquetas, datasets },
-      options: { responsive: true, maintainAspectRatio: false, animation: false,
-                 interaction: { mode: "index", intersect: false },
-                 plugins: { legend: { position: "top", labels: { usePointStyle: true, boxWidth: 8 } },
-                            tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.parsed.y == null ? "sin dato" : c.parsed.y}` } } },
-                 scales: escalas } }));
-  });
+function pintarAhora(dias, filas) {
+  const ult = vid => { for (let i = filas.length - 1; i >= 0; i--) if (filas[i].v[vid] != null) return filas[i].v[vid]; return null; };
+  const encendidos = filas.filter(f => f.m === "encendida").length;
+  const ultimoEstado = [...filas].reverse().find(f => f.m && f.m !== "sin_dato");
+  const amp = ["amp.f1", "amp.f2", "amp.f3"].map(ult);
+  document.getElementById("ahora").innerHTML = [
+    `Máquina: <b>${ultimoEstado ? ultimoEstado.m : "sin dato"}</b>`,
+    `Encendida en el período: <b>${(encendidos * 10 / 60).toFixed(1)} h</b> de ${(filas.length * 10 / 60).toFixed(0)} h`,
+    `Última apertura: <b>${fmt(ult("top.apertura"))}</b>`,
+    `Último amperaje: <b>${amp.map(fmt).join(" / ")} A</b>`,
+    `Última diferencia de temperatura del arroz: <b>${fmt(ult("clima.dif_temp"))} °C</b>`,
+  ].map(x => `<span>${x}</span>`).join("");
 }
 
-function pintarCalidad(dia) {
-  const q = dia.calidad;
-  const est = document.getElementById("estado");
-  est.textContent = q.estado === "ok" ? "Todo bien" : q.estado === "revisar" ? "Revisar" : q.estado;
-  est.className = "estado " + (q.estado === "ok" ? "ok" : q.estado === "revisar" ? "revisar" : "mal");
-  document.getElementById("alertas").innerHTML = q.alertas.length
-    ? "<ul>" + q.alertas.map(a => `<li>${a}</li>`).join("") + "</ul>" : "<p>Sin alertas.</p>";
-  document.getElementById("calidad").innerHTML = Object.entries(q.variables).map(([vid, c]) => {
-    const motivos = Object.entries(c.sin_valor || {}).sort((a, b) => b[1] - a[1])
-      .map(([m, n]) => `${MOTIVOS[m] || m.replaceAll("_", " ")} (${n})`).join(", ");
-    return `<tr><td>${dia.variables[vid]?.nombre || vid}</td><td>${pct(c.cobertura)}</td>
-      <td>${c.coincide_con_nexlab == null ? "—" : pct(c.coincide_con_nexlab)}</td><td>${motivos || "—"}</td></tr>`;
-  }).join("");
+function grafico(cont, titulo, nota, config) {
+  const div = document.createElement("div");
+  div.className = "tarjeta";
+  div.innerHTML = `<h3>${titulo}</h3>${nota ? `<div class="nota">${nota}</div>` : ""}<div class="lienzo"><canvas></canvas></div>`;
+  cont.appendChild(div);
+  graficos.push(new Chart(div.querySelector("canvas"), config));
+}
+
+function opciones(extra = {}) {
+  return { responsive: true, maintainAspectRatio: false, animation: false, interaction: { mode: "index", intersect: false },
+           plugins: { legend: { position: "top", labels: { usePointStyle: true, boxWidth: 8 } },
+                      tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.parsed.y == null ? "sin dato" : c.parsed.y}` } } },
+           scales: { x: { grid: { display: false }, ticks: { maxTicksLimit: 12 } }, y: { beginAtZero: false }, ...extra } };
+}
+
+function pintarDetalle(dias) {
+  graficos.forEach(g => g.destroy()); graficos = [];
+  const cont = document.getElementById("graficos"); cont.innerHTML = "";
+  const filas = dias.flatMap(d => d.filas);
+  const variables = Object.assign({}, ...dias.map(d => d.variables));
+  const varios = dias.length > 1;
+  const etiquetas = filas.map(f => varios ? `${f.t.slice(8, 10)}/${f.t.slice(5, 7)} ${hora(f.t)}` : hora(f.t));
+  pintarAhora(dias, filas);
+  for (const def of GRAFICOS) {
+    if (def.seccion) {
+      const h = document.createElement("div"); h.className = "seccion"; h.style.gridColumn = "1 / -1"; h.textContent = def.seccion;
+      cont.appendChild(h); continue;
+    }
+    const vars = def.vars.filter(v => variables[v]);
+    if (!vars.length) continue;
+    const datasets = vars.map((vid, i) => ({
+      label: NOMBRES[vid] || variables[vid].nombre, borderColor: COLORES[i], backgroundColor: COLORES[i],
+      data: filas.map(f => def.maquina && f.m !== "encendida" ? null : (f.v[vid] ?? null)),
+      borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: 0.2, spanGaps: false, yAxisID: def.dosEjes && i === 1 ? "y2" : "y" }));
+    grafico(cont, def.titulo, def.nota, { type: "line", data: { labels: etiquetas, datasets },
+      options: opciones(def.dosEjes ? { y2: { position: "right", grid: { display: false } } } : {}) });
+  }
+}
+
+function pintarMensual(hist) {
+  graficos.forEach(g => g.destroy()); graficos = [];
+  const meses = {};
+  for (const d of hist) {
+    const m = meses[d.fecha.slice(0, 7)] ??= { horas: 0, dias: 0, equipo: 0, datos: 0, vars: {} };
+    m.horas += d.horas_encendida; m.dias += 1;
+    for (const a of d.alertas) if (a.tipo === "equipo" || a.tipo === "datos") m[a.tipo] += 1;
+    for (const [vid, [prom, mn, mx, n]] of Object.entries(d.resumen || {})) {
+      const v = m.vars[vid] ??= { suma: 0, n: 0, min: Infinity, max: -Infinity };
+      v.suma += prom * n; v.n += n; v.min = Math.min(v.min, mn); v.max = Math.max(v.max, mx);
+    }
+  }
+  const claves = Object.keys(meses).sort();
+  const nombreMes = k => new Date(k + "-15").toLocaleDateString("es-UY", { month: "long", year: "numeric" });
+  const prom = (k, vid) => { const v = meses[k].vars[vid]; return v && v.n ? Math.round(100 * v.suma / v.n) / 100 : null; };
+  const cont = document.getElementById("graficos-mes"); cont.innerHTML = "";
+  for (const def of MENSUAL) {
+    const datasets = def.tipo === "horas"
+      ? [{ label: "Horas encendida", data: claves.map(k => Math.round(meses[k].horas)), backgroundColor: COLORES[0] }]
+      : def.vars.map((vid, i) => ({ label: NOMBRES[vid] || vid, data: claves.map(k => prom(k, vid)), backgroundColor: COLORES[i] }));
+    grafico(cont, def.titulo, null, { type: "bar", data: { labels: claves.map(nombreMes), datasets },
+      options: opciones({ y: { beginAtZero: true } }) });
+  }
+  const vids = ["top.apertura", "amp.f1", "amp.f2", "amp.f3", "clima.dif_temp", "clima.temperatura"];
+  const nom = { "clima.temperatura": "Temp. ambiente", "clima.dif_temp": "Dif. temp. arroz" };
+  document.getElementById("tabla-mes").innerHTML =
+    `<thead><tr><th>Mes</th><th>Días</th><th>Horas encendida</th>${vids.map(v => `<th>${nom[v] || NOMBRES[v]} (prom · mín-máx)</th>`).join("")}<th>Alertas equipo / datos</th></tr></thead><tbody>` +
+    claves.map(k => `<tr><td>${nombreMes(k)}</td><td>${meses[k].dias}</td><td>${Math.round(meses[k].horas)}</td>` +
+      vids.map(v => { const x = meses[k].vars[v]; return `<td>${x && x.n ? `${fmt(x.suma / x.n)} · ${fmt(x.min)}-${fmt(x.max)}` : "—"}</td>`; }).join("") +
+      `<td>${meses[k].equipo} / ${meses[k].datos}</td></tr>`).join("") + "</tbody>";
 }
 
 async function mostrar() {
   const err = document.getElementById("error");
   try {
     await cargarIndice();
-    const dia = await leer(document.getElementById("dia").value + ".json");
-    pintarKpis(dia); pintarGraficos(dia); pintarCalidad(dia);
+    if (vista === "detalle") {
+      const dias = await Promise.all(diasDelRango().map(d => leer(d + ".json")));
+      pintarDetalle(dias); pintarAlertas(dias);
+    } else {
+      pintarMensual((await leer("historial.json")).dias);
+    }
     err.style.display = "none";
   } catch (e) {
     err.textContent = e.message + ". ¿La página se está sirviendo desde la carpeta del proyecto?";
@@ -174,7 +258,15 @@ async function mostrar() {
   }
 }
 
-document.getElementById("dia").addEventListener("change", mostrar);
+document.querySelectorAll("[data-vista]").forEach(b => b.addEventListener("click", () => {
+  vista = b.dataset.vista;
+  document.querySelectorAll("[data-vista]").forEach(x => x.classList.toggle("activo", x === b));
+  for (const id of ["detalle", "mensual"]) document.getElementById(id).classList.toggle("oculto", id !== vista);
+  for (const id of ["rango", "alertas"]) document.getElementById(id).style.display = vista === "detalle" ? "" : "none";
+  mostrar();
+}));
+document.getElementById("desde").addEventListener("change", mostrar);
+document.getElementById("hasta").addEventListener("change", mostrar);
 mostrar();
 setInterval(mostrar, 5 * 60 * 1000);
 </script>

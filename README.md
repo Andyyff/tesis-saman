@@ -1,4 +1,4 @@
-# Flujo de datos para el panel — Samán / Latitud
+# Flujo de datos para el panel — saman / Latitud
 
 Baja de Nexlab las fotos de las cámaras y el clima, corre nuestros algoritmos, alinea todo en una grilla de 10 minutos y deja archivos JSON que el panel lee. GitHub lo corre solo cada hora.
 

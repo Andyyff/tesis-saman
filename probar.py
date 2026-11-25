@@ -8,7 +8,7 @@
 import csv, glob, json, os, shutil, tempfile
 from datetime import datetime
 
-import algoritmos, flujo, nexlab
+import algoritmos, chequeos, flujo, nexlab
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 
@@ -49,7 +49,9 @@ def probar_flujo():
     regs[2]["err"] = "bar"                                        # Nexlab con error: sin referencia
 
     clima = {1: [("2026-10-25T03:01:00Z", 15.0), ("2026-10-25T03:02:00Z", 16.0), ("2026-10-25T03:15:00Z", 99.0)],
-             2: [("2026-10-25T03:01:00Z", 70.0), ("2026-10-25T03:45:00Z", 150.0)]}
+             2: [("2026-10-25T03:01:00Z", 70.0), ("2026-10-25T03:45:00Z", 150.0)],
+             3: [(f"2026-10-25T03:{m:02d}:00Z", 30.0) for m in range(0, 60, 5)],     # salida arroz
+             4: [(f"2026-10-25T03:{m:02d}:00Z", 25.0) for m in range(0, 60, 5)]}     # entrada: +5 °C, andando
     viejo = (nexlab.registros_fotos, nexlab.bajar_foto, nexlab.lecturas_clima, flujo.DATOS, flujo.CACHE_FOTOS)
     nexlab.registros_fotos = lambda camara, fecha: [dict(r) for r in regs] if camara == "top" else []
     nexlab.bajar_foto = lambda url, ruta: url
@@ -73,6 +75,8 @@ def probar_flujo():
         assert "clima.temperatura" not in f["00:10"]["v"], "99 °C está fuera de rango y no llega al panel"
         assert f["00:40"]["e"]["clima.humedad"] == "sin_dato"
         assert dia["calidad"]["variables"]["top.apertura"]["cobertura"] == 0.667
+        assert {x["m"] for x in dia["filas"]} == {"encendida"}, "sin amp, la temperatura del arroz (+5 °C) dice que anda"
+        assert f["00:00"]["v"]["clima.dif_temp"] == 5.0
         assert set(json.load(open(os.path.join(flujo.DATOS, "panel", "indice.json")))["dias"]) == {"2026-10-25"}
         est = json.load(open(os.path.join(flujo.DATOS, "panel", "estado.json"), encoding="utf-8"))
         assert est["camaras"]["top"] == {"nexlab": 7, "ultima_foto": "2026-10-25T00:58:59-03:00", "procesadas": 7}, est["camaras"]["top"]
@@ -88,6 +92,32 @@ def probar_flujo():
         shutil.rmtree(tmp)
 
 
+def probar_maquina_y_alertas():
+    """Estado de la máquina por casillero y alertas por patrón sostenido (nunca por un casillero suelto)."""
+    slots = [f"2026-11-02T10:{m}0-03:00" for m in range(6)]
+    v = {s: {} for s in slots}
+    v[slots[0]] = {"amp.f1": 90, "amp.f2": 92, "amp.f3": 91}
+    v[slots[1]] = {"amp.f1": 0, "amp.f2": 0, "amp.f3": 0}
+    v[slots[2]] = {"clima.dif_temp": 5.6}                     # sala a oscuras, pero el arroz se calienta
+    v[slots[3]] = {"clima.dif_temp": 0.1}
+    m = flujo.estado_maquina(slots, v)
+    assert [m[s] for s in slots] == ["encendida", "apagada", "encendida", "apagada", "apagada", "apagada"], m
+
+    def dia(valores, maquina="encendida"):
+        filas = [{"t": f"2026-11-02T10:{k}0-03:00", "m": maquina, "v": x, "e": {}} for k, x in enumerate(valores)]
+        return {"fecha": "2026-11-02", "grilla_min": 10, "filas": filas, "variables": {}, "camaras": {}}
+    ahora = datetime.fromisoformat("2026-11-03T12:00:00-03:00")
+    datos = lambda d: [a["texto"] for a in chequeos.revisar(d, ahora)["alertas"] if a["tipo"] == "datos"]
+    sep = {"amp.f1": 90, "amp.f2": 92, "amp.f3": 120}
+    ok = {"amp.f1": 90, "amp.f2": 92, "amp.f3": 91}
+    assert len(datos(dia([sep, sep, sep, ok]))) == 1, "fase separada 30 min: alerta"
+    assert datos(dia([sep, sep, ok, sep])) == [], "un pico aislado no alcanza"
+    frio = {"clima.dif_temp": -0.5}
+    assert len(datos(dia([frio] * 4))) == 1, "salida no más caliente que la entrada, sostenido: alerta"
+    assert datos(dia([frio] * 4, maquina="apagada")) == [], "con la máquina apagada es normal"
+    print("OK estado de la máquina y alertas por patrón")
+
+
 def probar_aislados():
     """Un valor suelto muy distinto a sus vecinas se descarta; un cambio real de nivel, no."""
     def serie(valores):
@@ -99,6 +129,7 @@ def probar_aislados():
 
 
 if __name__ == "__main__":
+    probar_maquina_y_alertas()
     probar_aislados()
     probar_algoritmos()
     probar_flujo()

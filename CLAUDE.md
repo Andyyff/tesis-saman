@@ -1,6 +1,6 @@
-# Tesis Samán — contexto para Claude Code
+# Tesis saman — contexto para Claude Code
 
-Tesis de grado UM (Ciencia de Datos para Negocios) con **Latitud (Fundación LATU)**: monitoreo por cámara del pulido por abrasión en el molino arrocero de **Samán, José Pedro Varela (Lavalleja)**. Equipo: Andrés Fernández (modelo top, flujo), Alfonso Valek (modelo left), Matías Cárpena (modelo amp). Tutor: Mateo Sere. Contacto en Latitud: Mauro.
+Tesis de grado UM (Ciencia de Datos para Negocios) con **Latitud (Fundación LATU)**: monitoreo por cámara del pulido por abrasión en el molino arrocero de **saman, José Pedro Varela (Lavalleja)**. Equipo: Andrés Fernández (modelo top, flujo), Alfonso Valek (modelo left), Matías Cárpena (modelo amp). Tutor: Mateo Sere. Contacto en Latitud: Mauro.
 
 **Nexlab** es la empresa que instaló las cámaras y da la plataforma de monitoreo actual. No es nuestro cliente: sus resultados son la referencia que nuestros modelos buscan superar.
 
@@ -47,6 +47,13 @@ Responder en castellano rioplatense, simple. Modo de trabajo preferido: cambios 
 - En la PC de Andrés, la tarea "Tesis Saman - flujo" (Programador de tareas, cada hora a los :05) solo hace `git pull` con `actualizar_datos.cmd` (log en `datos/actualizar.log`), para que OneDrive/Power BI tengan lo último. `correr_flujo.cmd` corre el flujo en la PC a mano.
 - Salida para **Power BI**: `datos/powerbi/mediciones.csv`, `variables.csv`, `calidad.csv` (UTF-8, punto decimal). Está en OneDrive, así que Power BI la lee de ahí.
 - Las fotos se borran de `.cache/` apenas se procesan.
+
+## Pedidos de Latitud (reunión 25/11/2026), implementados
+- **Máquina encendida/apagada** por casillero (campo `m`): amp > 5 A; si amp no lee (oscuro), salida − entrada del arroz >= 4,5 °C. Con la máquina apagada los datos no se grafican ni cuentan como error ni para el alcance.
+- **Temperaturas del arroz**: sensores 4 (entrada) y 3 (salida) de Nexlab; `clima.dif_temp` = salida − entrada (andando: mediana 5,8 °C).
+- **Alertas** (`chequeos.py`): por volumen o patrón sostenido 30 min, nunca por una foto. Tipos equipo (pocas fotos, sensores sin datos, flujo) / datos (> 30 % de fotos sin leer con la máquina encendida, fase de amperaje separada > 15 A, dif. de temperatura fuera de 2-9 °C) / info.
+- Panel sin Nexlab, sin KPIs grandes ni sección de alertas; rango de fechas, vista por mes (de `historial.json`), esquema de bloques. Monitoreo: fotos de amp derechas, zoom, filtro por motivo, "máquina apagada".
+- Pendiente: torque (distancia × masa; pesa azul 705,65 g, amarilla 994,63 g, roja 1838,78 g; falta confirmar brazo y ángulo) y mails de alertas.
 
 ## Pendientes
 

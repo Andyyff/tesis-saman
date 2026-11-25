@@ -47,7 +47,12 @@ td { padding:8px 10px; border-bottom:1px solid var(--borde); vertical-align:top;
 .resumen b { font-size:22px; display:block; }
 .visor { display:grid; grid-template-columns:minmax(0,3fr) minmax(280px,2fr); gap:var(--gap); }
 .foto { position:relative; background:#111; border-radius:6px; min-height:300px; display:flex; align-items:center; justify-content:center; }
-.foto img { max-width:100%; max-height:70vh; display:block; }
+.foto { overflow:hidden; }
+.foto img { max-width:100%; max-height:70vh; display:block; transform:rotate(var(--giro,0deg)); cursor:zoom-in; transition:transform .15s; }
+.foto img.zoom { transform:rotate(var(--giro,0deg)) scale(2.5); cursor:zoom-out; }
+.aviso-apagada { background:#eef0f2; color:#4a535c; border-radius:6px; padding:8px 10px; font-size:13px; margin-bottom:8px; }
+.tipo { font-size:11px; font-weight:600; padding:1px 7px; border-radius:10px; }
+.tipo.equipo { background:#f8dedb; color:var(--mal); } .tipo.datos { background:#fbefd9; color:var(--aviso); } .tipo.info { background:#eef0f2; color:var(--sub); }
 .foto .nav { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,.55); color:#fff; border:0; font-size:22px; padding:10px 14px; cursor:pointer; border-radius:6px; }
 .foto .nav.izq { left:8px; } .foto .nav.der { right:8px; }
 .lectura h2 { font-size:16px; margin-bottom:2px; } .lectura .cuando { font-size:13px; color:var(--sub); margin-bottom:12px; }
@@ -59,6 +64,7 @@ td { padding:8px 10px; border-bottom:1px solid var(--borde); vertical-align:top;
 .tira { display:flex; gap:4px; overflow-x:auto; padding:6px 0 2px; }
 .tira button { flex:0 0 auto; border:1px solid var(--borde); background:var(--card); border-radius:4px; font-size:11px; padding:3px 6px; cursor:pointer; }
 .tira button.no { border-color:var(--aviso); color:var(--aviso); }
+.tira button.apagada { border-color:#c3c8cd; color:#8a939c; background:#f1f2f4; }
 .tira button.actual { background:var(--acento); color:#fff; border-color:var(--acento); }
 .error { background:#f8dedb; color:var(--mal); padding:12px 16px; border-radius:var(--radius); margin-bottom:var(--gap); display:none; }
 .oculto { display:none; }
@@ -87,14 +93,15 @@ td { padding:8px 10px; border-bottom:1px solid var(--borde); vertical-align:top;
     <div class="tarjeta">
       <h3>Alcance por modelo: qué parte de las fotos logra leer
         <select id="rango"><option value="7">Últimos 7 días</option><option value="30" selected>Últimos 30 días</option><option value="0">Todo</option></select></h3>
-      <p class="ayuda" style="margin-bottom:10px">Por día, porcentaje de fotos con respuesta válida: midió el valor, o constató que la varilla no tiene pesa. Si una línea cae, algo cambió (cámara movida, luz, planta parada).</p>
+      <p class="ayuda" style="margin-bottom:10px">Por día y solo con la máquina encendida, porcentaje de fotos con respuesta válida: midió el valor, o constató que la varilla no tiene pesa. Si una línea cae, algo cambió (cámara movida, luz).</p>
       <div class="graficos" id="graficos"></div>
       <div class="tabla"><table><thead><tr><th>Modelo</th><th>Variable</th><th>Fotos</th><th>Respuesta válida</th><th>Por qué no pudo (lo más frecuente)</th></tr></thead><tbody id="alcance"></tbody></table></div>
     </div>
     <div class="tarjeta">
       <h3>Historial de alertas
-        <select id="filtro-alertas"><option value="">Todas</option><option>top</option><option>left</option><option>amp</option><option>clima</option></select></h3>
-      <div class="alertas tabla"><table><thead><tr><th style="width:110px">Día</th><th>Alerta</th></tr></thead><tbody id="historial"></tbody></table></div>
+        <select id="filtro-alertas"><option value="">Todas (sin las informativas)</option><option value="t:equipo">Equipo: cámaras, sensores, flujo</option><option value="t:datos">Datos: patrones raros</option><option value="o:top">top</option><option value="o:left">left</option><option value="o:amp">amp</option><option value="o:clima">temperaturas</option><option value="t:info">Informativas (horas de máquina)</option></select></h3>
+      <p class="ayuda" style="margin-bottom:8px">Las alertas salen del volumen del día o de un patrón sostenido (30 min o más), nunca de una foto suelta. Equipo: falla la toma de datos. Datos: algo raro con la máquina encendida.</p>
+      <div class="alertas tabla"><table><thead><tr><th style="width:110px">Día</th><th style="width:80px">Tipo</th><th>Alerta</th></tr></thead><tbody id="historial"></tbody></table></div>
     </div>
   </section>
 
@@ -106,7 +113,8 @@ td { padding:8px 10px; border-bottom:1px solid var(--borde); vertical-align:top;
       <button data-cam="amp">Amp · amperaje</button>
       <span style="margin-left:12px">Día</span> <select id="dia"></select>
       <span style="margin-left:12px">Ver</span>
-      <select id="filtro"><option value="todas">Todas las fotos</option><option value="no">Solo las que no pudo medir</option><option value="si">Solo las medidas</option></select>
+      <select id="filtro"><option value="todas">Todas las fotos</option><option value="no">Solo las que no pudo medir (máquina encendida)</option><option value="si">Solo las medidas</option><option value="apagada">Solo con la máquina apagada</option></select>
+      <select id="motivo"><option value="">Cualquier motivo</option></select>
     </div>
     <div class="tarjeta">
       <h3>Fotos del día</h3>
@@ -116,7 +124,7 @@ td { padding:8px 10px; border-bottom:1px solid var(--borde); vertical-align:top;
         <div class="lectura" id="lectura"></div>
       </div>
       <div class="tira" id="tira"></div>
-      <p class="ayuda">Flechas del teclado: foto anterior / siguiente. En naranja, las fotos que el modelo no pudo medir.</p>
+      <p class="ayuda">Flechas del teclado: foto anterior / siguiente. Clic en la foto: zoom. En naranja, las que el modelo no pudo medir; en gris, con la máquina apagada.</p>
     </div>
     <div class="tarjeta"><h3 id="titulo-explica"></h3><div class="explica" id="explica"></div></div>
   </section>
@@ -217,7 +225,7 @@ function pintarAlcance() {
         const x = d.camaras[c], m = x?.variables[v];
         if (!x || !m) return null;
         const validos = m.medidas + VALIDOS.reduce((s, e) => s + (m.motivos[e] || 0), 0);
-        return Math.round(1000 * validos / x.fotos) / 10;
+        return x.fotos_encendida ? Math.round(1000 * validos / x.fotos_encendida) / 10 : null;
       }) }));
     graficos.push(new Chart(div.querySelector("canvas"), { type: "line", data: { labels: dias.map(d => d.fecha.slice(5)), datasets },
       options: { responsive: true, maintainAspectRatio: false, animation: false, interaction: { mode: "index", intersect: false },
@@ -229,7 +237,7 @@ function pintarAlcance() {
       for (const d of dias) {
         const x = d.camaras[c], m = x?.variables[v];
         if (!m) continue;
-        fotos += x.fotos; validos += m.medidas;
+        fotos += x.fotos_encendida; validos += m.medidas;
         for (const [e, k] of Object.entries(m.motivos)) { if (VALIDOS.includes(e)) validos += k; else mot[e] = (mot[e] || 0) + k; }
       }
       const top3 = Object.entries(mot).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([e, k]) => `${motivo(e)} (${k})`).join(", ");
@@ -244,9 +252,11 @@ function pintarAlertas() {
   const f = document.getElementById("filtro-alertas").value;
   const filas = [];
   for (const d of historial.slice().reverse())
-    for (const a of d.alertas)
-      if (!f || a.startsWith(f + ".") || a.startsWith(f + ":")) filas.push(`<tr><td>${d.fecha}</td><td>${a}</td></tr>`);
-  document.getElementById("historial").innerHTML = filas.join("") || `<tr><td colspan="2">Sin alertas.</td></tr>`;
+    for (const a of d.alertas) {
+      const ok = f ? (f.startsWith("t:") ? a.tipo === f.slice(2) : a.origen === f.slice(2) && a.tipo !== "info") : a.tipo !== "info";
+      if (ok) filas.push(`<tr><td>${d.fecha}</td><td><span class="tipo ${a.tipo}">${a.tipo}</span></td><td>${a.texto}</td></tr>`);
+    }
+  document.getElementById("historial").innerHTML = filas.join("") || `<tr><td colspan="3">Sin alertas.</td></tr>`;
 }
 
 async function cargarOperacion() {
@@ -257,6 +267,7 @@ async function cargarOperacion() {
 
 // ------------------------------------------------------------------ Fotos
 let cam = "top", fotos = [], vista = [], i = 0, variables = {}, descartadas = {};
+const casillero = t => t.slice(0, 15) + "0" + t.slice(19);   // "…T10:13:35-03:00" -> "…T10:10-03:00"
 function csv(texto) {                       // CSV con comillas (el detalle puede tener comas)
   const filas = []; let f = [], c = "", q = false;
   for (let k = 0; k < texto.length; k++) {
@@ -290,7 +301,8 @@ async function cargarDia() {
       porFoto.get(f.archivo).filas.push(f);
     }
     fotos = [...porFoto.values()].sort((a, b) => a.t.localeCompare(b.t));
-    fotos.forEach(f => f.midio = f.filas.some(x => x.valor !== ""));
+    const maquina = Object.fromEntries(panel.filas.map(x => [x.t, x.m]));
+    fotos.forEach(f => { f.midio = f.filas.some(x => x.valor !== ""); f.apagada = maquina[casillero(f.t)] === "apagada"; });
     document.getElementById("error").style.display = "none";
   } catch (e) {
     fotos = [];
@@ -299,18 +311,23 @@ async function cargarDia() {
   pintarResumen(); filtrar();
 }
 function pintarResumen() {
-  const n = fotos.length, m = fotos.filter(f => f.midio).length, mot = {};
-  fotos.forEach(f => f.filas.forEach(x => { if (x.valor === "") mot[x.estado] = (mot[x.estado] || 0) + 1; }));
+  const enc = fotos.filter(f => !f.apagada), n = enc.length, m = enc.filter(f => f.midio).length, mot = {};
+  enc.forEach(f => f.filas.forEach(x => { if (x.valor === "") mot[x.estado] = (mot[x.estado] || 0) + 1; }));
   const lista = Object.entries(mot).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${motivo(k)}: ${v}`).join(" · ");
-  document.getElementById("resumen").innerHTML = n ? `<div><b>${n}</b>fotos del día</div><div><b>${Math.round(100 * m / n)}%</b>con al menos una medida</div>
-    <div style="flex:1;min-width:260px"><span class="ayuda">Por qué no midió (lecturas)</span><br>${lista || "midió todo"}</div>` : "<div>Sin fotos.</div>";
+  document.getElementById("motivo").innerHTML = `<option value="">Cualquier motivo</option>` +
+    Object.keys(mot).map(k => `<option value="${k}">${motivo(k)}</option>`).join("");
+  document.getElementById("resumen").innerHTML = fotos.length ? `<div><b>${fotos.length}</b>fotos del día</div>
+    <div><b>${fotos.length - n}</b>con la máquina apagada</div><div><b>${n ? Math.round(100 * m / n) + "%" : "—"}</b>con al menos una medida (encendida)</div>
+    <div style="flex:1;min-width:260px"><span class="ayuda">Por qué no midió, con la máquina encendida (lecturas)</span><br>${lista || "midió todo"}</div>` : "<div>Sin fotos.</div>";
 }
 function filtrar() {
   const fil = document.getElementById("filtro").value;
-  vista = fotos.filter(f => fil === "todas" || (fil === "no" ? !f.midio : f.midio));
+  const mot = document.getElementById("motivo").value;
+  vista = fotos.filter(f => (fil === "todas" || (fil === "apagada" ? f.apagada : fil === "no" ? !f.midio && !f.apagada : f.midio))
+                         && (!mot || f.filas.some(x => x.valor === "" && x.estado === mot)));
   i = 0;
   document.getElementById("tira").innerHTML = vista.map((f, k) =>
-    `<button data-k="${k}" class="${f.midio ? "" : "no"}">${f.t.slice(11, 16)}</button>`).join("");
+    `<button data-k="${k}" class="${f.apagada ? "apagada" : f.midio ? "" : "no"}">${f.t.slice(11, 16)}</button>`).join("");
   mostrarFoto();
 }
 function mostrarFoto() {
@@ -318,12 +335,16 @@ function mostrarFoto() {
   document.querySelectorAll("#tira button").forEach(b => b.classList.toggle("actual", +b.dataset.k === i));
   if (!vista.length) { img.removeAttribute("src"); lec.innerHTML = "<p>No hay fotos con ese filtro.</p>"; return; }
   const f = vista[i];
-  img.src = urlFoto(f.archivo); img.alt = f.archivo;
+  img.src = urlFoto(f.archivo); img.alt = f.archivo; img.classList.remove("zoom");
+  img.style.setProperty("--giro", cam === "amp" ? "180deg" : "0deg");   // la foto de amp viene dada vuelta
   document.querySelector(`#tira button[data-k="${i}"]`)?.scrollIntoView({ block: "nearest", inline: "center" });
   lec.innerHTML = `<h2>Foto ${i + 1} de ${vista.length}</h2><div class="cuando">${f.t.slice(0, 16).replace("T", " ")} · ${f.archivo} · ${f.filas[0].version}</div>` +
+    (f.apagada ? `<div class="aviso-apagada">Máquina apagada: esta foto no cuenta como error ni va a los gráficos.</div>` : "") +
     f.filas.map(x => {
       const m = variables[`${cam}.${x.variable}`] || {}, u = m.unidad === "0-10" ? "" : (m.unidad || "");
-      const valor = x.valor !== "" ? `<div class="v">${(+x.valor).toFixed(1)} ${u}</div>` : `<div class="v no">No midió: ${motivo(x.estado)}</div>`;
+      const valor = x.valor !== "" ? `<div class="v">${(+x.valor).toFixed(1)} ${u}</div>`
+        : f.apagada ? `<div class="v no" style="color:var(--sub)">Máquina apagada (${motivo(x.estado)})</div>`
+        : `<div class="v no">No midió: ${motivo(x.estado)}</div>`;
       const desc = descartadas[f.archivo]?.[`${cam}.${x.variable}`];
       return `<div class="var"><div class="n">${m.nombre || x.variable}</div>${valor}` +
         (desc ? `<div class="v no" style="font-size:13px">No llega al panel: ${desc}</div>` : "") +
@@ -346,6 +367,14 @@ document.getElementById("rango").addEventListener("change", pintarAlcance);
 document.getElementById("filtro-alertas").addEventListener("change", pintarAlertas);
 document.getElementById("dia").addEventListener("change", cargarDia);
 document.getElementById("filtro").addEventListener("change", filtrar);
+document.getElementById("motivo").addEventListener("change", filtrar);
+document.getElementById("img").addEventListener("click", e => {      // zoom donde se hizo clic
+  const img = e.currentTarget, r = img.getBoundingClientRect();
+  let x = e.clientX - r.left, y = e.clientY - r.top;
+  if (cam === "amp") { x = r.width - x; y = r.height - y; }        // la foto está girada 180°
+  img.style.transformOrigin = `${x}px ${y}px`;
+  img.classList.toggle("zoom");
+});
 document.getElementById("ant").addEventListener("click", () => mover(-1));
 document.getElementById("sig").addEventListener("click", () => mover(1));
 document.getElementById("tira").addEventListener("click", e => { if (e.target.dataset.k) { i = +e.target.dataset.k; mostrarFoto(); } });

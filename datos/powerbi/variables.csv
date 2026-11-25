@@ -8,3 +8,6 @@ amp.f2,Amperaje F2,A,amp,amp-v10
 amp.f3,Amperaje F3,A,amp,amp-v10
 clima.temperatura,Temperatura ambiente,°C,clima,nexlab-sensores
 clima.humedad,Humedad ambiente,%,clima,nexlab-sensores
+clima.temp_entrada,Temperatura entrada arroz,°C,clima,nexlab-sensores
+clima.temp_salida,Temperatura salida arroz,°C,clima,nexlab-sensores
+clima.dif_temp,Diferencia salida − entrada arroz,°C,clima,nexlab-sensores

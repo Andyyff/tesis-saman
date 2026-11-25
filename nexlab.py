@@ -7,7 +7,11 @@ SENSORES_URL = "https://apis.nexlab.com.uy/control/a7b2c3d4/nodes/1/sensors"
 CLIMA = {1: {"variable": "temperatura", "unidad": "°C", "nombre": "Temperatura ambiente",
              "rango": (-10, 50), "salto_max": 5},
          2: {"variable": "humedad", "unidad": "%", "nombre": "Humedad ambiente",
-             "rango": (0, 100), "salto_max": 20}}
+             "rango": (0, 100), "salto_max": 20},
+         4: {"variable": "temp_entrada", "unidad": "°C", "nombre": "Temperatura entrada arroz",
+             "rango": (-10, 80), "salto_max": 10},
+         3: {"variable": "temp_salida", "unidad": "°C", "nombre": "Temperatura salida arroz",
+             "rango": (-10, 80), "salto_max": 10}}
 
 
 def registros_fotos(camara, fecha):
