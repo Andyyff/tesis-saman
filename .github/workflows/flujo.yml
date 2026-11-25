@@ -6,6 +6,7 @@ on:
   workflow_dispatch: {}    # botón "Run workflow" para correrlo a mano
 permissions:
   contents: write
+  issues: write            # avisos por mail de las alertas
 concurrency: flujo         # nunca dos corridas a la vez
 jobs:
   correr:
@@ -17,4 +18,7 @@ jobs:
         with: { python-version: "3.12", cache: pip }
       - run: pip install -r requirements.txt
       - run: python flujo.py
+      - run: python avisar.py
+        continue-on-error: true  # si falla el aviso, los datos se guardan igual
+        env: { GH_TOKEN: "${{ github.token }}" }
       - run: bash guardar.sh "datos $(date -u +%Y-%m-%dT%H:%MZ)" rehacer

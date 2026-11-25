@@ -22,8 +22,9 @@ SOSTENIDO = 3                # casilleros seguidos (30 min) para que un patrón 
 TOL_NEXLAB = 0.5             # unidades de diferencia que todavía cuentan como "coincide con Nexlab" (para la tesis)
 
 
-def _alerta(tipo, origen, texto):
-    return {"tipo": tipo, "origen": origen, "texto": texto}
+def _alerta(tipo, origen, texto, clave=None):
+    """clave: lo que identifica la alerta aunque cambien sus números a lo largo del día (para no avisar dos veces)."""
+    return {"tipo": tipo, "origen": origen, "texto": texto, "clave": clave or texto}
 
 
 def _tramos(filas, condicion):
@@ -65,12 +66,12 @@ def revisar(dia, ahora, avisos=()):
         esperadas = FOTOS_DIA * fraccion
         if c["fotos"] < MIN_FOTOS * esperadas:
             alertas.append(_alerta("equipo", camara, f"{camara}: solo {c['fotos']} fotos en el día "
-                                   f"(se esperan unas {esperadas:.0f}): revisar la cámara o la subida de fotos"))
+                                   f"(se esperan unas {esperadas:.0f}): revisar la cámara o la subida de fotos", f"fotos:{camara}"))
         if c["fotos_encendida"] >= MIN_FOTOS_PARA_ERRORES:
             for var, n in c["errores"].items():
                 if n / c["fotos_encendida"] > MAX_ERRORES:
                     alertas.append(_alerta("datos", camara, f"{camara}.{var}: {n} de {c['fotos_encendida']} fotos "
-                                           f"({n / c['fotos_encendida']:.0%}) sin poder leer, con la máquina encendida"))
+                                           f"({n / c['fotos_encendida']:.0%}) sin poder leer, con la máquina encendida", f"errores:{camara}.{var}"))
 
     # ---- por variable: cobertura con la máquina encendida y atraso
     for vid, meta in dia["variables"].items():
@@ -87,7 +88,7 @@ def revisar(dia, ahora, avisos=()):
             atraso = (ahora - datetime.fromisoformat(todos[-1]["t"])).total_seconds() / 60 - dia["grilla_min"]
             c["minutos_desde_ultimo_dato"] = max(0, round(atraso))
             if es_hoy and atraso > MAX_ATRASO_MIN:
-                alertas.append(_alerta("equipo", vid.split(".")[0], f"{vid}: sin datos nuevos hace {round(atraso)} min"))
+                alertas.append(_alerta("equipo", vid.split(".")[0], f"{vid}: sin datos nuevos hace {round(atraso)} min", f"atraso:{vid}"))
         if meta.get("salto_max"):   # saltos bruscos: se marcan en los datos, no son alerta
             serie = [(f["t"], f["v"].get(vid)) for f in encendidos]
             c["saltos"] = [t2 for (t1, a), (t2, b) in zip(serie, serie[1:])
@@ -114,7 +115,7 @@ def revisar(dia, ahora, avisos=()):
         return f"F{i + 1}" if desv[i] > DESVIO_FASE_A else None
     for desde, hasta, fases in _tramos(filas, fase_separada):
         alertas.append(_alerta("datos", "amp", f"amperaje: la fase {max(set(fases), key=fases.count)} se separa más de "
-                               f"{DESVIO_FASE_A:.0f} A de las otras dos entre {desde} y {hasta}"))
+                               f"{DESVIO_FASE_A:.0f} A de las otras dos entre {desde} y {hasta}", f"fase:{desde}"))
 
     # ---- datos: diferencia de temperatura del arroz fuera de rango, sostenido
     lo, hi = DIF_TEMP
@@ -124,7 +125,7 @@ def revisar(dia, ahora, avisos=()):
     for desde, hasta, difs in _tramos(filas, temp_fuera):
         extra = " (la salida no está más caliente que la entrada)" if max(difs) <= 0 else ""
         alertas.append(_alerta("datos", "clima", f"temperatura del arroz: salida − entrada entre {min(difs):.1f} y "
-                               f"{max(difs):.1f} °C de {desde} a {hasta} (esperado {lo:.0f} a {hi:.0f} °C){extra}"))
+                               f"{max(difs):.1f} °C de {desde} a {hasta} (esperado {lo:.0f} a {hi:.0f} °C){extra}", f"temp:{desde}"))
 
     problemas = [a for a in alertas if a["tipo"] != "info"]
     return {"estado": "revisar" if problemas else "ok", "alertas": alertas, "variables": por_var}

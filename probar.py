@@ -118,6 +118,25 @@ def probar_maquina_y_alertas():
     print("OK estado de la máquina y alertas por patrón")
 
 
+def probar_avisos():
+    """Una alerta se avisa una sola vez aunque sus números cambien durante el día; las informativas no se avisan."""
+    import avisar
+    tmp, viejo = tempfile.mkdtemp(), avisar.DATOS
+    avisar.DATOS = tmp
+    try:
+        def dia(alertas):
+            json.dump({"calidad": {"alertas": alertas}}, open(os.path.join(tmp, "2026-11-25.json"), "w", encoding="utf-8"))
+        dia([chequeos._alerta("equipo", "left", "left: solo 0 fotos", "fotos:left"), chequeos._alerta("info", "maquina", "x")])
+        a = avisar.nuevas("2026-11-25", set())
+        assert [x["clave"] for x in a] == ["fotos:left"], a
+        dia([chequeos._alerta("equipo", "left", "left: solo 12 fotos", "fotos:left")])
+        assert avisar.nuevas("2026-11-25", {"2026-11-25|fotos:left"}) == [], "ya avisada: no se repite"
+    finally:
+        avisar.DATOS = viejo
+        shutil.rmtree(tmp)
+    print("OK avisos: cada alerta se avisa una vez")
+
+
 def probar_aislados():
     """Un valor suelto muy distinto a sus vecinas se descarta; un cambio real de nivel, no."""
     def serie(valores):
@@ -130,6 +149,7 @@ def probar_aislados():
 
 if __name__ == "__main__":
     probar_maquina_y_alertas()
+    probar_avisos()
     probar_aislados()
     probar_algoritmos()
     probar_flujo()

@@ -53,7 +53,8 @@ Responder en castellano rioplatense, simple. Modo de trabajo preferido: cambios 
 - **Temperaturas del arroz**: sensores 4 (entrada) y 3 (salida) de Nexlab; `clima.dif_temp` = salida − entrada (andando: mediana 5,8 °C).
 - **Alertas** (`chequeos.py`): por volumen o patrón sostenido 30 min, nunca por una foto. Tipos equipo (pocas fotos, sensores sin datos, flujo) / datos (> 30 % de fotos sin leer con la máquina encendida, fase de amperaje separada > 15 A, dif. de temperatura fuera de 2-9 °C) / info.
 - Panel sin Nexlab, sin KPIs grandes ni sección de alertas; rango de fechas, vista por mes (de `historial.json`), esquema de bloques. Monitoreo: fotos de amp derechas, zoom, filtro por motivo, "máquina apagada".
-- Pendiente: torque (distancia × masa; pesa azul 705,65 g, amarilla 994,63 g, roja 1838,78 g; falta confirmar brazo y ángulo) y mails de alertas.
+- **Avisos por mail**: `avisar.py` (en flujo.yml, después de flujo.py) abre un aviso de GitHub por día con etiqueta `alerta` y comenta las alertas nuevas; GitHub manda mail a quienes siguen el repo (Watch). Cada alerta se avisa una vez (clave estable; `datos/panel/avisadas.json`).
+- Pendiente: torque (distancia × masa; pesa azul 705,65 g, amarilla 994,63 g, roja 1838,78 g; falta confirmar brazo y ángulo).
 
 ## Pendientes
 
