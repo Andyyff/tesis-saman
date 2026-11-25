@@ -1,11 +1,11 @@
 {
- "corrida": "2026-11-25T19:28:45-03:00",
+ "corrida": "2026-11-25T19:53:01-03:00",
  "fecha": "2026-11-25",
  "camaras": {
   "top": {
-   "nexlab": 155,
-   "ultima_foto": "2026-11-25T19:24:13-03:00",
-   "procesadas": 155
+   "nexlab": 159,
+   "ultima_foto": "2026-11-25T19:50:53-03:00",
+   "procesadas": 159
   },
   "left": {
    "nexlab": 0,
