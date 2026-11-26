@@ -671,13 +671,13 @@ fecha,variable,cobertura,coincide_con_nexlab,saltos,estado_dia
 2026-11-25,clima.temp_entrada,1.0,,0,revisar
 2026-11-25,clima.temp_salida,1.0,,0,revisar
 2026-11-25,clima.dif_temp,1.0,,0,revisar
-2026-11-26,top.apertura,0.75,0.0,0,revisar
+2026-11-26,top.apertura,0.894,0.266,4,revisar
 2026-11-26,left.distancia_a,0.0,,0,revisar
 2026-11-26,left.distancia_b,0.0,,0,revisar
 2026-11-26,left.angulo,0.0,,0,revisar
-2026-11-26,amp.f1,0.0,,0,revisar
-2026-11-26,amp.f2,0.0,,0,revisar
-2026-11-26,amp.f3,0.0,,0,revisar
+2026-11-26,amp.f1,0.333,0.933,0,revisar
+2026-11-26,amp.f2,0.333,1.0,1,revisar
+2026-11-26,amp.f3,0.333,0.929,0,revisar
 2026-11-26,clima.temperatura,1.0,,0,revisar
 2026-11-26,clima.humedad,1.0,,0,revisar
 2026-11-26,clima.temp_entrada,1.0,,0,revisar
