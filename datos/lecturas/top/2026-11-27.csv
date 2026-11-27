@@ -15,3 +15,97 @@ t,archivo,variable,valor,estado,detalle,version,nexlab
 2026-11-27T05:05:40-03:00,RIC-0001-TOP_2026-11-27_05-05-40.jpg,apertura,8.899,medida,el mango quedo 4.1px fuera de su recorrido,top-v3.1,9.5
 2026-11-27T05:12:28-03:00,RIC-0001-TOP_2026-11-27_05-12-28.jpg,apertura,8.851,medida,,top-v3.1,9.5
 2026-11-27T05:19:05-03:00,RIC-0001-TOP_2026-11-27_05-19-05.jpg,apertura,8.904,medida,,top-v3.1,9.5
+2026-11-27T05:25:40-03:00,RIC-0001-TOP_2026-11-27_05-25-40.jpg,apertura,8.91,medida,,top-v3.1,9.5
+2026-11-27T05:32:35-03:00,RIC-0001-TOP_2026-11-27_05-32-35.jpg,apertura,8.902,medida,el mango quedo 4.4px fuera de su recorrido,top-v3.1,9.5
+2026-11-27T05:39:00-03:00,RIC-0001-TOP_2026-11-27_05-39-00.jpg,apertura,8.893,medida,,top-v3.1,9.5
+2026-11-27T05:45:45-03:00,RIC-0001-TOP_2026-11-27_05-45-45.jpg,apertura,8.88,medida,,top-v3.1,9.5
+2026-11-27T05:52:21-03:00,RIC-0001-TOP_2026-11-27_05-52-21.jpg,apertura,8.878,medida,,top-v3.1,9.5
+2026-11-27T05:59:17-03:00,RIC-0001-TOP_2026-11-27_05-59-17.jpg,apertura,0.0,medida,el mango quedo 5.9px fuera de su recorrido | en el tope de cerrada (la recta da -0.204): se informa 0,top-v3.1,0.3
+2026-11-27T06:05:39-03:00,RIC-0001-TOP_2026-11-27_06-05-39.jpg,apertura,0.0,medida,el mango quedo 7.5px fuera de su recorrido | en el tope de cerrada (la recta da -0.206): se informa 0,top-v3.1,0.3
+2026-11-27T06:12:23-03:00,RIC-0001-TOP_2026-11-27_06-12-23.jpg,apertura,7.426,medida,el mango quedo -4.1px fuera de su recorrido,top-v3.1,8.2
+2026-11-27T06:18:59-03:00,RIC-0001-TOP_2026-11-27_06-18-59.jpg,apertura,7.987,medida,,top-v3.1,8.8
+2026-11-27T06:25:40-03:00,RIC-0001-TOP_2026-11-27_06-25-40.jpg,apertura,7.851,medida,,top-v3.1,8.7
+2026-11-27T06:32:36-03:00,RIC-0001-TOP_2026-11-27_06-32-36.jpg,apertura,0.018,medida,el mango quedo 7.0px fuera de su recorrido,top-v3.1,0.5
+2026-11-27T06:39:01-03:00,RIC-0001-TOP_2026-11-27_06-39-01.jpg,apertura,0.042,medida,el mango quedo 4.5px fuera de su recorrido,top-v3.1,0.6
+2026-11-27T06:45:41-03:00,RIC-0001-TOP_2026-11-27_06-45-41.jpg,apertura,0.0,medida,el mango quedo 8.8px fuera de su recorrido | en el tope de cerrada (la recta da -0.027): se informa 0,top-v3.1,0.7
+2026-11-27T06:52:37-03:00,RIC-0001-TOP_2026-11-27_06-52-37.jpg,apertura,0.0,medida,en el tope de cerrada (la recta da -0.062): se informa 0,top-v3.1,0.3
+2026-11-27T06:59:03-03:00,RIC-0001-TOP_2026-11-27_06-59-03.jpg,apertura,7.52,medida,el mango quedo -4.1px fuera de su recorrido,top-v3.1,8.3
+2026-11-27T07:05:49-03:00,RIC-0001-TOP_2026-11-27_07-05-49.jpg,apertura,7.438,medida,,top-v3.1,8.2
+2026-11-27T07:12:21-03:00,RIC-0001-TOP_2026-11-27_07-12-21.jpg,apertura,7.781,medida,,top-v3.1,8.5
+2026-11-27T07:25:41-03:00,RIC-0001-TOP_2026-11-27_07-25-41.jpg,apertura,7.895,medida,el mango quedo 4.9px fuera de su recorrido,top-v3.1,8.8
+2026-11-27T07:32:21-03:00,RIC-0001-TOP_2026-11-27_07-32-21.jpg,apertura,7.845,medida,,top-v3.1,8.7
+2026-11-27T07:39:01-03:00,RIC-0001-TOP_2026-11-27_07-39-01.jpg,apertura,7.903,medida,,top-v3.1,8.8
+2026-11-27T07:45:42-03:00,RIC-0001-TOP_2026-11-27_07-45-42.jpg,apertura,7.866,medida,,top-v3.1,8.8
+2026-11-27T07:52:32-03:00,RIC-0001-TOP_2026-11-27_07-52-32.jpg,apertura,7.935,medida,,top-v3.1,9.0
+2026-11-27T07:59:02-03:00,RIC-0001-TOP_2026-11-27_07-59-02.jpg,apertura,7.901,medida,,top-v3.1,8.9
+2026-11-27T08:05:45-03:00,RIC-0001-TOP_2026-11-27_08-05-45.jpg,apertura,7.777,medida,,top-v3.1,8.5
+2026-11-27T08:12:26-03:00,RIC-0001-TOP_2026-11-27_08-12-26.jpg,apertura,7.888,medida,,top-v3.1,8.7
+2026-11-27T08:19:02-03:00,RIC-0001-TOP_2026-11-27_08-19-02.jpg,apertura,7.823,medida,,top-v3.1,8.7
+2026-11-27T08:25:42-03:00,RIC-0001-TOP_2026-11-27_08-25-42.jpg,apertura,,mango_no_visible,"no se ve el mango verde sobre su recorrido (por ejemplo, el operario lo esta tapando con la mano)",top-v3.1,9.0
+2026-11-27T08:32:27-03:00,RIC-0001-TOP_2026-11-27_08-32-27.jpg,apertura,7.767,medida,,top-v3.1,8.6
+2026-11-27T08:39:12-03:00,RIC-0001-TOP_2026-11-27_08-39-12.jpg,apertura,7.841,medida,,top-v3.1,8.7
+2026-11-27T08:45:43-03:00,RIC-0001-TOP_2026-11-27_08-45-43.jpg,apertura,7.873,medida,,top-v3.1,8.8
+2026-11-27T08:52:23-03:00,RIC-0001-TOP_2026-11-27_08-52-23.jpg,apertura,7.852,medida,,top-v3.1,8.8
+2026-11-27T08:59:21-03:00,RIC-0001-TOP_2026-11-27_08-59-21.jpg,apertura,7.86,medida,,top-v3.1,8.8
+2026-11-27T09:06:10-03:00,RIC-0001-TOP_2026-11-27_09-06-10.jpg,apertura,7.795,medida,,top-v3.1,8.6
+2026-11-27T09:12:27-03:00,RIC-0001-TOP_2026-11-27_09-12-27.jpg,apertura,7.802,medida,,top-v3.1,8.7
+2026-11-27T09:19:04-03:00,RIC-0001-TOP_2026-11-27_09-19-04.jpg,apertura,7.799,medida,,top-v3.1,8.8
+2026-11-27T09:25:55-03:00,RIC-0001-TOP_2026-11-27_09-25-55.jpg,apertura,7.9,medida,,top-v3.1,8.8
+2026-11-27T09:32:24-03:00,RIC-0001-TOP_2026-11-27_09-32-24.jpg,apertura,7.857,medida,el mango quedo 5.7px fuera de su recorrido,top-v3.1,9.0
+2026-11-27T09:39:13-03:00,RIC-0001-TOP_2026-11-27_09-39-13.jpg,apertura,7.858,medida,el mango quedo 6.2px fuera de su recorrido,top-v3.1,9.1
+2026-11-27T09:45:44-03:00,RIC-0001-TOP_2026-11-27_09-45-44.jpg,apertura,7.884,medida,,top-v3.1,8.8
+2026-11-27T09:52:28-03:00,RIC-0001-TOP_2026-11-27_09-52-28.jpg,apertura,7.804,medida,,top-v3.1,8.9
+2026-11-27T09:59:13-03:00,RIC-0001-TOP_2026-11-27_09-59-13.jpg,apertura,7.78,medida,,top-v3.1,8.6
+2026-11-27T10:05:44-03:00,RIC-0001-TOP_2026-11-27_10-05-44.jpg,apertura,7.802,medida,,top-v3.1,8.8
+2026-11-27T10:12:37-03:00,RIC-0001-TOP_2026-11-27_10-12-37.jpg,apertura,7.848,medida,,top-v3.1,8.9
+2026-11-27T10:19:05-03:00,RIC-0001-TOP_2026-11-27_10-19-05.jpg,apertura,7.915,medida,,top-v3.1,9.0
+2026-11-27T10:26:00-03:00,RIC-0001-TOP_2026-11-27_10-26-00.jpg,apertura,7.882,medida,,top-v3.1,8.7
+2026-11-27T10:32:24-03:00,RIC-0001-TOP_2026-11-27_10-32-24.jpg,apertura,7.858,medida,,top-v3.1,8.7
+2026-11-27T10:39:04-03:00,RIC-0001-TOP_2026-11-27_10-39-04.jpg,apertura,7.887,medida,,top-v3.1,9.0
+2026-11-27T10:45:43-03:00,RIC-0001-TOP_2026-11-27_10-45-43.jpg,apertura,7.869,medida,,top-v3.1,8.7
+2026-11-27T10:52:51-03:00,RIC-0001-TOP_2026-11-27_10-52-51.jpg,apertura,7.873,medida,,top-v3.1,9.0
+2026-11-27T10:59:28-03:00,RIC-0001-TOP_2026-11-27_10-59-28.jpg,apertura,7.826,medida,,top-v3.1,8.8
+2026-11-27T11:06:18-03:00,RIC-0001-TOP_2026-11-27_11-06-18.jpg,apertura,7.784,medida,,top-v3.1,8.6
+2026-11-27T11:12:30-03:00,RIC-0001-TOP_2026-11-27_11-12-30.jpg,apertura,7.854,medida,,top-v3.1,8.7
+2026-11-27T11:19:04-03:00,RIC-0001-TOP_2026-11-27_11-19-04.jpg,apertura,7.863,medida,,top-v3.1,8.8
+2026-11-27T11:25:43-03:00,RIC-0001-TOP_2026-11-27_11-25-43.jpg,apertura,7.864,medida,,top-v3.1,8.9
+2026-11-27T11:32:45-03:00,RIC-0001-TOP_2026-11-27_11-32-45.jpg,apertura,7.829,medida,,top-v3.1,8.9
+2026-11-27T11:39:04-03:00,RIC-0001-TOP_2026-11-27_11-39-04.jpg,apertura,7.863,medida,,top-v3.1,8.9
+2026-11-27T11:45:44-03:00,RIC-0001-TOP_2026-11-27_11-45-44.jpg,apertura,7.807,medida,,top-v3.1,8.6
+2026-11-27T11:52:33-03:00,RIC-0001-TOP_2026-11-27_11-52-33.jpg,apertura,7.823,medida,,top-v3.1,8.8
+2026-11-27T11:59:08-03:00,RIC-0001-TOP_2026-11-27_11-59-08.jpg,apertura,7.863,medida,,top-v3.1,8.9
+2026-11-27T12:05:46-03:00,RIC-0001-TOP_2026-11-27_12-05-46.jpg,apertura,7.845,medida,,top-v3.1,8.8
+2026-11-27T12:12:25-03:00,RIC-0001-TOP_2026-11-27_12-12-25.jpg,apertura,7.875,medida,,top-v3.1,8.9
+2026-11-27T12:19:06-03:00,RIC-0001-TOP_2026-11-27_12-19-06.jpg,apertura,7.845,medida,,top-v3.1,8.7
+2026-11-27T12:25:51-03:00,RIC-0001-TOP_2026-11-27_12-25-51.jpg,apertura,7.838,medida,,top-v3.1,8.8
+2026-11-27T12:32:31-03:00,RIC-0001-TOP_2026-11-27_12-32-31.jpg,apertura,7.801,medida,,top-v3.1,8.7
+2026-11-27T12:39:08-03:00,RIC-0001-TOP_2026-11-27_12-39-08.jpg,apertura,7.815,medida,,top-v3.1,8.8
+2026-11-27T12:45:48-03:00,RIC-0001-TOP_2026-11-27_12-45-48.jpg,apertura,7.882,medida,,top-v3.1,9.0
+2026-11-27T12:52:29-03:00,RIC-0001-TOP_2026-11-27_12-52-29.jpg,apertura,7.823,medida,,top-v3.1,9.0
+2026-11-27T12:59:05-03:00,RIC-0001-TOP_2026-11-27_12-59-05.jpg,apertura,7.82,medida,,top-v3.1,8.9
+2026-11-27T13:05:51-03:00,RIC-0001-TOP_2026-11-27_13-05-51.jpg,apertura,7.867,medida,,top-v3.1,8.8
+2026-11-27T13:12:27-03:00,RIC-0001-TOP_2026-11-27_13-12-27.jpg,apertura,7.842,medida,,top-v3.1,8.9
+2026-11-27T13:19:10-03:00,RIC-0001-TOP_2026-11-27_13-19-10.jpg,apertura,7.813,medida,,top-v3.1,8.9
+2026-11-27T13:25:47-03:00,RIC-0001-TOP_2026-11-27_13-25-47.jpg,apertura,7.85,medida,,top-v3.1,8.8
+2026-11-27T13:32:26-03:00,RIC-0001-TOP_2026-11-27_13-32-26.jpg,apertura,7.864,medida,,top-v3.1,8.8
+2026-11-27T13:39:06-03:00,RIC-0001-TOP_2026-11-27_13-39-06.jpg,apertura,0.0,medida,el mango quedo 7.0px fuera de su recorrido | en el tope de cerrada (la recta da -0.244): se informa 0,top-v3.1,0.4
+2026-11-27T13:46:09-03:00,RIC-0001-TOP_2026-11-27_13-46-09.jpg,apertura,8.078,medida,el mango quedo 5.6px fuera de su recorrido,top-v3.1,9.3
+2026-11-27T13:52:27-03:00,RIC-0001-TOP_2026-11-27_13-52-27.jpg,apertura,8.062,medida,,top-v3.1,9.2
+2026-11-27T13:59:09-03:00,RIC-0001-TOP_2026-11-27_13-59-09.jpg,apertura,8.109,medida,,top-v3.1,9.1
+2026-11-27T14:05:48-03:00,RIC-0001-TOP_2026-11-27_14-05-48.jpg,apertura,8.053,medida,,top-v3.1,
+2026-11-27T14:12:28-03:00,RIC-0001-TOP_2026-11-27_14-12-28.jpg,apertura,8.039,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-27T14:19:08-03:00,RIC-0001-TOP_2026-11-27_14-19-08.jpg,apertura,8.042,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-27T14:25:49-03:00,RIC-0001-TOP_2026-11-27_14-25-49.jpg,apertura,8.059,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-27T14:32:29-03:00,RIC-0001-TOP_2026-11-27_14-32-29.jpg,apertura,8.057,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-27T14:39:19-03:00,RIC-0001-TOP_2026-11-27_14-39-19.jpg,apertura,8.054,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-27T14:45:48-03:00,RIC-0001-TOP_2026-11-27_14-45-48.jpg,apertura,8.063,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-27T14:52:28-03:00,RIC-0001-TOP_2026-11-27_14-52-28.jpg,apertura,8.059,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,1.7
+2026-11-27T14:59:08-03:00,RIC-0001-TOP_2026-11-27_14-59-08.jpg,apertura,8.07,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-27T15:05:52-03:00,RIC-0001-TOP_2026-11-27_15-05-52.jpg,apertura,8.078,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-27T15:12:46-03:00,RIC-0001-TOP_2026-11-27_15-12-46.jpg,apertura,8.076,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,0.0
+2026-11-27T15:19:14-03:00,RIC-0001-TOP_2026-11-27_15-19-14.jpg,apertura,8.068,medida,,top-v3.1,
+2026-11-27T15:26:06-03:00,RIC-0001-TOP_2026-11-27_15-26-06.jpg,apertura,8.09,medida,,top-v3.1,
+2026-11-27T15:32:29-03:00,RIC-0001-TOP_2026-11-27_15-32-29.jpg,apertura,8.121,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
+2026-11-27T15:39:09-03:00,RIC-0001-TOP_2026-11-27_15-39-09.jpg,apertura,8.05,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,0.0
+2026-11-27T15:45:49-03:00,RIC-0001-TOP_2026-11-27_15-45-49.jpg,apertura,8.06,medida,,top-v3.1,
+2026-11-27T15:52:57-03:00,RIC-0001-TOP_2026-11-27_15-52-57.jpg,apertura,8.05,medida,alineacion prestada de una foto vecina (la camara esta fija),top-v3.1,
